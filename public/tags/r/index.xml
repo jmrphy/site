@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Justin Murphy</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Justin Murphy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Inequality and the Pacification of Militant Protest in the United States, 1919-2012</title>
+      <link>/blog/inequality-and-pacification-of-protest/</link>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/inequality-and-pacification-of-protest/</guid>
+      <description>
+
+&lt;p&gt;To generate the graph below, you need two data files. The first is yearly income decile data from &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;Piketty (2014)&lt;/a&gt;, which should be named &amp;ldquo;Inequality_USA.csv.&amp;rdquo; The second is the Cross-National Time-Series data from &lt;a href=&#34;https://www.cntsdata.com/&#34; target=&#34;_blank&#34;&gt;Banks and Wilson (2017)&lt;/a&gt;, which should be called &amp;ldquo;2017 Edition CNTSDATA.csv.&amp;rdquo; Finally, the code snippet below should be in a file called &amp;ldquo;Baron_et_al-ISQ.R&amp;rdquo; — that will be an R script that compiles the two datasets before producing the figure from our article. To reproduce the Figure, open the R script on your computer, ensure each dataset is in the same directory as the R script, set your R working directory to that directory, and run the script.&lt;/p&gt;
+
+&lt;p&gt;Please note that while Piketty&amp;rsquo;s data is freely available and included in our replication archive on the ISQ website, the CNTS data is proprietary and cannoot be made public.&lt;/p&gt;
+
+&lt;p&gt;Issues or questions about replicating our analysis can be directed to me at j [dot] murphy [at] soton [dot] ac [dot] uk.&lt;/p&gt;
+
+&lt;p&gt;For legibility, event counts from Banks and Wilson (2017) were transformed into 10-year moving averages. These and the inequality measure from Piketty (2014) were then scaled to ease comparison. Scaling was done by subtracting the mean from each variable and dividing by one standard deviation; the lines reflect standard deviations from historical means (0).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+# Check for packages ————————————
+x&amp;lt;-c(&amp;quot;Zelig&amp;quot;,
+     &amp;quot;ggplot2&amp;quot;,
+     &amp;quot;reshape2&amp;quot;,
+     &amp;quot;zoo&amp;quot;,
+     &amp;quot;countrycode&amp;quot;,
+     &amp;quot;arm&amp;quot;,
+     &amp;quot;dplyr&amp;quot;,
+     &amp;quot;stringr&amp;quot;,
+     &amp;quot;foreign&amp;quot;,
+     &amp;quot;lubridate&amp;quot;)
+
+# Install any not already installed ——————————
+new.p &amp;lt;- x[!(x %in% installed.packages()[,&amp;quot;Package&amp;quot;])]
+if(length(new.p)) install.packages(new.p)
+
+# Load packages ——————————————————
+lapply(x, require, character.only = TRUE)
+rm(x, new.p)
+
+# Load data and wrangle dates
+ineq&amp;lt;-read.csv(&amp;quot;inequality_USA.csv&amp;quot;)
+ineq$year&amp;lt;-mdy(ineq$year)
+ineq$year&amp;lt;-year(ineq$year)
+ineq$year&amp;lt;-ifelse(ineq$year&amp;gt;=2019, ineq$year-100, ineq$year)
+
+df&amp;lt;-read.csv(&amp;quot;2017_Edition_CNTSDATA.csv&amp;quot;)
+df$country&amp;lt;-df$Country
+df$year&amp;lt;-as.numeric(as.character(df$Year))
+
+# Wrangle the CNTS data
+df$Assassinations&amp;lt;-as.numeric(as.character(df$Assassinations))
+df$Riots&amp;lt;-as.numeric(as.character(df$Riots))
+df$Guerrilla.Warfare&amp;lt;-as.numeric(as.character(df$Guerrilla.Warfare))
+usriots&amp;lt;-subset(df, country==&amp;quot;United States&amp;quot; &amp;amp; year&amp;gt;=1919 &amp;amp; year&amp;lt;=2016, select=c(&amp;quot;Assassinations&amp;quot;, &amp;quot;Riots&amp;quot;, &amp;quot;Guerrilla.Warfare&amp;quot;, &amp;quot;year&amp;quot;))
+
+# Merge the two datasets
+df2&amp;lt;-merge(usriots, ineq, by=c(&amp;quot;year&amp;quot;), all.x=T)
+
+# Create rolling averages
+df2$Riots&amp;lt;-rollmean(df2$Riots, k=10,fill = NA)
+df2$Assassinations&amp;lt;-rollmean(df2$Assassinations, k=10,fill = NA)
+df2$Guerrilla.Warfare&amp;lt;-rollmean(df2$Guerrilla.Warfare, k=10,fill = NA)
+
+# Standardize for comparability
+df2$Inequality&amp;lt;-scale(df2$top_decile)
+df2$Riots&amp;lt;-scale(df2$Riots)
+df2$Guerrillas&amp;lt;-scale(df2$Guerrilla.Warfare)
+df2$Assassinations&amp;lt;-scale(df2$Assassinations)
+
+# Reshape for plotting
+molt&amp;lt;-melt(df2[c(&amp;quot;year&amp;quot;, &amp;quot;Inequality&amp;quot;, &amp;quot;Riots&amp;quot;, &amp;quot;Guerrillas&amp;quot;, &amp;quot;Assassinations&amp;quot;)], id.vars=&amp;quot;year&amp;quot;)
+molt&amp;lt;-filter(molt, year&amp;lt;2012)
+
+ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
+  geom_line(size=.8) +
+  theme_bw(base_size = 12) +
+  ggtitle(&amp;quot;Inequality and the Pacification of Militant Contention in the U.S.&amp;quot;) +
+  xlab(&amp;quot;Year&amp;quot;) +
+  ylab(&amp;quot;Standardized values (z-scores)&amp;quot;) +
+  scale_x_continuous(breaks = seq(1919, 2011, by = 5)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.title=element_blank())
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/OFF5kr8.png&#34; alt=&#34;Inequality and protest data&#34; title=&#34;Inequality and protest data&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;Banks, A.A., Wilson, K.A., 2017. &amp;ldquo;Cross-National Time-Series Data Archive.&amp;rdquo; Databanks International, Jerusalem, Israel.&lt;/p&gt;
+
+&lt;p&gt;Piketty, T., 2014. &amp;ldquo;The top decile income share in the United States (including capital gains), 1910-2010,&amp;rdquo; in &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Capital in the Twenty-First Century.&lt;/em&gt;&lt;/a&gt; Harvard University Press, Cambridge, Massachusetts.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
