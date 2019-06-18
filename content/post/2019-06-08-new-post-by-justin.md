@@ -1,10 +1,9 @@
 ---
-title: New post by Justin
-author: ''
+title: Migrated to Hugo
 date: '2019-06-08'
 slug: new-post-by-justin
 categories:
-  - R
+  - personal
 tags:
   - Deep Learning
 subtitle: ''
@@ -19,4 +18,4 @@ image:
 projects: []
 ---
 
-Hello World!
+All the old content should still be here, with the same URLs. The Jekyll site was cool, but too liable to unexpected Ruby snags that I'm not competent enough to fix rapidly. The other major reason for switching to Hugo is to leverage the *blogdown* workflow within Rstudio.

@@ -568,7 +568,9 @@ df$year&lt;-as.numeric(as.character(df$Year))
 df$Assassinations&lt;-as.numeric(as.character(df$Assassinations))
 df$Riots&lt;-as.numeric(as.character(df$Riots))
 df$Guerrilla.Warfare&lt;-as.numeric(as.character(df$Guerrilla.Warfare))
-usriots&lt;-subset(df, country==&quot;United States&quot; &amp; year&gt;=1919 &amp; year&lt;=2016, select=c(&quot;Assassinations&quot;, &quot;Riots&quot;, &quot;Guerrilla.Warfare&quot;, &quot;year&quot;))
+usriots&lt;-subset(df, country==&quot;United States&quot; &amp;
+  year&gt;=1919 &amp; year&lt;=2016, select=c(&quot;Assassinations&quot;,
+    &quot;Riots&quot;, &quot;Guerrilla.Warfare&quot;, &quot;year&quot;))
 
 # Merge the two datasets
 df2&lt;-merge(usriots, ineq, by=c(&quot;year&quot;), all.x=T)
@@ -585,7 +587,8 @@ df2$Guerrillas&lt;-scale(df2$Guerrilla.Warfare)
 df2$Assassinations&lt;-scale(df2$Assassinations)
 
 # Reshape for plotting
-molt&lt;-melt(df2[c(&quot;year&quot;, &quot;Inequality&quot;, &quot;Riots&quot;, &quot;Guerrillas&quot;, &quot;Assassinations&quot;)], id.vars=&quot;year&quot;)
+molt&lt;-melt(df2[c(&quot;year&quot;, &quot;Inequality&quot;, &quot;Riots&quot;, &quot;Guerrillas&quot;,
+  &quot;Assassinations&quot;)], id.vars=&quot;year&quot;)
 molt&lt;-filter(molt, year&lt;2012)
 
 ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
