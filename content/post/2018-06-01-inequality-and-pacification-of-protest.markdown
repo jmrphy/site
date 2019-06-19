@@ -1,7 +1,7 @@
 ---
 title: "Inequality and the Pacification of Militant Protest in the United States, 1919-2012"
-summary: "Code for reproducing the graph in our 2018 ISQ article on Liberal Pacification."
-url: /blog/inequality-and-pacification-of-protest
+subtitle: "Code for reproducing the graph in our 2018 ISQ article on Liberal Pacification."
+url: blog/inequality-and-pacification-of-protest
 date: "2018-06-01"
 tags:
   - academic research

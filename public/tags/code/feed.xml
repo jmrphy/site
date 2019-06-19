@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code on Justin Murphy</title>
+    <link>/tags/code/</link>
+    <description>Recent content in code on Justin Murphy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    
+	    <atom:link href="/tags/code/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intro to R for graduate students</title>
+      <link>/blog/2014/11/22/intro-to-r-for-grad-students/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2014/11/22/intro-to-r-for-grad-students/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://jmrphy.net/r_intro_for_grad_students/r_intro.pdf&#34;&gt;&lt;i class=&#34;fa fa-file-pdf fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt; |
+&lt;a href=&#34;https://github.com/jmrphy/r_intro_for_grad_students&#34;&gt;&lt;i class=&#34;fa fa-flask fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This document demonstrates how to perform several routine tasks in the analysis of state-level economic and political data for multiple countries over time, using the programming language R. It is aimed toward first-year graduate students with little or no experience using R. &lt;a href=&#34;https://raw.githubusercontent.com/jmrphy/r_intro_for_grad_students/master/r_intro.Rmd&#34;&gt;The .Rmd file which generated this document&lt;/a&gt; may prove especially useful as a template from which students may wish to get started. All one needs to do is &lt;a href=&#34;http://cran.r-project.org&#34; target=&#34;_blank&#34;&gt;download and install R&lt;/a&gt;, &lt;a href=&#34;http://www.rstudio.com/products/rstudio/download&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;, and &lt;a href=&#34;http://latex-project.org/ftp.html&#34; target=&#34;_blank&#34;&gt;LaTex&lt;/a&gt;, open the .Rmd file in Rstudio, modify/extend the examples already coded here, and click &amp;ldquo;Knit PDF.&amp;rdquo; This will turn the .Rmd file into the PDF file linked above. Users can then use this as a starting point for producing their own article.&lt;/p&gt;
+
+&lt;p&gt;This tutorial downloads and merges two widely used data sources (the World Bank&amp;rsquo;s World Development Indicators and the Polity IV measure of democracy), cleans and transforms some variables, visualizes some variables with different graphs suited for cross-sectional time-series data, runs simple models, and generates automatically formatted tables.&lt;/p&gt;
+
+&lt;p&gt;[Updated November 22, 2014.]&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

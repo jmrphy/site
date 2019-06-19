@@ -1,0 +1,188 @@
+---
+title: "The Alt-Right is not all Right: On the ideology of Kekistan"
+subtitle: The new ideological fractures
+summary: "Kekistan is mostly right-wing, but with a \"long tail\" of centrists and leftists. The number one issue priority of Kekistanis is free speech, and Kekistani public opinion includes a large number of contradictory interests each belonging to a small number of people. There is some racism in Kekistan, but that's also in the long-tail, with many other random topics such as cryptocurrency, atheism, anime, Christianity, and AI."
+url: blog/the-alt-right-is-not-all-right
+date: "2018-05-10"
+tags:
+- social science
+- ideology
+- data
+- visualization
+- radical politics
+categories:
+- theory & empirics
+keywords:
+- Kekistan
+- free speech
+- ideology
+- what is kekistan
+- alt right
+- Kek
+- Donald Trump
+- maga
+---
+
+<div class="panel radius" markdown="1">
+**Table of Contents**
+{: #toc }
+*  TOC
+{:toc}
+</div>
+
+## Introduction
+
+Based on what we know about openness and leftism, I've now been arguing for more than a year that there is almost certainly a very large number of [pro-free-speech leftists](http://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/) in hiding. As one part of this larger argument, I've long been curious about [Kekistan, a mythical country](http://knowyourmeme.com/memes/kekistan) the defining characteristic of which is that it is supposed to be outside of political correctness. Many leftist activists today assert that it's a fascist country, but we know very well that the tendency to call others fascist has inflated dramatically in recent years. Many Kekistanis claim that they simply want the freedom to meme and "shitpost." Much has been written about the notorious Kekistan, but very little systematic research has been conducted on the underlying distribution of beliefs and interests belonging to the Kekistani people. Here I provide what is, I believe, the first serious effort to systematically sample and analyze the "public opinion" of a mythical, virtual country. As far as I know, this will be the first serious attempt to understand the political ideology and attitudes of Kekistan.
+
+I also have a personal motivation to understand the true nature of Kekistan. A brief explanation of this motivation will both add some depth to the hypotheses I've been developing on this blog, and also give you some fair disclosure of this author's possible biases. Back when I was still [a respectable member of the organized left](https://www.weareplanc.org/blog/consciousness-raising-is-social-strike/), the Kekistani migrations quite intrigued my own cyber-anarchist and free-speech-absolutist instincts--enough that, at one point, I playfully set my Twitter location to "Kekistan." That a card-carrying member of the public radical left might vacation in this controversial country, I thought, would only be a tiny but much-need signal that not everyone on the radical left is an uptight moralistic blowhard. A small service to the radical left's engagement of the internet public, I thought. I did due diligence and researched the history of the meme, confirming to my satisfaction that — although it had certainly been used by some fascist types here and there — its origin was demonstrably not fascist or racist, and the overwhelming majority of its uptake could only be described as relatively vacuous cultural anarchism. So I was beyond surprised when my invocation of Kekistan would later be cited by a comrade as Exhibit 3.7 in the case for Justin to be disowned. I don't want to cite the emails of former comrades here, as that would feel unncessarily aggressive, but the gist of the accusation was that Kekistan and its associated imagery was racist/fascist: it's the "alt-right," which is the new face of fascism, in sneaky new clothing geared to make fascism more palatable to the general public. I responded with my theory that, on the contrary, Kekistan seemed mostly to do with free speech and a radical left willing to play on this terrain — admittedly dubious and dangerous, but not fascist in origin or on average — might open extremely valuable possibilities for leftist, emancipatory social change.
+
+My former comrade's intuition that Kekistan is simply "alt-right," and therefore racist or fascist, is indeed the conventional wisdom. The Southern Poverty Law Center offers an explainer article, ["What the Kek: Explaining the Alt-Right 'Deity' Behind Their 'Meme Magic'"](https://www.splcenter.org/hatewatch/2017/05/08/what-kek-explaining-alt-right-deity-behind-their-meme-magic), opening with the following summary statement in large font:
+
+> A satirical religion with a frog-headed god has become a favorite new way for white nationalists to troll liberals, while spreading their meme-driven strategy. 
+
+In Angela Nagle's book about the online culture wars, [*Kill All Normies,*](https://amzn.to/2Kbo0fc) Kek only appears in one section of the first chapter, as an avatar of the Right. Although Nagle accurately conveys its general cyber-anarchistic innocence and ambiguity, she nonetheless defaults to seeing it as "alt-right:"
+
+> “A common reference on the alt-right ‘kek’ started on 4chan and translated to ‘lol’ in comment boards on the multiplayer videogame World of Warcraft, while Pepe the Frog, originating in Matt Furie’s Web comic Boy’s Club, epitomizes online in-joke meme humor. Kek is also an ancient Egyptian deity represented as a frog-headed man while ‘the Church of Kek’ and ‘praise Kek’ refer to their ironic religion. One of the things that linked the often nihilistic and ironic chan culture to a wider culture of the alt-right orbit was their opposition to political correctness, feminism, multiculturalism, etc., and its encroachment into their freewheeling world of anonymity and tech.”
+
+In this common view above, a non-right-wing ideological dimension ("nihilistic chan culture") is mixing with right-wing ideological dimensions (the "alt right") because of their shared opposition to left-wing dimensions (political correctness, feminism, multiculturalism). In this way of describing it, "opposition to political correctness" gets defined as a dimension of the alt-right, not by any empirical demonstration but by presumption:
+
+> ...it was really the broadest orbit of the alt-right, which became known as the alt-light, that popularized this new diffuse and chaotic online set of cross-pollinating subcultures and helped bring it into the mainstream. These included... a host of Pepe meme-making gamers and 4chan-style shitposters, who had little in the way of a coherent commitment to conservative thought or politics but shared an anti-PC impulse and a common aesthetic sensibility. What we now call the alt-right is really this collection of lots of separate tendencies that grew semi-independently but which were joined under the banner of a bursting forth of anti-PC cultural politics through the culture wars of recent years.
+
+Nagle's account is reasonably balanced, the key point is only to see that she defaults to the presumption that "nihilistic" free speech politics shares some kind of affinity with right-wing tendencies (the alt-right "orbit"), when in fact there is a very plausible alternative hypothesis. An equally plausible way of describing the same phenomena is that the free speech political priorities of chan culture actually include a left-libertarian *dilution* of the right-wing tendencies of some of their free-speech bedfellows; in this view, the online free speech issue would be the primary issue, to which many people are attracted from the right and left (and off the spectrum); this vector militates against the Authoritarian Left of political correctness and the Authoritarian Right of white nationalism. In this view, the "alt-right" is incorrectly named with devastating implications, for in this view the "alt-right" is not so much a "cross-pollinating" of nihilists and right-wingers in a vague orbit of right-wing flavour; this clunky term is trying but failing to label a new, uniquely digital, multi-dimensional escape vector (by left-leaners and right-leaners) from all of the oppressive strictures of today's dominant, bourgoeis institutions as such.
+
+Of course, if the composition of Kekistan leans heavily to the right, this would be unsurprising given that — and this is crucial — the number of leftists available for anti-institutional offshoots such as Kekistan is suppressed below its true rate *by fiat from those institutions,* as my personal case reveals (e.g., if all of your cultural and economic preferences are clearly Left and you want to join Kekistan because you care more about free speech than anything else, you simply get *removed from the official count of who is on the Left.*) If we find any evidence of non-right-wing energies circulating in Kekistan, it is almost certainly but the tip of an iceberg.
+
+## Data and Method
+
+I begin by identifying users who posted status updates containing any one of the following search queries: "#Kek," "Kekistan," or "PraiseKek." Twitter's Rest API only goes back 6-9 days, so obviously this approach gives a time-restricted sample. To supplement this, I also used a script to scrape tweets (and user information) from Twitter Advanced Search. Advanced Search goes back farther, but this method does not seem to give full coverage, either. Combining these methods gave me a total of 13,467 status updates containing at least one of the above terms, published by 5,249 unique users.
+
+That's a solidly sized sample, but informal inspection shows a non-trivial number of false positives (updates clearly not about Kekistan or not from pro-Kek accounts). To deal with this, I also explore a reduced sample that errs on the side of being smaller but more strictly pro-Kekistani. Specifically, the narrow sample (which I'll refer to as Kekistani Activists) contains only users who describe themselves with one of the following, unambiguously pro-Kek phrases: "Praise Kek", "Kekistani, or "Free Kekistan."
+
+Additionally, I scraped up to 2,000 status updates from the user feeds of these individuals who at least once tweeted with the above phrases (#Kek, Kekistan, or PraiseKek). After subtracting for accounts that could not be scraped, accounts that had a small number of tweets, removing duplicates such as retweeted tweets, etc., this produced a sample of about 2.6 million tweets. These tweets are mostly unrelated to Kekistan, but they give us a large sample of textual data about the interests and beliefs of the individuals who have at least once visited Kekistan.
+
+Before analysis, I conducted a standard set of pre-processing tasks helpful for this kind of data. I first reduced the sample of tweets to English tweets only, then I removed URLs, usernames with the "@" symbol in front of them, strings such as "RT" and "via," and all common English stem words ("and," "it", etc.). Except for when I analyze the hashtags, I typically remove hashtags as well.
+
+## The Left-Right Distribution of Kekistan: Bayesian Ideal Point Estimation
+
+I begin by estimating the ideological placement of individuals in the Kekistan ecosystem. I say "ecosystem" to indicate that our most general sample will be bound to include users with varying relationships to Kekistan; it will be mostly proud Kekistanis, of course, but also some random non-affiliated interlocutors and a few attackers chiming in on these keywords. To deal with this problem, I've manually removed the obvious 'false positives' I've happened to notice, such as one account dedicated explicitly to anti-Kek activism, but with several thousand cases, I cannot go through them all manually. The solution, then, is to conduct analyses also on conservatively defined subsets of the sample. Thus, for all analyses below, I check my results against subsets including only accounts offering the explicit Kekistani identifications "Praise Kek," "Kekistani," and "Free Kekistan." This reduces the sample to only 621 users, which is a large loss of information about most Kekistanis, but they're likely to be only die-hard Kekistani activists.
+
+I estimate the 'Bayesian ideal point' for each user with a method developed and validated by [Pablo Barberá (2015).](https://www.cambridge.org/core/journals/political-analysis/article/birds-of-the-same-feather-tweet-together-bayesian-ideal-point-estimation-using-twitter-data/91E37205F69AEA32EF27F12563DC2A0A) The method is very sophisticated but the intuition is simple: we can estimate the ideology of any given user by considering the known ideological slants of the elite users they follow. You can easily think of some issues with of this method (e.g. it draws a blank for accounts that don't follow elite users, or what about users that want to monitor their enemies?) but Barberá has shown that it produces results highly consistent with other known measures of ideological placement.  With a decent sample, I think we can be fairly confident the results will give us a pretty reliable, general sense of the ideological distribution of Kekistan.
+
+The resulting estimates are relative, in the sense that they do not map onto any *a priori* standard for what defines "left" or "right." They only allow us to place each user in relation to all the others, on a scale representing the left-right dimension. To gain a sense of how the ideological distribution of Kekistan maps onto our intuitions about how far left or right someone is, we can compare the Kekistanis to some other Twitter accounts whose ideological character is already well known: politicians. Therefore, in the figures below, I include as useful signposts the ideological placements of one far-left politician, Bernie Sanders, and a far-right politician, Ted Cruz, derived with the same technique we use for the Kekistanis.
+
+![Kekistan Left-Right Ideology](https://i.imgur.com/Z69texp.png "Kekistan Left-Right Ideology")
+
+![Kekistan Left-Right Ideology of Activists](https://i.imgur.com/MMKZwFh.png "Kekistan Left-Right Ideology of Activists")
+
+Figures 1 and 2 show the ideological distribution within Kekistan, first for the whole sample of Kekistan-participants and second for the smaller subset of explicitly identified Kekistani "citizens," with vertical lines indicating the estimates for Bernie Sanders and Ted Cruz. This analysis suggests that Kekistan is generally a right-wing country (though not any further to the right than Ted Cruz), and with a fascinating long-tail of lefties. If you define the borders of Kekistan in the broadest way (Figure 1), Senator Sanders would likely be quite at home with a small minority of Kekistanis. He wouldn't even be the most radical. Even among the Kekistani activist elite, Senator Sanders is within their ideological range, although he would be the farthest left among them. 
+
+## The Issue Priorities of Kekistan
+
+Perhaps the next best way to investigate the composition of the Kekistani citizenry is to analyze the self-authored user descriptions. This is the primary place where users articulate their identity. A common practice is to list keywords and hashtags that best describe your interests. If we look at the hashtags in Kekistanis' self-descriptions as indicators of their top-priority beliefs, a fairly clear picture emerges. More than anything else, Kekistanis talk about Trump and Making America Great Again. But these are ambiguous, high-level, symbolic focal points aggregating any number of beliefs and interests, whereas what we would really like to know is: What are the specific beliefs and interests that drive Kekistani Trumpism? The first answer is that *free speech* emerges as the top substantive issue that Kekistanis care about. The second answer is that there are many specific issues that only a small number of Kekistanis care about and they do not make a lot of sense. Again, there is a long tail in issue priorities, just as there is a long tail in the ideological distribution.
+
+![Kekistan Self Description Hashtags](https://i.imgur.com/bwXfD3S.png "Kekistan Self Description Hashtags")
+
+Restricting our attention to the hardcore activists, the substantive interpretation remains largely the same, although the diversity of long-tail issues decreases. Atheists are a greater proportion in the explicit activist subset, interestingly, so it seems that Kekistan is a country that includes some Christians but is run by the godless--presumably 
+
+![Kekistani Activists Self Description Hashtags](https://i.imgur.com/uuRUmmn.png "Kekistani Activists Self Description Hashtags")
+
+## Network of Issue/Identity Associations in Kekistan
+
+The network view of the words used in user descriptions shows that, roughly, there is one camp of patriotic/nationalist, libertarian/conservatives who are likely white, Christian, and former military; then there is a second camp of what you might call "humanists," interested in gaming, anime, music, and Youtube. There appears to be a third camp consisting of Kekistan's apolitical civil service who focus primarily on distributing memes and news about Kekistan, for instance, the "Official Homepage of Kekistani Bureau of Memetic Warfare." This is just an informal reading of the network graph.
+
+![Network of Issue Identity Associations in Kekistan](https://i.imgur.com/fjfzcIu.png "Network of Issue Identity Associations in Kekistan")
+
+## A Closer Look at the Kekistani Left
+
+Our estimates of the ideological distribution showed a non-trivial long tail of leftists, so I want to give this finding a closer look. One risk is that the long tail we observed reflects anti-Kek users, who entered our sample only because they invoked Kekistani identifiers in their attacks on Kekistani accounts. I therefore mined user descriptions for the character string "left," to get a better sense of some examples. I include "centrist" descriptions that disavow both the left and right. This list is not complete, as surely there are leftist users who do not have "left" anywhere in their description. These examples just give one a sense of what I have suspected: Kekistan includes a non-trivial sub-population of leftists, former leftists, and centrists the primary concern of whom is free speech.
+
+
+|Example user descriptions of non-right-wing Kekistanis|
+|:-----------------------------------|
+|Wokeperson for the Republic of Kekistan. Centre-Left, but most people call me a 'Nazi'. I identify as a post-cuck fire truck. My pronouns are 'Nee' and 'Naw'    |
+|Radical lefties and righties, and fucking SJWs are killing society. You all need to stop. #freekekistan.                                                         |
+|center-left, retweets are not endorsements, but you knew that                                                                                                   |
+|Former Obamanite. Now a Pepe believer. Citizen of Kekistan. Guardian against mainstream media bias and far left stupidity.                                       |
+|Former Leftist, warrior of the Great Meme War 2015-2016 🇦🇺🐸🥛🇺🇸                                                                                           |
+|Skepticism &#124; GamerGate &#124; Shitlord &#124; Anti-SJW &#124; Gaming &#124; Comics &#124; Right Wing Leftist &#124; Kekistani &#124;Snapchat: DataTwoHearts    |
+|Ethnic Kekistani newly assigned to the 1st armoured meme brigade. Anti-Fascist, Anti-Communist, Anti-Identitarian, Individualist, left leaning Centrist.        |  
+|#InternetBillOfRights https://t.co/AoYuHnHMLR left-right retrofuturizm                                                                                         |
+|im just a peruvian-american with left wing values. oh yeah i like pizza and the do-rugs too.                                                                   |
+|Epistemic Hygiene Enthusiast / Unorthodox Hereditarian Left-Liberal / NRx-Observer / A.I. Supremacist / Human nature is a design constraint for human society    |
+|It isn't "left v right" or "Trump v Hillary" or "Black v White" It's about stopping the pedophilia practiced by the elite. What if it were your kids? #pizzagate |
+|Left-leaning central-right (read: undecided) idealistic realist. C:S, Freeways / Mini Metro / KSP / ArmA. Tired of recycled/stolen content. Talks less than RTs. |
+|#Geopolitics #History #Anthropology Smashing #Zionism and its shills. Punching Left & #MerchantRight alike. European Identity. News & Commentary.                |
+|Gamer, Anti-theist, Fucking White Male. MDE NEVER DIES!!! Degenerate lefty, and an avid shitposter.                                                              |
+|DMC4 aficionado. KOF OG. Left, but anti-socjus. Mac-era Bungie fan. If I see pronouns in your profile I know you're already a lost child.  75% Korean, 25% JP.   |
+|Left the 'Democratic' Party on 11/9/2016. Fuck Crooked Hillary, Fuck the DNC. Shame on you Bernie for not disavowing that corruption and making a deal w/her.    |
+|Marxism is Taking Over The Left-Identity Politics Is SHIT! Moderate Left & Right Must Drive Out Marxism & Globalist Estab We MUST RESTORE OUR ROOTS Of LIBERTY! |
+|blocked by @the_moviebob @srhbutts I stand against the alt right and the alt left                                                                                |
+|Chakra balancing, red pilled schizophrenic from a parallel dimension. Ex-Leftist. Allergic to MSM bullsh*t. Practitioner of meme magic. Tuned to 33 Hz 🧡 OM 🕉 |
+|Spectacularly normal wizard.  Cultural libertarian, Eris hailing Erisian.  Not left wing or right wing, I sexually and politically identify as Chaotic Neutral.  |
+|Alt Left,Trans science,anti-cap,antifa sniper of the gay                                                                                                         |
+|I'm a socio-liberal trying to recalim the left from collectivists.                                                                                               |
+|Gamer, stoner, prog rock and vaporwave fan, TF2 and Borderlands fanatic, @InfiniteAmmo_NA podcast guy, JoJo shitposter, politically left. Cat lover, Resister    |
+|Trolling #left and #right. A convert from Atheism to #KEK and #Pepe. You should too! #RepublicofKekistan #Kekistan #MAGA 🇺🇸🇫🇮🐸♨️                         |
+|Fighter of identitarians and ideologues. Lover of The Wire. Supporter of sane & reasonable left of center politics.                                              |
+|4/10 tranno e-girl, Linux fajote, shitty C programmer, Pokémon boi, csgo silver, dropout loser, edgy sad/$uicide/meme 🅱️oi. lefty on /pol/                       |
+|A mod lib watching the left drive off a fucking cliff. I offend & tweet review streams. My sarcasm is racist/sexist/etc...RT:⛔️👍Merch: https://t.co/nZXTI8CnVJ  |
+|#Pentrebane's No.1 #FreeSpeech supporter & Alt-Left Libertarian Edge-Lord. PS... The 'F' stands for 'Freedom' btw so press it to pay respects eh? |
+
+## A Closer Look at Kekistani Racism
+
+Defining racism objectively is difficult. There's a definite presence of individuals in Kekistan who assert the fact of their whiteness. Many people would say this is racist; in academic social science and certainly in the humanities this would probably be a near-consensus view. Many people outside of academia would argue that this is not racist. A lot of my work recently is on the wager that serious problems are opening up between academic consensus and our larger social reality, and that it's precisely this gap we should try to open up empirically. For that reason I really want to try to keep my quantitative analyses as culture-war-neutral as possible, so I'm going to focus on the more specific claim that Kekistan is fascist or white supremacist. Regardless of whether references to one's whiteness is racist in some sense, it's certainly not *fascist* and/or white *supremacist* per se. Let's define *fascist white supremacist* as someone giving an indication that whites are somehow better or more valuable than non-whites. Technically, "white nationalist" does not necessarily imply racist evaluations in the sense I just gave, but we'll err on the side of generosity to the "Kek is racist" claim by including users who use the phrase "white nationalist" to describe themselves. I began by searching user descriptions for "race" OR "white" and then combing them manually for white supremacy according to this definition. In the interest of transparency, I will note that there are a few cases that may be "dog-whistling" racism, but I don't include these because without a sharp line it'd be very hard to quell my suspiciousness in a consistent way. To be fair, there are also a lot of anti-racist accounts in this subset, which I'm also not reporting here.
+
+|Example user descriptions of white-supremacist and/or white nationalist Kekistanis                                                        |
+|:----------------------------------------------------------------------------------------------------|
+|I am a brave knight of Kekistan, destroyer of cucks and purger of the extreme left and right. I am a center-right, pro human rights for whites and no one else.    |
+|Esoteric Alt-right memeticist &#124; European traditionalist &#124; Ethno-nationalist &#124; Slavic pagan-futurist &#124; Straight white European &#124; Modern man ironically                                                                                                                                                           |
+|White Nationalist, shitposter extraordinaire at The Nativist Herald. Fashy goy. Motorcycles are cool.                                                              |
+|Proud White Nationalist 1.0, I don’t disavow Hitler. Revolution is the only way. No to Abrahamic religions.                                                        |
+|#AltRight Fighting for nationalism and the end of multiculturalism. Feminism and marxism are national poison. Bringing back the White male patriarchy.              |
+|White nationalist. World peace but 14 words at all costs.  https://t.co/cItC39JyUP                                                                              |
+|Although White countries is best in world, they have many problems: social, economic, and Jew.                                                               |
+|Raised Liberal, Amerikaner Nationalist. Free Speech, Reason, Love of Animals & Nature, Statistics, Abstractions & Beauty in Art are White Supremacy.              |
+| We must secure the existence of our people and a future for white children. https://t.co/irilOgOjXT https://t.co/WsNkWGFiOh                                |
+|#ProWhite                                                                                                                                                      |
+|White Nationalist, Pro-White, Anti-Zionist/Israel, Pro-family, Traditionalist.                                                                             |
+|Race Above All. on https://t.co/flS6y3mCuQ #AltRight #WPWW #14Words #Cascadia                                                                            |
+|We must secure the existence of our people and a future for white children. See ya Kyle.  #AltRight.                                                      |
+|Former degenerate. Tired of the pozz and down for the white cause. #altright #altsouth  Illuminate the fog remove #zog! Voluntary separation is the solution!    |
+|Proud White Nationalist, member of the Ｒｅｄｐｉｌｌｅｄ Ｒｉｇｈｔ and a veteran of Ｇｒｅａｔ Ｍｅｍｅ Ｗａｒ I'm a long time 4channer, so I guess you can call me a 🍀４ｃｈａｎ Ｖｅｔｅｒａｎ🍀                                                                                      |
+|Alt-Right-TrumpNation-WhitePride-Nationalism🇺🇸🇸🇪🇩🇪-TopKek🐸🐸🐸                                                                                         |
+
+There are definitely some white nationalists, and a small number of really explicit racists. I noticed there were also a few explicit anti-racist or anti-nationalist descriptions. If you look at #Kek tweets mentioning "Nazi," they are overwhelmingly to the effect that Kek is not Nazi, or that Kek is anti-Nazi.
+
+## The General Meaninglessness of Kekistani Memefare
+
+I conducted a series of analyses on the text of the Kekistan-related tweets. I looked at the most common words, their network graph, and even looked at topic models (a somewhat more sophisticated technique of identifying latent clusters of related words). In all cases, the results are completely uninteresting because they are almost purely comments about memes, and other self-referential comments related to their Right to Meme, MAGA, Trump, etc. I will spare you multiple graphs and tables repeating, *ad infinitum*, "memes," "spicymemes," "dankmemes," etc. When Kekistanis say that Kekistan has no unified political agenda other than freedom of speech, I think we have to believe them because it is almost impossible to find any substantive political topics in their public "communications," which are almost completely bereft of content. Much of their communicative activity seems to have the sole intention of simply inhabiting and protecting the space of offensiveness (or *triggering the libtards,* as they might say).
+
+## The Moral Foundations and Policy Positions of Kekistan
+
+We might still wonder about what Kekistani citizens and visitors area like "off the island," as it were. What types of people are we really dealing with here? To explore this further, I now turn to the 2.6 million tweets I scraped from the user feeds of individuals who visited Kekistan at least once. Reminder, these tweets are mostly not about Kekistan; they are tweets about anything, by the people who represent Kekistan as a distributed "movement." Given the above subsection, finding that most Kekistani messaging is quite meaningless, I was doubtful about finding very much of interest in this larger sample of tweets. But here are some results.
+
+The below figure shows the "moral foundations" (Graham, Haidt, and Nosek 2009) of Kekistani citizens and visitors, relative to explicit Kekistani activists. I find it somewhat interesting that activists are *less* morally activated than the rest, which is perhaps counterintuitive. This is consistent with the view that Kekistanis are mostly just interested in meaningless shitposting, to hold the space of offensiveness. Of all the foundations they seem to care a lot about Harm (one of the key left-wing foundations), but interestingly they care least about Fairness (the other key left-wing foundation.) Perhaps I'll investigate this more thoroughly at a later date, for now I put this here just for good measure.
+
+![The Moral Foundations of Kekistan](https://i.imgur.com/IuJlamF.png "The Moral Foundations of Kekistan")
+
+The figure below shows an estimate of policy position-takings, using [a dictionary developed by Laver and Garry (2000)](https://provalisresearch.com/products/content-analysis-software/wordstat-dictionary/laver-garry-dictionary-of-policy-position/). One drawback to this dictionary is it was designed for use in the British context, so it will not work optimally in a foreign country as strange as Kekistan. That said, there's no harm in seeing what gets turned up using this method. Note that the economy categories including the "=" symbol refer to the position that there should be neither more nor less government intervention in the economy; the "+" sign means more intervention, and the "-" sign means less. And so on. As you can see below, insofar as there is any pattern (which I would not make too much of, either way, given what we have found so far), the pattern is: no particularly obvious left-right mapping. Law and Order Conservatism appears as the most common position, second only to neutral positions on government intervention in the economy, but the next most common position is for more intervention in the economy. So maybe Kekistan is culturally conservative and economically liberal? Perhaps one point of interest is that gender and ethnic political positions do not appear with notable frequency in the user feeds of Kekistani citizens, visitors, or activists. This would speak against the "Kekistan is misogynist and white nationalism" arguments. I would not personally make too much of this one, given what we've already found and the notably mixed positions that follow below in this graph. This method either has a lot of error when applied to an international sample on Twitter, or else there's a rather confusing mix of different positions. Again I am including this simply for good measure, as perhaps it will stimulate some future hypothesis or be interesting to someone working on something else.
+
+![The Policy Positions of Kekistan](https://i.imgur.com/ODvS6SQ.png "The Policy Positions of Kekistan")
+
+## Conclusion
+
+Overall, I would summarize Kekistan as a virtual "country" populated by emigrants from existing countries who all share a strong commitment to free speech (and nearly nothing else). While the center of gravity is certainly to the right, it is unlikely to be much farther to the right (if at all) than the right-wing of the American Congress. An overwhelming majority of these right-wing Kekistanis express no interest in racial politics (indeed, it is clear that the Kekistani "ethnicity" is mostly a mockery of anyone who cares very much about ethnic identity). That said, there is a clear non-trivial minority of explicit racists and White Nationalists. Most interestingly, I find clear evidence that there is a non-trivial "long tail" of centrists and even leftists, using a technique for Bayesian ideal point estimation that has been validated by previous research (Barberá 2015). The result generally holds even for the most explicitly identified Kekistani individuals, and it also bears manual, qualitative scrutiny. As a whole, there is almost no substantial political topic that Kekistanis talk about together, other than memes, Trump, MAGA, Pepe, etc. While many would be inclined to take this as evidence that Kekistan has a latent racist character generally (because Trump is seen as a unifier of white racism), I think the upshot of this analysis is different.
+
+Although Kekistan's favorite American politician is Donald Trump, the most empirically warranted interpretation, in my view, is that Kekistani Trump supporters love The Donald primarily because they love freedom of speech above all else. Racism or white supremacy is simply not the shared factor explaining why thousands of people have moved to (or occasionally vacation in) the country of Kekistan. To the degree there is a "top issue," it is clearly "free speech." Beyond this, Kekistanis are individually interested in a variety of different ideas and lifestyles, from Atheism to Christianity, from Nationalism to cyberanarchist Crypto, and even from White Nationalism to Antifascism.
+
+A final reflection is that the Kekistani left seems to flagrantly reject what we might call the "guilt contagion model" of political affiliation, which is the dominant perspective in the mainstream activist left. The "contagion model" is shorthand for the idea that using any symbols that are used by anyone with any views you find loathsome "infects" you with the guilt belonging to the people with the loathesome views. To the average radical leftist in public today, as I learned quite explicitly from my former comrades, saying or doing anything related to "Kek" is bad because you can find some examples of bad people with bad ideas using this symbol. Obviously the Kekistani Left is distinct from the activist left in that they do not fear contracting guilt by association: they believe strongly in free speech, and if a few racists also believe in free speech, who cares? Well, many people on the left care tremendously, but Left-Kekistanis must not. This variable sensitivity to "guilt contagion via communication" strikes me as one of the most salient cleavages within the left today.
+
+On the whole, these findings are quite anomolous for most currently available explanations of the "online culture wars" and the online "Alt-Right" more generally. Rather, I think these findings are pretty consistent with the hypothesis I sketched in the introduction, that the so-called "Alt-Right" is incorrectly named in a way that is itself a function of the culture wars. It seems more likely that what is called the "Alt-Right" is in fact a wide variety of unaligned interests seeking escape from the dominant institutionally-sponsored version of reality. They want free speech and they are willing to take it, no matter what you might call them, and even if people they dislike happen to use the same hashtag. These diverse energies being lumped together as "Alt-Right" are simply all the energies that the dominant institutionalized Left does not like, including left-libertarian tendencies. In other words, the "Alt-Right" is not even all Right. 
+
+## References
+
+Barberá, P., (2015). Birds of the Same Feather Tweet Together: Bayesian Ideal Point Estimation Using Twitter Data. *Political Analysis*, 23(1), 76-91. doi:10.1093/pan/mpu011
+
+Graham, J., Haidt, J., Nosek, B.A., 2009. Liberals and Conservatives Rely on Different Sets of Moral Foundations. *Journal of Personality and Social Psychology* 96, 1029–1046. doi.org/10.1037/a0015141
+
+Nagle, A., 2017. *Kill All Normies: The Online Culture Wars From Tumblr and 4chan to the Alt-Right and Trump.* Zero Books, Winchester, UK.

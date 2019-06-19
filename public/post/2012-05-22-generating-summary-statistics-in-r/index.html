@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Nelson Bighetti">
+  <meta name="author" content="Justin Murphy">
 
   
   
   
     
   
-  <meta name="description" content="Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.">
+  <meta name="description" content="Start a basic data analysis with real data in R.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2012-05-22-generating-summary-statistics-in-r/">
@@ -61,10 +61,8 @@
     
       
       
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-dark" disabled>
       
     
 
@@ -107,26 +105,30 @@
   
   <meta property="twitter:card" content="summary">
   
+  <meta property="twitter:site" content="@jmrphy">
+  <meta property="twitter:creator" content="@jmrphy">
+  
   <meta property="og:site_name" content="Justin Murphy">
   <meta property="og:url" content="/post/2012-05-22-generating-summary-statistics-in-r/">
-  <meta property="og:title" content=" | Justin Murphy">
-  <meta property="og:description" content="Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:title" content="Generating summary statistics and box/violin plots in R | Justin Murphy">
+  <meta property="og:description" content="Start a basic data analysis with real data in R."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2012-05-22T00:00:00&#43;00:00">
   
+  <meta property="article:modified_time" content="2012-05-22T00:00:00&#43;00:00">
   
-  
-
-  
-
 
   
 
 
+  
 
 
 
-  <title> | Justin Murphy</title>
+
+
+  <title>Generating summary statistics and box/violin plots in R | Justin Murphy</title>
 
 </head>
 
@@ -402,8 +404,10 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name"></h1>
+  <h1 itemprop="name">Generating summary statistics and box/violin plots in R</h1>
 
+  
+  <p class="page-subtitle">Student resources</p>
   
 
   
@@ -411,8 +415,8 @@
 
 
 
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
+<meta content="2012-05-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-05-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -425,7 +429,7 @@
     
       
     
-    <time>Jan 1, 0001</time>
+    <time>May 22, 2012</time>
   </span>
   
 
@@ -446,6 +450,11 @@
 
   
   
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/resources/">resources</a></span>
+  
 
   
     
@@ -453,7 +462,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=&amp;url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f"
+         href="https://twitter.com/intent/tweet?text=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R&amp;url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -467,21 +476,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f&amp;title="
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f&amp;title=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f&amp;title="
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f&amp;title=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=&amp;body=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f">
+         href="mailto:?subject=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R&amp;body=%2fpost%2f2012-05-22-generating-summary-statistics-in-r%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -516,7 +525,9 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.</p>
+      
+
+<p>Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.</p>
 
 <p>All you have to do is <a href="https://www.dropbox.com/s/29s8ivlo0xagpv3/GSS.csv?dl=0" target="_blank">download this dataset, the 1970-2010 General Social Survey.</a> Then in RStudio set the working directory to wherever the GSS.csv file is located on your computer.</p>
 
@@ -526,79 +537,110 @@
 
 <p>If you are looking for a text, my favorite book for learning basic statistics in R is <a href="http://amzn.to/2EPIpr7" target="_blank">Andy Field&rsquo;s <em>Discovering Statistics Using R</em></a>.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">##################################################</span>
-<span style="color:#75715e">### Read data from your working directory</span>
-<span style="color:#75715e">### You need to set that from the file menu.</span>
-<span style="color:#75715e">##################################################</span>
+<p>{% highlight R %}</p>
 
-<span style="color:#75715e"># read GSS.csv as a table (with values separated by a comma and with the first row reserved as names).</span>
+<p>##################################################</p>
 
-gss<span style="color:#f92672">&lt;-</span>read.table(<span style="color:#e6db74">&#34;GSS.csv&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;,&#34;</span>, header<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+<h3 id="read-data-from-your-working-directory">Read data from your working directory</h3>
 
-<span style="color:#75715e">##################################################</span>
-<span style="color:#75715e">### summary statistics</span>
-<span style="color:#75715e">##################################################</span>
+<h3 id="you-need-to-set-that-from-the-file-menu">You need to set that from the file menu.</h3>
 
-<span style="color:#75715e"># Install package &#34;pastecs,&#34; which has a nice little summary.statistics() function</span>
-install.packages(<span style="color:#e6db74">&#34;pastecs&#34;</span>)           		
-                           
-<span style="color:#75715e"># Load it into working memory</span>
-<span style="color:#f92672">library</span>(pastecs) 
+<p>##################################################</p>
 
-<span style="color:#75715e"># Generate summary stats for importance attributed to work, relaxation, and politics	</span>
-stat.desc(gss<span style="color:#f92672">$</span>impwork, basic<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>)   		
-stat.desc(gss<span style="color:#f92672">$</span>imprelax, basic<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>)
-stat.desc(gss<span style="color:#f92672">$</span>imppol, basic<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>)
+<h1 id="read-gss-csv-as-a-table-with-values-separated-by-a-comma-and-with-the-first-row-reserved-as-names">read GSS.csv as a table (with values separated by a comma and with the first row reserved as names).</h1>
 
-<span style="color:#75715e">##################################################</span>
-<span style="color:#75715e">#### Generate some boxplots to compare the distributions</span>
-<span style="color:#75715e">##################################################</span>
+<p>gss&lt;-read.table(&ldquo;GSS.csv&rdquo;, sep=&ldquo;,&rdquo;, header=TRUE)</p>
 
-par(mfrow<span style="color:#f92672">=</span><span style="color:#66d9ef">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>))       <span style="color:#75715e"># Set up a graph with 1 row and 3 columns.</span>
-                        <span style="color:#75715e"># We do this because we plan to compare</span>
-                        <span style="color:#75715e"># 3 distributions.</span>
-                        <span style="color:#75715e"># R will just place the next three graphs</span>
-                        <span style="color:#75715e"># in these slots.</span>
+<p>##################################################</p>
 
-boxplot(gss<span style="color:#f92672">$</span>impwork, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;magenta&#34;</span>)     <span style="color:#75715e"># Make boxplot for the variable</span>
-                                        <span style="color:#75715e"># &#34;impwork&#34; in the dataframe &#34;gss&#34;</span>
-                                        <span style="color:#75715e"># and color it magenta.</span>
+<h3 id="summary-statistics">summary statistics</h3>
 
-boxplot(gss<span style="color:#f92672">$</span>imprelax, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;green&#34;</span>)      <span style="color:#75715e"># Make boxplot for the variable &#34;imprelax&#34; in the</span>
-                                        <span style="color:#75715e"># dataframe &#34;gss&#34; and color it green.</span>
+<p>##################################################</p>
 
-boxplot(gss<span style="color:#f92672">$</span>imppol, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cyan&#34;</span>)         <span style="color:#75715e"># Make boxplot for the variable &#34;imppol&#34; in the</span>
-                                        <span style="color:#75715e"># dataframe &#34;gss&#34; and make it magenta.</span>
+<h1 id="install-package-pastecs-which-has-a-nice-little-summary-statistics-function">Install package &ldquo;pastecs,&rdquo; which has a nice little summary.statistics() function</h1>
 
-<span style="color:#75715e">##################################################</span>
-<span style="color:#75715e">### Box plots are good but not great. violin plots are similar</span>
-<span style="color:#75715e">### but better because they represent the distribution directly.</span>
-<span style="color:#75715e">##################################################</span>
+<p>install.packages(&ldquo;pastecs&rdquo;)</p>
 
-install.packages(<span style="color:#e6db74">&#34;wvioplot&#34;</span>)             <span style="color:#75715e"># install the package called &#34;wvioplot&#34; for making</span>
-                                         <span style="color:#75715e"># violin plots</span>
-<span style="color:#f92672">library</span>(wvioplot)                        <span style="color:#75715e"># load the library of the package &#34;wvioplot&#34;</span>
+<h1 id="load-it-into-working-memory">Load it into working memory</h1>
 
-par(mfrow<span style="color:#f92672">=</span><span style="color:#66d9ef">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>))                                        <span style="color:#75715e">#  Set up a graph with 1 row and 3</span>
-                                                         <span style="color:#75715e">#  columns. We do this because we</span>
-                                                         <span style="color:#75715e">#  plan to compare 3 distributions.</span>
+<p>library(pastecs)</p>
 
-wvioplot(gss<span style="color:#f92672">$</span>impwork, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;magenta&#34;</span>, names<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Work&#34;</span>)       <span style="color:#75715e">#  Make violin plot for the variable</span>
-                                                         <span style="color:#75715e">#  &#34;impwork&#34; in the dataframe &#34;gss&#34;,</span>
-                                                         <span style="color:#75715e">#  color it magenta, label it &#34;Work&#34;.</span>
+<h1 id="generate-summary-stats-for-importance-attributed-to-work-relaxation-and-politics">Generate summary stats for importance attributed to work, relaxation, and politics</h1>
 
-wvioplot(gss<span style="color:#f92672">$</span>imprelax, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;green&#34;</span>, names<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Relaxation&#34;</span>)  <span style="color:#75715e">#  Make violin plot for the variable</span>
-                                                         <span style="color:#75715e"># &#34;imprelax&#34; in the dataframe &#34;gss&#34;,</span>
-                                                         <span style="color:#75715e"># color it green, label it &#34;Relaxation.&#34;</span>
+<p>stat.desc(gss$impwork, basic=FALSE)<br />
+stat.desc(gss$imprelax, basic=FALSE)
+stat.desc(gss$imppol, basic=FALSE)</p>
 
-wvioplot(gss<span style="color:#f92672">$</span>imppol, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cyan&#34;</span>, names<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Politics&#34;</span>)       <span style="color:#75715e"># Make violin plot for the variable</span>
-                                                         <span style="color:#75715e"># imppol in the dataframe gss,</span>
-                                                         <span style="color:#75715e"># color it cyan, label it Politics</span></code></pre></div>
+<p>##################################################</p>
+
+<h4 id="generate-some-boxplots-to-compare-the-distributions">Generate some boxplots to compare the distributions</h4>
+
+<p>##################################################</p>
+
+<p>par(mfrow=c(1,3))       # Set up a graph with 1 row and 3 columns.
+                        # We do this because we plan to compare
+                        # 3 distributions.
+                        # R will just place the next three graphs
+                        # in these slots.</p>
+
+<p>boxplot(gss$impwork, col=&ldquo;magenta&rdquo;)     # Make boxplot for the variable
+                                        # &ldquo;impwork&rdquo; in the dataframe &ldquo;gss&rdquo;
+                                        # and color it magenta.</p>
+
+<p>boxplot(gss$imprelax, col=&ldquo;green&rdquo;)      # Make boxplot for the variable &ldquo;imprelax&rdquo; in the
+                                        # dataframe &ldquo;gss&rdquo; and color it green.</p>
+
+<p>boxplot(gss$imppol, col=&ldquo;cyan&rdquo;)         # Make boxplot for the variable &ldquo;imppol&rdquo; in the
+                                        # dataframe &ldquo;gss&rdquo; and make it magenta.</p>
+
+<p>##################################################</p>
+
+<h3 id="box-plots-are-good-but-not-great-violin-plots-are-similar">Box plots are good but not great. violin plots are similar</h3>
+
+<h3 id="but-better-because-they-represent-the-distribution-directly">but better because they represent the distribution directly.</h3>
+
+<p>##################################################</p>
+
+<p>install.packages(&ldquo;wvioplot&rdquo;)             # install the package called &ldquo;wvioplot&rdquo; for making
+                                         # violin plots
+library(wvioplot)                        # load the library of the package &ldquo;wvioplot&rdquo;</p>
+
+<p>par(mfrow=c(1,3))                                        #  Set up a graph with 1 row and 3
+                                                         #  columns. We do this because we
+                                                         #  plan to compare 3 distributions.</p>
+
+<p>wvioplot(gss$impwork, col=&ldquo;magenta&rdquo;, names=&ldquo;Work&rdquo;)       #  Make violin plot for the variable
+                                                         #  &ldquo;impwork&rdquo; in the dataframe &ldquo;gss&rdquo;,
+                                                         #  color it magenta, label it &ldquo;Work&rdquo;.</p>
+
+<p>wvioplot(gss$imprelax, col=&ldquo;green&rdquo;, names=&ldquo;Relaxation&rdquo;)  #  Make violin plot for the variable
+                                                         # &ldquo;imprelax&rdquo; in the dataframe &ldquo;gss&rdquo;,
+                                                         # color it green, label it &ldquo;Relaxation.&rdquo;</p>
+
+<p>wvioplot(gss$imppol, col=&ldquo;cyan&rdquo;, names=&ldquo;Politics&rdquo;)       # Make violin plot for the variable
+                                                         # imppol in the dataframe gss,
+                                                         # color it cyan, label it Politics</p>
+
+<p>{% endhighlight %}</p>
 
     </div>
 
     
 
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/data/">data</a>
+  
+  <a class="badge badge-light" href="/tags/visualization/">visualization</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/teaching/">teaching</a>
+  
+  <a class="badge badge-light" href="/tags/statistics/">statistics</a>
+  
+</div>
+
 
 
     
@@ -617,97 +659,27 @@ wvioplot(gss<span style="color:#f92672">$</span>imppol, col<span style="color:#f
 
 
 
-  
-  
-  
-    
-  
-  
-  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
-    
-      
-      <img class="portrait mr-3" src="/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-    
-
-    <div class="media-body">
-      <h5 class="card-title" itemprop="name"><a href="/">Nelson Bighetti</a></h5>
-      <h6 class="card-subtitle">Professor of Artificial Intelligence</h6>
-      <p class="card-text" itemprop="description">My research interests include distributed robotics, mobile computing and programmable matter.</p>
-      <ul class="network-icon" aria-hidden="true">
-        
-          
-          
-          
-            
-          
-          
-          
-          
-          
-            
-          
-          <li>
-            <a itemprop="sameAs" href="/#contact" >
-              <i class="fas fa-envelope"></i>
-            </a>
-          </li>
-        
-          
-          
-          
-            
-          
-          
-          
-          
-          
-            
-          
-          <li>
-            <a itemprop="sameAs" href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-        
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          <li>
-            <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
-              <i class="ai ai-google-scholar"></i>
-            </a>
-          </li>
-        
-          
-          
-          
-            
-          
-          
-          
-          
-          
-            
-          
-          <li>
-            <a itemprop="sameAs" href="https://github.com/gcushen" target="_blank" rel="noopener">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
 
 
       
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2014-11-22-intro-to-r-for-grad-students/">Intro to R for graduate students</a></li>
+          
+          <li><a href="/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/">A quick-start guide to the statistical analysis of political attitudes and behaviors</a></li>
+          
+          <li><a href="/post/2014-09-27-economic-growth-and-democracy-data/">Graph of economic growth and democracy across countries over time</a></li>
+          
+          <li><a href="/post/2018-01-15-moral-foundations-of-social-justice-warriors/">The moral foundations of social justice warriors</a></li>
+          
+          <li><a href="/post/2017-09-06-jordan-peterson-followers/">Who are Jordan Peterson’s followers?</a></li>
+          
+        </ul>
+      </div>
       
     
 
@@ -760,6 +732,8 @@ wvioplot(gss<span style="color:#f92672">$</span>imppol, col<span style="color:#f
       
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
         
       
 

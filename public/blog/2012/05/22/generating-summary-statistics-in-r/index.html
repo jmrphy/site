@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Justin Murphy">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Start a basic data analysis with real data in R.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/blog/2012/05/22/generating-summary-statistics-in-r/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.747d92dc45be93ba6055a623fe5bcc0a.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/blog/2012/05/22/generating-summary-statistics-in-r/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@jmrphy">
+  <meta property="twitter:creator" content="@jmrphy">
+  
+  <meta property="og:site_name" content="Justin Murphy">
+  <meta property="og:url" content="/blog/2012/05/22/generating-summary-statistics-in-r/">
+  <meta property="og:title" content="Generating summary statistics and box/violin plots in R | Justin Murphy">
+  <meta property="og:description" content="Start a basic data analysis with real data in R."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2012-05-22T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2012-05-22T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Generating summary statistics and box/violin plots in R | Justin Murphy</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Justin Murphy</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Generating summary statistics and box/violin plots in R</h1>
+
+  
+  <p class="page-subtitle">Student resources</p>
+  
+
+  
+    
+
+
+
+<meta content="2012-05-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-05-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 22, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/blog/2012/05/22/generating-summary-statistics-in-r/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/resources/">resources</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R&amp;url=%2fblog%2f2012%2f05%2f22%2fgenerating-summary-statistics-in-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fblog%2f2012%2f05%2f22%2fgenerating-summary-statistics-in-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fblog%2f2012%2f05%2f22%2fgenerating-summary-statistics-in-r%2f&amp;title=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fblog%2f2012%2f05%2f22%2fgenerating-summary-statistics-in-r%2f&amp;title=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Generating%20summary%20statistics%20and%20box%2fviolin%20plots%20in%20R&amp;body=%2fblog%2f2012%2f05%2f22%2fgenerating-summary-statistics-in-r%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.</p>
+
+<p>All you have to do is <a href="https://www.dropbox.com/s/29s8ivlo0xagpv3/GSS.csv?dl=0" target="_blank">download this dataset, the 1970-2010 General Social Survey.</a> Then in RStudio set the working directory to wherever the GSS.csv file is located on your computer.</p>
+
+<p>You can then work through this script to get started on your own research project.</p>
+
+<p>If you are absolutely new to using R and RStudio, I have also made a corresponding <a href="https://www.youtube.com/watch?v=uwlwNRbaKMI" target="_blank">video walkthrough on Youtube, &ldquo;Intro to R Studio and Basic Descriptive Statistics.&rdquo;</a></p>
+
+<p>If you are looking for a text, my favorite book for learning basic statistics in R is <a href="http://amzn.to/2EPIpr7" target="_blank">Andy Field&rsquo;s <em>Discovering Statistics Using R</em></a>.</p>
+
+<p>{% highlight R %}</p>
+
+<p>##################################################</p>
+
+<h3 id="read-data-from-your-working-directory">Read data from your working directory</h3>
+
+<h3 id="you-need-to-set-that-from-the-file-menu">You need to set that from the file menu.</h3>
+
+<p>##################################################</p>
+
+<h1 id="read-gss-csv-as-a-table-with-values-separated-by-a-comma-and-with-the-first-row-reserved-as-names">read GSS.csv as a table (with values separated by a comma and with the first row reserved as names).</h1>
+
+<p>gss&lt;-read.table(&ldquo;GSS.csv&rdquo;, sep=&ldquo;,&rdquo;, header=TRUE)</p>
+
+<p>##################################################</p>
+
+<h3 id="summary-statistics">summary statistics</h3>
+
+<p>##################################################</p>
+
+<h1 id="install-package-pastecs-which-has-a-nice-little-summary-statistics-function">Install package &ldquo;pastecs,&rdquo; which has a nice little summary.statistics() function</h1>
+
+<p>install.packages(&ldquo;pastecs&rdquo;)</p>
+
+<h1 id="load-it-into-working-memory">Load it into working memory</h1>
+
+<p>library(pastecs)</p>
+
+<h1 id="generate-summary-stats-for-importance-attributed-to-work-relaxation-and-politics">Generate summary stats for importance attributed to work, relaxation, and politics</h1>
+
+<p>stat.desc(gss$impwork, basic=FALSE)<br />
+stat.desc(gss$imprelax, basic=FALSE)
+stat.desc(gss$imppol, basic=FALSE)</p>
+
+<p>##################################################</p>
+
+<h4 id="generate-some-boxplots-to-compare-the-distributions">Generate some boxplots to compare the distributions</h4>
+
+<p>##################################################</p>
+
+<p>par(mfrow=c(1,3))       # Set up a graph with 1 row and 3 columns.
+                        # We do this because we plan to compare
+                        # 3 distributions.
+                        # R will just place the next three graphs
+                        # in these slots.</p>
+
+<p>boxplot(gss$impwork, col=&ldquo;magenta&rdquo;)     # Make boxplot for the variable
+                                        # &ldquo;impwork&rdquo; in the dataframe &ldquo;gss&rdquo;
+                                        # and color it magenta.</p>
+
+<p>boxplot(gss$imprelax, col=&ldquo;green&rdquo;)      # Make boxplot for the variable &ldquo;imprelax&rdquo; in the
+                                        # dataframe &ldquo;gss&rdquo; and color it green.</p>
+
+<p>boxplot(gss$imppol, col=&ldquo;cyan&rdquo;)         # Make boxplot for the variable &ldquo;imppol&rdquo; in the
+                                        # dataframe &ldquo;gss&rdquo; and make it magenta.</p>
+
+<p>##################################################</p>
+
+<h3 id="box-plots-are-good-but-not-great-violin-plots-are-similar">Box plots are good but not great. violin plots are similar</h3>
+
+<h3 id="but-better-because-they-represent-the-distribution-directly">but better because they represent the distribution directly.</h3>
+
+<p>##################################################</p>
+
+<p>install.packages(&ldquo;wvioplot&rdquo;)             # install the package called &ldquo;wvioplot&rdquo; for making
+                                         # violin plots
+library(wvioplot)                        # load the library of the package &ldquo;wvioplot&rdquo;</p>
+
+<p>par(mfrow=c(1,3))                                        #  Set up a graph with 1 row and 3
+                                                         #  columns. We do this because we
+                                                         #  plan to compare 3 distributions.</p>
+
+<p>wvioplot(gss$impwork, col=&ldquo;magenta&rdquo;, names=&ldquo;Work&rdquo;)       #  Make violin plot for the variable
+                                                         #  &ldquo;impwork&rdquo; in the dataframe &ldquo;gss&rdquo;,
+                                                         #  color it magenta, label it &ldquo;Work&rdquo;.</p>
+
+<p>wvioplot(gss$imprelax, col=&ldquo;green&rdquo;, names=&ldquo;Relaxation&rdquo;)  #  Make violin plot for the variable
+                                                         # &ldquo;imprelax&rdquo; in the dataframe &ldquo;gss&rdquo;,
+                                                         # color it green, label it &ldquo;Relaxation.&rdquo;</p>
+
+<p>wvioplot(gss$imppol, col=&ldquo;cyan&rdquo;, names=&ldquo;Politics&rdquo;)       # Make violin plot for the variable
+                                                         # imppol in the dataframe gss,
+                                                         # color it cyan, label it Politics</p>
+
+<p>{% endhighlight %}</p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/data/">data</a>
+  
+  <a class="badge badge-light" href="/tags/visualization/">visualization</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/teaching/">teaching</a>
+  
+  <a class="badge badge-light" href="/tags/statistics/">statistics</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/blog/2014/11/22/intro-to-r-for-grad-students/">Intro to R for graduate students</a></li>
+          
+          <li><a href="/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/">A quick-start guide to the statistical analysis of political attitudes and behaviors</a></li>
+          
+          <li><a href="/post/2018-01-15-moral-foundations-of-social-justice-warriors/">The moral foundations of social justice warriors</a></li>
+          
+          <li><a href="/post/2017-09-06-jordan-peterson-followers/">Who are Jordan Peterson’s followers?</a></li>
+          
+          <li><a href="/post/2018-02-16-who-is-afraid-of-free-speech/">Who’s afraid of free speech in the United States?</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jmrphy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jmrphy.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.9ef1b53ee2bde6c7f33b150c6ba4d452.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
