@@ -2,6 +2,8 @@
 title: "The affective politics of keeping it real"
 subtitle: Micro-politics
 summary: "Why real nobodies are more powerful than repressed somebodies (the internet epoch has hardly begun)."
+date: 2017-06-20
+url: blog/2017/06/20/the-affective-politics-of-keeping-it-real/
 tags:
 - mechanisms
 - technology

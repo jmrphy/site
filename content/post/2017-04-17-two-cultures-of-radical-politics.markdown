@@ -2,6 +2,8 @@
 title: "Two cultures of radical politics"
 subtitle: The new ideological fractures
 summary: "Why morality preserves the status quo and science is the key to overthrowing it."
+date: 2017-04-17
+url: blog/2017/04/17/two-cultures-of-radical-politics/
 tags:
 - radical politics
 - social science

@@ -2,6 +2,8 @@
 title: "The formal structure of paranoid leftism (why there is no such thing as a noble error)"
 subtitle: The new ideological fractures
 summary: "How choosing personal psychological comfort over empirical accuracy will doom you and your friends to oblivion."
+date: 2017-04-24
+url: blog/2017/04/24/the-formal-structure-of-paranoid-leftism/
 tags:
 - radical politics
 - social science

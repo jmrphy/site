@@ -2,6 +2,8 @@
 title: "Feminism and the problem of supertoxic masculinity"
 subtitle: The new ideological fractures
 summary: "A serious feminist challenge is what to do with hyper-dominant males who are not domesticated by any amount of moral or legal constraint; in fact, excessive social constraints on average males may help explain why supertoxic masculinity is now a fast-track to the heights of political power."
+date: 2017-07-13
+url: blog/2017/07/13/supertoxic-masculinity/
 tags:
 - radical politics
 - gender

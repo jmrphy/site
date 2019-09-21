@@ -2,6 +2,8 @@
 title: "Activism is a capitalist virus from the future (honesty is stage-one cybernetic communism)"
 subtitle: Acceleration unconditional and autonomous
 summary: "Capitalism is horrible because it disposes humans as cosmic garbage, but the only motor of that garbage disposal is rabid denial."
+date: 2017-05-02
+url: blog/2017/05/02/activism-is-a-virus/
 tags:
 - radical politics
 - liberation

@@ -21,14 +21,8 @@ keywords:
 - Kek
 - Donald Trump
 - maga
+toc: true
 ---
-
-<div class="panel radius" markdown="1">
-**Table of Contents**
-{: #toc }
-*  TOC
-{:toc}
-</div>
 
 ## Introduction
 

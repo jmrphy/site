@@ -2,6 +2,8 @@
 title: "The psychology of prohibiting outside thinkers"
 subtitle: The new ideological fractures
 summary: "The real motivation of respectable progressivism is managing guilty conscience and conserving bourgeois privileges; how to theorize the Cathedral from the revolutionary left; understanding the suicide bombing of anti-intellectual intellectuals."
+date: 2017-05-15
+url: blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/
 tags:
 - academia
 - activism

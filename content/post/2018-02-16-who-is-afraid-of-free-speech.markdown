@@ -2,6 +2,8 @@
 title: "Who’s afraid of free speech in the United States?"
 subtitle: The new ideological fractures
 summary: "The pushback against political correctness has led to overly hasty generalizations about leftist opposition to free speech. Survey data tell some surprising stories."
+url: blog/2018/02/16/who-is-afraid-of-free-speech/
+date: 2018-02-16
 tags:
 - data
 - visualization

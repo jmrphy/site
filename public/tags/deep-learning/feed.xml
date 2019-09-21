@@ -2,31 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Learning on Justin Murphy</title>
-    <link>/tags/deep-learning/</link>
+    <link>https://jmrphy.net/tags/deep-learning/</link>
     <description>Recent content in Deep Learning on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
+    <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sat, 08 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/deep-learning/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/deep-learning/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Migrated to Hugo</title>
-      <link>/post/migrated-to-hugo/</link>
+      <link>https://jmrphy.net/post/migrated-to-hugo/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/migrated-to-hugo/</guid>
+      <guid>https://jmrphy.net/post/migrated-to-hugo/</guid>
       <description>&lt;p&gt;All the old content should still be here, with the same URLs. The Jekyll site was cool, but too liable to unexpected Ruby snags that I&amp;rsquo;m not competent enough to fix rapidly. The other major reason for switching to Hugo is to leverage the &lt;em&gt;blogdown&lt;/em&gt; workflow within Rstudio, and the smooth github-netlify publishing flow.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Internal Project</title>
-      <link>/project/internal-project/</link>
+      <link>https://jmrphy.net/project/internal-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/internal-project/</guid>
+      <guid>https://jmrphy.net/project/internal-project/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;

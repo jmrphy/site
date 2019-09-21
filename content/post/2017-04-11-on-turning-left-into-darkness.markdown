@@ -2,6 +2,8 @@
 title: "On turning left into darkness"
 subtitle: The new ideological fractures
 summary: "A response to critics and a more positive elaboration of my current thinking."
+date: 2017-04-11
+url: blog/2017/04/11/on-turning-left-into-darkness/
 tags:
 - ideology
 - radical politics

@@ -2,6 +2,8 @@
 title: "What is the effect of comparing Donald Trump to Hitler?"
 subtitle: Original research
 summary: "Critics of U.S. President Donald Trump frequently compare him to Adolf Hitler. Does comparing Trump to Hitler decrease support for his policies? We conducted a survey experiment to investigate the causal effect of a Hitler comparison on support for a Trump policy."
+date: 2017-12-10
+url: blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler
 keywords:
 - Trump
 - Donald Trump

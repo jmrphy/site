@@ -2,6 +2,9 @@
 title: "Who are Jordan Peterson’s followers?"
 subtitle: The new ideological fractures
 summary: "An academic psychologist is connecting left-libertarians and Trump supporters."
+date: 2017-09-06
+url: blog/2017/09/06/jordan-peterson-followers/
+date: blog/2017/09/06/jordan-peterson-followers/
 tags:
 - data
 - visualization

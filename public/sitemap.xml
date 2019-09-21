@@ -3,554 +3,505 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
+    <loc>https://jmrphy.net/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/</loc>
+    <loc>https://jmrphy.net/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/example2/</loc>
+    <loc>https://jmrphy.net/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/example/</loc>
+    <loc>https://jmrphy.net/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
+    <loc>https://jmrphy.net/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-06-08T19:10:53-04:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jmrphy.net/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/deep-learning/</loc>
-    <lastmod>2019-06-08T19:10:53-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/migrated-to-hugo/</loc>
+    <loc>https://jmrphy.net/categories/</loc>
     <lastmod>2019-06-08T19:10:53-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://jmrphy.net/tags/deep-learning/</loc>
     <lastmod>2019-06-08T19:10:53-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://jmrphy.net/post/migrated-to-hugo/</loc>
     <lastmod>2019-06-08T19:10:53-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/personal/</loc>
+    <loc>https://jmrphy.net/categories/personal/</loc>
     <lastmod>2019-06-08T19:10:53-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/publication_types/3/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jmrphy.net/post/</loc>
+    <lastmod>2019-06-08T19:10:53-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/preprint/</loc>
+    <loc>https://jmrphy.net/tags/</loc>
+    <lastmod>2019-06-08T19:10:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/publication_types/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
+    <loc>https://jmrphy.net/authors/admin/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/source-themes/</loc>
+    <loc>https://jmrphy.net/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jmrphy.net/authors/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jmrphy.net/publication_types/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/slides/example/</loc>
+    <loc>https://jmrphy.net/publication/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/source-themes/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+    <loc>https://jmrphy.net/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/inequality-and-pacification-of-protest/</loc>
+    <loc>https://jmrphy.net/tags/academic-research/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>https://jmrphy.net/tags/data/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/academic-research/</loc>
+    <loc>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/data/</loc>
+    <loc>https://jmrphy.net/tags/r/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/social-science/</loc>
+    <loc>https://jmrphy.net/tags/social-science/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/theory-empirics/</loc>
+    <loc>https://jmrphy.net/categories/theory-empirics/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/the-alt-right-is-not-all-right/</loc>
+    <loc>https://jmrphy.net/tags/ideology/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ideology/</loc>
+    <loc>https://jmrphy.net/tags/radical-politics/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/radical-politics/</loc>
+    <loc>https://jmrphy.net/blog/the-alt-right-is-not-all-right/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/visualization/</loc>
+    <loc>https://jmrphy.net/tags/visualization/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/demo/</loc>
+    <loc>https://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/</loc>
+    <lastmod>2018-02-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/media/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/race/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/10/16/milo-motivated-reasoning/</loc>
+    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/09/12/rioting-decline-data/</loc>
+    <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/pacification/</loc>
+    <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/</loc>
+    <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/activism/</loc>
+    <lastmod>2017-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/07/13/supertoxic-masculinity/</loc>
+    <lastmod>2017-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/gender/</loc>
+    <lastmod>2017-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/violence/</loc>
+    <lastmod>2017-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/emotions/</loc>
+    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/mechanisms/</loc>
+    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/technology/</loc>
+    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</loc>
+    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/academia/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/05/02/activism-is-a-virus/</loc>
+    <lastmod>2017-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/liberation/</loc>
+    <lastmod>2017-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/accelerationism/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/04/28/capitalism-is-an-instance/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/deleuze/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/guattari/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/nick-land/</loc>
+    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/04/24/the-formal-structure-of-paranoid-leftism/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/04/17/two-cultures-of-radical-politics/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/04/11/on-turning-left-into-darkness/</loc>
+    <lastmod>2017-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/02/02/politics-of-not-knowing/</loc>
+    <lastmod>2017-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/life/</loc>
+    <lastmod>2017-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/</loc>
+    <lastmod>2017-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/external-project/</loc>
+    <loc>https://jmrphy.net/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/internal-project/</loc>
+    <loc>https://jmrphy.net/project/internal-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/</loc>
+    <loc>https://jmrphy.net/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/deleuze/</loc>
-    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/2015/11/22/notes-on-rare-deleuze-lectures/</loc>
+    <loc>https://jmrphy.net/tags/notes/</loc>
     <lastmod>2015-11-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/virginia-woolf/</loc>
+    <loc>https://jmrphy.net/blog/2015/11/22/notes-on-rare-deleuze-lectures/</loc>
     <lastmod>2015-11-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/mechanisms/</loc>
+    <loc>https://jmrphy.net/tags/virginia-woolf/</loc>
     <lastmod>2015-11-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/notes/</loc>
-    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication_types/2/</loc>
+    <loc>https://jmrphy.net/publication_types/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/publication/journal-article/</loc>
+    <loc>https://jmrphy.net/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/robert-ford/</loc>
+    <loc>https://jmrphy.net/authors/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/2014-09-27-economic-growth-and-democracy-data/</loc>
+    <loc>https://jmrphy.net/post/2014-09-27-economic-growth-and-democracy-data/</loc>
     <lastmod>2014-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/resources/</loc>
+    <loc>https://jmrphy.net/categories/resources/</loc>
     <lastmod>2014-09-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/teaching/</loc>
+    <loc>https://jmrphy.net/tags/teaching/</loc>
     <lastmod>2014-09-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/2014/07/14/propaganda-democracy-capitalism/</loc>
+    <loc>https://jmrphy.net/tags/slides/</loc>
     <lastmod>2014-07-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/media/</loc>
+    <loc>https://jmrphy.net/blog/2014/07/14/propaganda-democracy-capitalism/</loc>
     <lastmod>2014-07-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/slides/</loc>
-    <lastmod>2014-07-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</loc>
+    <loc>https://jmrphy.net/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</loc>
     <lastmod>2014-06-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/adorno/</loc>
+    <loc>https://jmrphy.net/tags/adorno/</loc>
     <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/frankfurt-school/</loc>
+    <loc>https://jmrphy.net/tags/frankfurt-school/</loc>
     <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/horkheimer/</loc>
+    <loc>https://jmrphy.net/tags/horkheimer/</loc>
     <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/marcuse/</loc>
+    <loc>https://jmrphy.net/tags/marcuse/</loc>
     <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/pacification/</loc>
-    <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/technology/</loc>
-    <lastmod>2014-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</loc>
+    <loc>https://jmrphy.net/tags/public-opinion/</loc>
     <lastmod>2014-02-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/public-opinion/</loc>
+    <loc>https://jmrphy.net/tags/public-policy/</loc>
     <lastmod>2014-02-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/public-policy/</loc>
+    <loc>https://jmrphy.net/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</loc>
     <lastmod>2014-02-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/jupyter/</loc>
-    <lastmod>2014-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2013/12/19/dg-stratifcation/</loc>
+    <loc>https://jmrphy.net/blog/2013/12/19/dg-stratifcation/</loc>
     <lastmod>2013-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/guattari/</loc>
-    <lastmod>2013-12-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/marx/</loc>
-    <lastmod>2013-11-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2013-11-17-remodeling-revolutionary-agency/</loc>
+    <loc>https://jmrphy.net/tags/marx/</loc>
     <lastmod>2013-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/1/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jmrphy.net/post/2013-11-17-remodeling-revolutionary-agency/</loc>
+    <lastmod>2013-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/conference-paper/</loc>
+    <loc>https://jmrphy.net/publication_types/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/05/22/generating-summary-statistics-in-r/</loc>
+    <loc>https://jmrphy.net/publication/conference-paper/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</loc>
     <lastmod>2012-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
+    <loc>https://jmrphy.net/tags/statistics/</loc>
     <lastmod>2012-05-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/justin-murphy/</loc>
+    <loc>https://jmrphy.net/authors/justin-murphy/</loc>
   </url>
   
   <url>
-    <loc>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</loc>
+    <loc>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</loc>
   </url>
   
   <url>
-    <loc>/post/2017-05-02-activism-is-a-virus/</loc>
+    <loc>https://jmrphy.net/tags/code/</loc>
   </url>
   
   <url>
-    <loc>/post/2017-09-04-americans-conservative-liberal-left-right/</loc>
+    <loc>https://jmrphy.net/courses/</loc>
   </url>
   
   <url>
-    <loc>/post/2017-04-28-capitalism-is-an-instance/</loc>
+    <loc>https://jmrphy.net/tags/education/</loc>
   </url>
   
   <url>
-    <loc>/courses/</loc>
+    <loc>https://jmrphy.net/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</loc>
   </url>
   
   <url>
-    <loc>/post/2017-09-12-rioting-decline-data/</loc>
+    <loc>https://jmrphy.net/blog/2014/11/22/intro-to-r-for-grad-students/</loc>
   </url>
   
   <url>
-    <loc>/post/2017-07-13-supertoxic-masculinity/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</loc>
-  </url>
-  
-  <url>
-    <loc>/blog/2014/11/22/intro-to-r-for-grad-students/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-03-27-is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-10-16-milo-motivated-reasoning/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/nick-land/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2017-04-11-on-turning-left-into-darkness/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-02-02-politics-of-not-knowing/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-06-20-the-affective-politics-of-keeping-it-real/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-04-24-the-formal-structure-of-paranoid-leftism/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2018-01-15-moral-foundations-of-social-justice-warriors/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-05-15-psychology-of-prohibiting-outside-thinkers/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-04-17-two-cultures-of-radical-politics/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-12-10-what-is-the-effect-of-comparing-donald-trump-to-hitler/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2017-09-06-jordan-peterson-followers/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2018-02-16-who-is-afraid-of-free-speech/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/academia/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/accelerationism/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/activism/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/code/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/education/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/emotions/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/gender/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/liberation/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/life/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/race/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/violence/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2017-01-27-mark-fisher-and-my-revolutionary-friends/</loc>
+    <loc>https://jmrphy.net/blog/2017/09/06/jordan-peterson-followers/</loc>
   </url>
   
 </urlset>

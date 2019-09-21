@@ -2,6 +2,8 @@
 title: "Milo, motivated reasoning, and the left-wing Fox News"
 subtitle: The new ideological fractures
 summary: "How progressive media culture treats Milo is a case study of how the left is approaching the cognitive level of Fox News."
+date: 2017-10-16
+url: blog/2017/10/16/milo-motivated-reasoning/
 tags:
 - media
 - social science

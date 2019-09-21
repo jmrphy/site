@@ -2,20 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>race on Justin Murphy</title>
-    <link>/tags/race/</link>
+    <link>https://jmrphy.net/tags/race/</link>
     <description>Recent content in race on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
+    <copyright>Justin Murphy</copyright>
+    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/race/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/race/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is the effect of comparing Donald Trump to Hitler?</title>
-      <link>/post/2017-12-10-what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/2017-12-10-what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
+      <guid>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
       <description>&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
 &lt;p&gt;Critics of U.S. President Donald Trump frequently [compare him to Adolf Hitler](http://amzn.to/2GJ0rsn). Does comparing Trump to Hitler decrease support for his policies? With the help of my students at the University of Southampton, we conducted a survey experiment to investigate the causal effect of a Hitler comparison on support for one of Trump&#39;s policies.&lt;/p&gt;
 

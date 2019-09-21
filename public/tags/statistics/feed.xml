@@ -2,21 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>statistics on Justin Murphy</title>
-    <link>/tags/statistics/</link>
+    <link>https://jmrphy.net/tags/statistics/</link>
     <description>Recent content in statistics on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
+    <copyright>Justin Murphy</copyright>
     <lastBuildDate>Tue, 22 May 2012 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/statistics/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/statistics/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Generating summary statistics and box/violin plots in R</title>
-      <link>/blog/2012/05/22/generating-summary-statistics-in-r/</link>
+      <link>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</link>
       <pubDate>Tue, 22 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
+      <guid>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
       <description>
 
 &lt;p&gt;Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&amp;rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.&lt;/p&gt;
@@ -119,10 +120,10 @@ library(wvioplot)                        # load the library of the package &amp;
     
     <item>
       <title>A quick-start guide to the statistical analysis of political attitudes and behaviors</title>
-      <link>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
+      <link>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
+      <guid>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
       <description>&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview&lt;/h1&gt;
 &lt;p&gt;The purpose of this document is to get you up and running with (potentially) professional-level, statistical analysis of political data, quickly. It will automatically import the Eurobarometer Trend File (1970-2002), a large survey dataset asking individuals across European countries a wide variety of questions in many different years. This document is intended to rapidly “bootstrap” individuals with zero programming knowledge into being able to conduct fairly sophisticated anlayses on a wide variety of political questions. In particular, this is intended especially for undergraduate political science students with no background in computer programming, interested in questions about political attitudes/behaviors, who wish to challenge themselves and build their skills/experience with quantitative data analysis. You can use this as a springboard to learning how to use R independently, but this document is not intended to teach you that. It’s a purely practical guide to jumpstart your capacity to produce analyses; everything else is up to you.&lt;/p&gt;

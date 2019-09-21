@@ -2,6 +2,8 @@
 title: "Social science and the radical politics of not knowing"
 subtitle: Cool your jets
 summary: "The real usefulness of social science in times of crisis."
+url: blog/2017/02/02/politics-of-not-knowing/
+date: 2017-02-02
 tags:
 - radical politics
 - social science

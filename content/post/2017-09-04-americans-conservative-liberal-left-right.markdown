@@ -2,6 +2,8 @@
 title: "Are Americans becoming more conservative or liberal (right or left)?"
 subtitle: "The new ideological fractures"
 summary: "Conservatism, racism, and white nationalism are not increasing. It's social liberalism that is taking over."
+url: blog/2017/09/04/americans-conservative-liberal-left-right/
+date: 2017-09-04
 tags:
 - academic research
 - social science

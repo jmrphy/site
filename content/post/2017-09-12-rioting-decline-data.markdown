@@ -1,6 +1,8 @@
 ---
 title: "Data appendix on global rioting dynamics"
 summary: "Supplementary information for my article on the hidden decline of rioting."
+url: blog/2017/09/12/rioting-decline-data/
+date: 2017-09-12
 tags:
 - academic research
 - data

@@ -2,6 +2,8 @@
 title: "“I Think We're Really Onto Something:” Mark Fisher and My Revolutionary Friends"
 subtitle: "Long reflections"
 summary: "If you think revolution is impossible, you are looking in the wrong places."
+url: blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/
+date: 2017-01-27
 tags:
 - radical politics
 - life

@@ -2,6 +2,8 @@
 title: "Capitalism is an instance, not an essence"
 subtitle: The thirst for thicc
 summary: "On Deleuze and Guattari, cosmic selection bias, and the room for revolutionary praxis despite unconditional acceleration."
+date: 2017-04-28
+url: blog/2017/04/28/capitalism-is-an-instance/
 tags:
 - radical politics
 - social science

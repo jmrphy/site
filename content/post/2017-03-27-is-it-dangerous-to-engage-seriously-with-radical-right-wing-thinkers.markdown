@@ -2,6 +2,8 @@
 title: "Is it dangerous to engage seriously with radical right-wing thinkers?"
 subtitle: The new ideological fractures
 summary: "If only it were."
+url: blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/
+date: 2017-03-27
 tags:
 - radical politics
 - ideology

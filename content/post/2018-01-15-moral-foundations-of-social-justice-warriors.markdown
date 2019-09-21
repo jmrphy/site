@@ -2,6 +2,8 @@
 title: "The moral foundations of social justice warriors"
 subtitle: The new ideological fractures
 summary: "Are Social Justice Warriors a real ideological faction of the Left, with a unique moral psychology? The first in a multi-part series using 'big data' to understand obscure ideological subcultures."
+date: 2018-01-15
+url: blog/2018/01/15/moral-foundations-of-social-justice-warriors
 tags:
 - academic research
 - social science
