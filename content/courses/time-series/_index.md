@@ -2,16 +2,14 @@
 date: "2018-09-09T00:00:00Z"
 draft: false
 lastmod: "2018-09-09T00:00:00Z"
-linktitle: An Example Course
+linktitle: Time-Series Modeling
 menu:
-  example:
-    name: Overview
+  media:
+    name: Time-Series Modeling (Two-Day Bootcamp for Organizations)
     weight: 1
-summary: Learn how to use Academic's docs layout for publishing online courses, software
-  documentation, and tutorials.
-title: Overview
+summary: Taught with R and/or Stata, as needed. On site. Cost is $2k plus travel.
+title: Time-Series Modeling (Two-Day Bootcamp for Organizations)
 toc: true
-type: docs
 weight: 1
 ---
 

@@ -36,4 +36,4 @@ user_groups:
 - Visitors
 ---
 
-Justin Murphy's research has been published in *IEEE*, *International Studies Quarterly*, *The British Journal of Political Science,* and popular outlets such as *Foreign Affairs* and *New Statesman.* He was a permanent Lecturer for five years at the University of Southampton before he left to work independently on the internet full-time. His work is funded by patrons, a monthly seminar, consulting, and book sales.
+Justin Murphy's research has been published in *IEEE Intelligent Systems*, *International Studies Quarterly*, *The British Journal of Political Science,* and popular outlets such as *Foreign Affairs* and *New Statesman.* He was a permanent Lecturer for five years at the University of Southampton before he left to work independently on the internet full-time. His work is funded by patrons, book sales, courses, and consulting.
