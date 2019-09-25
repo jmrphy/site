@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Demo on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/demo/</link>
+    <link>/tags/demo/</link>
     <description>Recent content in Demo on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/demo/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/demo/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>External Project</title>
-      <link>https://jmrphy.net/project/external-project/</link>
+      <link>/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/project/external-project/</guid>
+      <guid>/project/external-project/</guid>
       <description></description>
     </item>
     

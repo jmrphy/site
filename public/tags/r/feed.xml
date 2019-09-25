@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/r/</link>
+    <link>/tags/r/</link>
     <description>Recent content in R on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Fri, 01 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/r/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/r/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Inequality and the Pacification of Militant Protest in the United States, 1919-2012</title>
-      <link>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</link>
+      <link>/blog/inequality-and-pacification-of-protest/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</guid>
+      <guid>/blog/inequality-and-pacification-of-protest/</guid>
       <description>
 
 &lt;p&gt;To generate the graph below, you need two data files. The first is yearly income decile data from &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;Piketty (2014)&lt;/a&gt;, which should be named &amp;ldquo;Inequality_USA.csv.&amp;rdquo; The second is the Cross-National Time-Series data from &lt;a href=&#34;https://www.cntsdata.com/&#34; target=&#34;_blank&#34;&gt;Banks and Wilson (2017)&lt;/a&gt;, which should be called &amp;ldquo;2017 Edition CNTSDATA.csv.&amp;rdquo; Finally, the code snippet below should be in a file called &amp;ldquo;Baron_et_al-ISQ.R&amp;rdquo; — that will be an R script that compiles the two datasets before producing the figure from our article. To reproduce the Figure, open the R script on your computer, ensure each dataset is in the same directory as the R script, set your R working directory to that directory, and run the script.&lt;/p&gt;
@@ -110,10 +110,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>The moral foundations of social justice warriors</title>
-      <link>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
+      <link>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
+      <guid>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
       <description>
 
 &lt;p&gt;What is a social justice warrior? The term &lt;em&gt;SJW&lt;/em&gt;, short for &lt;em&gt;social justice warrior,&lt;/em&gt; is now a well-known piece of internet slang. It refers to a particular tendency within left-wing political activism today. People often ask me to define &amp;ldquo;social justice warrior&amp;rdquo;, or they ask: &amp;ldquo;Isn&amp;rsquo;t that just an epithet, like &amp;lsquo;political correctness,&amp;rsquo;  used by conservatives to dismiss the claims of marginalized people?&amp;rdquo; Or else it is sometimes suggested that such an ideologically loaded term is beneath a Serious Social Scientist. But I&amp;rsquo;ve been thinking about these questions a lot, and my sense is that &lt;em&gt;SJW&lt;/em&gt; seems to reasonably distinguish a particular dimension of left-wing ideology and behavior from the larger multidimensional umbrella of &amp;ldquo;the Left.&amp;rdquo;&lt;/p&gt;
@@ -183,11 +183,29 @@ democratic socialism likely revolves around principles different than those at t
     </item>
     
     <item>
+      <title>Data Blogging with R (Free Course)</title>
+      <link>/project/internal-project/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/internal-project/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Generating summary statistics and box/violin plots in R</title>
-      <link>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</link>
+      <link>/blog/2012/05/22/generating-summary-statistics-in-r/</link>
       <pubDate>Tue, 22 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
+      <guid>/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
       <description>
 
 &lt;p&gt;Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&amp;rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.&lt;/p&gt;
@@ -290,10 +308,10 @@ library(wvioplot)                        # load the library of the package &amp;
     
     <item>
       <title>A quick-start guide to the statistical analysis of political attitudes and behaviors</title>
-      <link>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
+      <link>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
+      <guid>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
       <description>&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview&lt;/h1&gt;
 &lt;p&gt;The purpose of this document is to get you up and running with (potentially) professional-level, statistical analysis of political data, quickly. It will automatically import the Eurobarometer Trend File (1970-2002), a large survey dataset asking individuals across European countries a wide variety of questions in many different years. This document is intended to rapidly “bootstrap” individuals with zero programming knowledge into being able to conduct fairly sophisticated anlayses on a wide variety of political questions. In particular, this is intended especially for undergraduate political science students with no background in computer programming, interested in questions about political attitudes/behaviors, who wish to challenge themselves and build their skills/experience with quantitative data analysis. You can use this as a springboard to learning how to use R independently, but this document is not intended to teach you that. It’s a purely practical guide to jumpstart your capacity to produce analyses; everything else is up to you.&lt;/p&gt;
@@ -512,10 +530,10 @@ s.out &amp;lt;-&lt;span class=&#34;st&#34;&gt; &lt;/span&gt;&lt;span class=&#34;
     
     <item>
       <title>Intro to R for graduate students</title>
-      <link>https://jmrphy.net/blog/2014/11/22/intro-to-r-for-grad-students/</link>
+      <link>/blog/2014/11/22/intro-to-r-for-grad-students/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2014/11/22/intro-to-r-for-grad-students/</guid>
+      <guid>/blog/2014/11/22/intro-to-r-for-grad-students/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://jmrphy.net/r_intro_for_grad_students/r_intro.pdf&#34;&gt;&lt;i class=&#34;fa fa-file-pdf fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt; |
 &lt;a href=&#34;https://github.com/jmrphy/r_intro_for_grad_students&#34;&gt;&lt;i class=&#34;fa fa-flask fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Justin Murphy</title>
-    <link>https://jmrphy.net/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sat, 08 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/categories/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/categories/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>personal</title>
-      <link>https://jmrphy.net/categories/personal/</link>
+      <link>/categories/personal/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/categories/personal/</guid>
+      <guid>/categories/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>theory &amp; empirics</title>
-      <link>https://jmrphy.net/categories/theory-empirics/</link>
+      <link>/categories/theory-empirics/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/categories/theory-empirics/</guid>
+      <guid>/categories/theory-empirics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>resources</title>
-      <link>https://jmrphy.net/categories/resources/</link>
+      <link>/categories/resources/</link>
       <pubDate>Sat, 27 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/categories/resources/</guid>
+      <guid>/categories/resources/</guid>
       <description></description>
     </item>
     

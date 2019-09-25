@@ -9,11 +9,12 @@ links:
   icon_pack: fab
   name: Follow
   url: https://twitter.com/georgecushen
-slides: example
-summary: An example of using the in-built project page.
+slides: data-blogging-mini
+summary: Data Blogging with R (Free Course)
 tags:
-- Deep Learning
-title: Internal Project
+- R
+- data
+title: Data Blogging with R (Free Course)
 url_code: ""
 url_pdf: ""
 url_slides: ""
