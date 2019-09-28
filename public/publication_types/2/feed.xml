@@ -7,31 +7,45 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
-    <lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/publication_types/2/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>An example journal article</title>
-      <link>/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <title>Liberal Pacification and the Phenomenology of Violence</title>
+      <link>/publication/isq/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <guid>/publication/isq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Artificial Intelligence, Rationality, and the World Wide Web</title>
+      <link>/publication/ieee/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/ieee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Does Media Coverage Drive Public Support for UKIP or Does Public Support for UKIP Drive Media Coverage?</title>
+      <link>/publication/bjps/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/bjps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>What Does It Mean to Make-Up the Mind (οὕτω διανοεῖσθε)?</title>
+      <link>/publication/parrhesia/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/parrhesia/</guid>
+      <description></description>
     </item>
     
   </channel>

@@ -18,18 +18,38 @@
   </url>
   
   <url>
+    <loc>/tags/blogging/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/talk/example/</loc>
     <lastmod>2019-06-08T19:13:42-04:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-09-21T18:54:35-06:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-09-21T18:54:35-06:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
@@ -48,58 +68,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-09-21T18:54:35-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/3/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-06-18T16:21:07-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/preprint/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-06-18T16:21:07-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/source-themes/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/data-blogging-mini-course-copy/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/data-blogging-mini-course/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/privacy/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
+    <loc>/publication_types/2/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -108,18 +78,93 @@
   </url>
   
   <url>
-    <loc>/tags/data/</loc>
+    <loc>/publication/isq/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/liberal-peace/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pacification/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/data-mini/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/example/</loc>
+    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/slides/</loc>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/artificial-intelligence/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/ieee/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/bjps/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ideology/</loc>
+    <lastmod>2019-09-21T18:54:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/media/</loc>
+    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/public-opinion/</loc>
+    <lastmod>2019-06-18T20:10:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/statistical-methods/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/time-series/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/privacy/</loc>
+    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/inequality-and-pacification-of-protest/</loc>
     <lastmod>2019-06-18T20:10:39-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
   
   <url>
@@ -129,11 +174,6 @@
   
   <url>
     <loc>/categories/theory-empirics/</loc>
-    <lastmod>2019-09-21T18:54:35-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/ideology/</loc>
     <lastmod>2019-09-21T18:54:35-06:00</lastmod>
   </url>
   
@@ -163,8 +203,28 @@
   </url>
   
   <url>
-    <loc>/tags/media/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+    <loc>/tags/free-speech/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gilles-deleuze/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/jacques-lacan/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/michel-foucault/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/parrhesia/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -184,11 +244,6 @@
   
   <url>
     <loc>/blog/2017/09/12/rioting-decline-data/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/pacification/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
   
@@ -319,27 +374,27 @@
   
   <url>
     <loc>/project/based-deleuze/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
     <loc>/project/internal-project/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/other-life/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
     <loc>/project/other-life/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
     <loc>/project/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
+    <lastmod>2019-09-24T21:51:16-06:00</lastmod>
   </url>
   
   <url>
@@ -355,21 +410,6 @@
   <url>
     <loc>/tags/virginia-woolf/</loc>
     <lastmod>2019-06-18T20:10:39-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/2/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/journal-article/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/robert-ford/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
   </url>
   
   <url>
@@ -433,8 +473,13 @@
   </url>
   
   <url>
-    <loc>/tags/public-opinion/</loc>
-    <lastmod>2019-06-18T20:10:39-06:00</lastmod>
+    <loc>/authors/admin/</loc>
+    <lastmod>2019-06-18T16:21:07-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2019-06-18T16:21:07-06:00</lastmod>
   </url>
   
   <url>
@@ -465,16 +510,6 @@
   <url>
     <loc>/post/2013-11-17-remodeling-revolutionary-agency/</loc>
     <lastmod>2019-06-18T20:10:39-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/1/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/conference-paper/</loc>
-    <lastmod>2019-06-08T19:13:42-04:00</lastmod>
   </url>
   
   <url>

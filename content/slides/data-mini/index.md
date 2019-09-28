@@ -1,18 +1,18 @@
 ---
-authors: [Justin Murphy]
-categories: [R, data, blogging]
+authors: []
+categories: [slides]
 date: "2019-02-05T00:00:00Z"
 slides:
   highlight_style: dracula
   theme: black
 summary: In one week, you'll publish your first data-driven blog post — and gain your first readers. Guaranteed.
-tags: []
+tags: [data, blogging, R]
 title: Slides
 ---
 
-# Welcome to Slides
+# Start a Data Blog to Win Friends and Influence People
 
-[Start a Data Blog to Win Friends and Influence People](https://sourcethemes.com/academic/)
+A free online course
 
 ---
 
@@ -22,7 +22,7 @@ title: Slides
 - Trust & attention are the most valuable assets today
 - Demo programming skills (even if you don't have them yet)
 - Attract invitations and job offers
-- Unleash solo content creation at scale
+- Publish solo content creation at scale
 
 ---
 

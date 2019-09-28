@@ -7,20 +7,20 @@ education:
   - course: PhD in Political Science
     institution: Temple University
     year: 2014
-email: ""
+email: "jstnmrphy@gmail.com"
 interests:
 - Behavioral Science
 - Political Theory
 - Statistical Methods
 name: Justin Murphy
 organizations:
-- name: ""
-  url: ""
-role: Assistant Professor Emeritus
+- name: "Other Life"
+  url: "https://theotherlifenow.com"
+role: Retired Academic
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'
+  link: 'mailto:jstnmrphy@gmail.com'
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/jmrphy

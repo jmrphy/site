@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogging on Justin Murphy</title>
+    <link>/tags/blogging/</link>
+    <description>Recent content in blogging on Justin Murphy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>Justin Murphy</copyright>
+    <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/blogging/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Blogging with R</title>
+      <link>/talk/example/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>/talk/example/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>/slides/data-mini/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/slides/data-mini/</guid>
+      <description>
+
+&lt;h1 id=&#34;start-a-data-blog-to-win-friends-and-influence-people&#34;&gt;Start a Data Blog to Win Friends and Influence People&lt;/h1&gt;
+
+&lt;p&gt;A free online course&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Real data make you trustworthy and attention-worthy&lt;/li&gt;
+&lt;li&gt;Trust &amp;amp; attention are the most valuable assets today&lt;/li&gt;
+&lt;li&gt;Demo programming skills (even if you don&amp;rsquo;t have them yet)&lt;/li&gt;
+&lt;li&gt;Attract invitations and job offers&lt;/li&gt;
+&lt;li&gt;Publish solo content creation at scale&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Setup your free data programming environment (R &amp;amp; RStudio)&lt;/li&gt;
+&lt;li&gt;Get a big, free, professional dataset (I got your back)&lt;/li&gt;
+&lt;li&gt;Setup a free blog&lt;/li&gt;
+&lt;li&gt;Install free analytics for immediate feedback&lt;/li&gt;
+&lt;li&gt;Produce a data-driven blog post&lt;/li&gt;
+&lt;li&gt;Share in a relevant community&lt;/li&gt;
+&lt;li&gt;Watch readers visit, guaranteed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jmrphy.net/contact&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

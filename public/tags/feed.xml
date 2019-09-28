@@ -7,10 +7,37 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
-    <lastBuildDate>Sat, 08 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/tags/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blogging</title>
+      <link>/tags/blogging/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data</title>
+      <link>/tags/data/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Deep Learning</title>
@@ -22,38 +49,83 @@
     </item>
     
     <item>
-      <title>Source Themes</title>
-      <link>/tags/source-themes/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/source-themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>academic research</title>
       <link>/tags/academic-research/</link>
-      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/academic-research/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>data</title>
-      <link>/tags/data/</link>
-      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      <title>liberal peace</title>
+      <link>/tags/liberal-peace/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data/</guid>
+      <guid>/tags/liberal-peace/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      <title>pacification</title>
+      <link>/tags/pacification/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>/tags/pacification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>artificial intelligence</title>
+      <link>/tags/artificial-intelligence/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/artificial-intelligence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ideology</title>
+      <link>/tags/ideology/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ideology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>media</title>
+      <link>/tags/media/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>public opinion</title>
+      <link>/tags/public-opinion/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/public-opinion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistical methods</title>
+      <link>/tags/statistical-methods/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/statistical-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>time series</title>
+      <link>/tags/time-series/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/time-series/</guid>
       <description></description>
     </item>
     
@@ -63,15 +135,6 @@
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/social-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ideology</title>
-      <link>/tags/ideology/</link>
-      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ideology/</guid>
       <description></description>
     </item>
     
@@ -94,11 +157,38 @@
     </item>
     
     <item>
-      <title>media</title>
-      <link>/tags/media/</link>
-      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      <title>free speech</title>
+      <link>/tags/free-speech/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/media/</guid>
+      <guid>/tags/free-speech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gilles Deleuze</title>
+      <link>/tags/gilles-deleuze/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gilles-deleuze/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jacques Lacan</title>
+      <link>/tags/jacques-lacan/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jacques-lacan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Michel Foucault</title>
+      <link>/tags/michel-foucault/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/michel-foucault/</guid>
       <description></description>
     </item>
     
@@ -108,15 +198,6 @@
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/race/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pacification</title>
-      <link>/tags/pacification/</link>
-      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/pacification/</guid>
       <description></description>
     </item>
     
@@ -324,15 +405,6 @@
       <pubDate>Sun, 20 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/tags/academic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>public opinion</title>
-      <link>/tags/public-opinion/</link>
-      <pubDate>Sat, 15 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/public-opinion/</guid>
       <description></description>
     </item>
     
