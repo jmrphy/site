@@ -9,6 +9,10 @@ links:
   icon_pack: fab
   name: Follow
   url: https://twitter.com/jmrphy
+- icon: graduation-cap
+  icon_pack: fas
+  name: Start now
+  url: https://jmrphy.ck.page/data-blogging-mini-course
 slides: data-blogging-mini
 summary: Data Blogging with R (Free Course)
 tags:
@@ -24,3 +28,7 @@ url_video: ""
 In one week, you'll publish your first data-driven blog post — and gain your first readers. Guaranteed.
 
 Also — I genuinely encourage you to ask me questions, if you'd like. I’m using this free course as a testing ground to build up a higher-value course, so helping you troubleshoot will help me know what to focus on.
+
+
+<center><script async data-uid="fd066e90ea" src="https://jmrphy.ck.page/fd066e90ea/index.js"></script>
+</center>
