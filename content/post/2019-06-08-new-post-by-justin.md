@@ -5,7 +5,7 @@ slug: migrated-to-hugo
 categories:
   - personal
 tags:
-  - Deep Learning
+  - blogging
 subtitle: ''
 summary: ''
 authors: []

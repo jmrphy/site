@@ -4,7 +4,6 @@ subtitle: The new ideological fractures
 summary: "An academic psychologist is connecting left-libertarians and Trump supporters."
 date: 2017-09-06
 url: blog/2017/09/06/jordan-peterson-followers/
-date: blog/2017/09/06/jordan-peterson-followers/
 tags:
 - data
 - visualization
@@ -12,11 +11,6 @@ tags:
 - social science
 categories:
 - theory & empirics
-keywords:
-- Jordan Peterson
-- left libertarians
-- educated Trump supporters
-- Jordan Peterson reddit
 ---
 
 <p>I’ve been curious about the new massive camp of Jordan Peterson acolytes. In one of my many prodigal late-night lurking sessions through the depths of Reddit, I noticed they collected some data on themselves. So here we go.</p>
