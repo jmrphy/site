@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Justin Murphy">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="We’ll use two packages: The package Quandl for programmatically accessing a variety of financial time-series, and the package dygraphs for lovely interactive graphs based on the eponymous Javascript library. If you don’t already have them, install them.
+Below, we load the packages and run a search through the Quandl database to see what kind of variables we have to choose from. Feel free to explore your own interests and run the following example on a different variable.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/analyze-financial-time-series-without-touching-a-spreadsheet/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.f3c34866a5dd3fc20db500242d15fb47.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-42953742-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/analyze-financial-time-series-without-touching-a-spreadsheet/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@jmrphy">
+  <meta property="twitter:creator" content="@jmrphy">
+  
+  <meta property="og:site_name" content="Justin Murphy">
+  <meta property="og:url" content="/post/analyze-financial-time-series-without-touching-a-spreadsheet/">
+  <meta property="og:title" content="Make interactive graphs of financial time-series in five minutes with R (Bitcoin example) | Justin Murphy">
+  <meta property="og:description" content="We’ll use two packages: The package Quandl for programmatically accessing a variety of financial time-series, and the package dygraphs for lovely interactive graphs based on the eponymous Javascript library. If you don’t already have them, install them.
+Below, we load the packages and run a search through the Quandl database to see what kind of variables we have to choose from. Feel free to explore your own interests and run the following example on a different variable."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-10-15T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-10-07T18:06:01-06:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Make interactive graphs of financial time-series in five minutes with R (Bitcoin example) | Justin Murphy</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Justin Murphy</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Make interactive graphs of financial time-series in five minutes with R (Bitcoin example)</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-10-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-10-07 18:06:01 -0600 MDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Oct 7, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/analyze-financial-time-series-without-touching-a-spreadsheet/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/resources/">resources</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Make%20interactive%20graphs%20of%20financial%20time-series%20in%20five%20minutes%20with%20R%20%28Bitcoin%20example%29&amp;url=%2fpost%2fanalyze-financial-time-series-without-touching-a-spreadsheet%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fanalyze-financial-time-series-without-touching-a-spreadsheet%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fanalyze-financial-time-series-without-touching-a-spreadsheet%2f&amp;title=Make%20interactive%20graphs%20of%20financial%20time-series%20in%20five%20minutes%20with%20R%20%28Bitcoin%20example%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fanalyze-financial-time-series-without-touching-a-spreadsheet%2f&amp;title=Make%20interactive%20graphs%20of%20financial%20time-series%20in%20five%20minutes%20with%20R%20%28Bitcoin%20example%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Make%20interactive%20graphs%20of%20financial%20time-series%20in%20five%20minutes%20with%20R%20%28Bitcoin%20example%29&amp;body=%2fpost%2fanalyze-financial-time-series-without-touching-a-spreadsheet%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/dygraphs/dygraph.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dygraphs/dygraph-combined.js"></script>
+<script src="/rmarkdown-libs/dygraphs/shapes.js"></script>
+<script src="/rmarkdown-libs/moment/moment.js"></script>
+<script src="/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js"></script>
+<script src="/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js"></script>
+<script src="/rmarkdown-libs/dygraphs-binding/dygraphs.js"></script>
+
+
+<p>We’ll use two packages: The package <code>Quandl</code> for programmatically accessing a variety of financial time-series, and the package <code>dygraphs</code> for lovely interactive graphs based on the eponymous Javascript library. If you don’t already have them, install them.</p>
+<p>Below, we load the packages and run a search through the Quandl database to see what kind of variables we have to choose from. Feel free to explore your own interests and run the following example on a different variable. For this example, I’m interested in Bitcoin so I’ll use the <code>Quandl.search()</code> function to search for variables mentioning <code>bitcoin</code>. When you find a result you’re interested in, note the dataset code and the database code.</p>
+<pre class="r"><code>require(dygraphs)
+require(Quandl)
+
+search.results &lt;- Quandl.search(&quot;bitcoin&quot;, silent=T)
+
+head(search.results, 2) # Show the first 2 results</code></pre>
+<pre><code>##         id dataset_code database_code                       name
+## 1 11320897     BTC24EUR       BCHARTS Bitcoin Markets (btc24EUR)
+## 2 11320898     BTC24USD       BCHARTS Bitcoin Markets (btc24USD)
+##                                                                                                                                                                                                                                         description
+## 1 Daily Bitcoin exchange rate (BTC vs. EUR) on Btc24. Updated daily at 6:00pm EST. Data is sourced from http://www.bitcoincharts.com . For other Bitcoin data and charts see our Bitcoin markets page (http://www.quandl.com/markets/bitcoin-data).
+## 2 Daily Bitcoin exchange rate (BTC vs. USD) on Btc24. Updated daily at 6:00pm EST. Data is sourced from http://www.bitcoincharts.com . For other Bitcoin data and charts see our Bitcoin markets page (http://www.quandl.com/markets/bitcoin-data).
+##               refreshed_at newest_available_date oldest_available_date
+## 1 2016-01-14T23:01:25.970Z            2014-09-04            2012-05-09
+## 2 2016-01-14T23:01:25.239Z            2013-04-13            2012-05-14
+##                                                                    column_names
+## 1 Date, Open, High, Low, Close, Volume (BTC), Volume (Currency), Weighted Price
+## 2 Date, Open, High, Low, Close, Volume (BTC), Volume (Currency), Weighted Price
+##   frequency        type premium database_id
+## 1     daily Time Series   FALSE        8431
+## 2     daily Time Series   FALSE        8431</code></pre>
+<p>Next, we’ll use the <code>Quandl()</code> function to import the time-series of interest. I’m selecting the <code>BTC24USD</code> dataset from the <code>BCHARTS</code> database, as revealed to me in the search results above. Set the <code>type</code> option to <code>xts,</code> which is just one of R’s widely-used formats for time-series variables. It plays well with the dygraph package.</p>
+<pre class="r"><code>bitcoin &lt;- Quandl(&quot;BCHARTS/BTC24USD&quot;, type = &quot;xts&quot;)</code></pre>
+<p>After running the above line, you should now have a dataframe object named <code>bitcoin.</code> To produce a nice, interactive plot, simply use the <code>dygraph()</code> function and specify the variable of interest from your dataframe. Give it a title, and run it.</p>
+<pre class="r"><code>dygraph(bitcoin$`Weighted Price`, main = &quot;Bitcoin Exchange Rate (BTC vs. USD&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"attrs":{"title":"Bitcoin Exchange Rate (BTC vs. USD","labels":["day","Weighted Price"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}}},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2012-05-14T00:00:00.000Z","2012-05-15T00:00:00.000Z","2012-05-16T00:00:00.000Z","2012-05-17T00:00:00.000Z","2012-05-18T00:00:00.000Z","2012-05-19T00:00:00.000Z","2012-05-20T00:00:00.000Z","2012-05-21T00:00:00.000Z","2012-05-22T00:00:00.000Z","2012-05-23T00:00:00.000Z","2012-05-24T00:00:00.000Z","2012-05-25T00:00:00.000Z","2012-05-26T00:00:00.000Z","2012-05-27T00:00:00.000Z","2012-05-28T00:00:00.000Z","2012-05-29T00:00:00.000Z","2012-05-30T00:00:00.000Z","2012-05-31T00:00:00.000Z","2012-06-01T00:00:00.000Z","2012-06-02T00:00:00.000Z","2012-06-03T00:00:00.000Z","2012-06-04T00:00:00.000Z","2012-06-05T00:00:00.000Z","2012-06-06T00:00:00.000Z","2012-06-07T00:00:00.000Z","2012-06-08T00:00:00.000Z","2012-06-09T00:00:00.000Z","2012-06-10T00:00:00.000Z","2012-06-11T00:00:00.000Z","2012-06-12T00:00:00.000Z","2012-06-13T00:00:00.000Z","2012-06-14T00:00:00.000Z","2012-06-15T00:00:00.000Z","2012-06-16T00:00:00.000Z","2012-06-17T00:00:00.000Z","2012-06-18T00:00:00.000Z","2012-06-19T00:00:00.000Z","2012-06-20T00:00:00.000Z","2012-06-21T00:00:00.000Z","2012-06-22T00:00:00.000Z","2012-06-23T00:00:00.000Z","2012-06-24T00:00:00.000Z","2012-06-25T00:00:00.000Z","2012-06-26T00:00:00.000Z","2012-06-27T00:00:00.000Z","2012-06-28T00:00:00.000Z","2012-06-29T00:00:00.000Z","2012-06-30T00:00:00.000Z","2012-07-01T00:00:00.000Z","2012-07-02T00:00:00.000Z","2012-07-03T00:00:00.000Z","2012-07-04T00:00:00.000Z","2012-07-05T00:00:00.000Z","2012-07-06T00:00:00.000Z","2012-07-07T00:00:00.000Z","2012-07-08T00:00:00.000Z","2012-07-09T00:00:00.000Z","2012-07-10T00:00:00.000Z","2012-07-11T00:00:00.000Z","2012-07-12T00:00:00.000Z","2012-07-13T00:00:00.000Z","2012-07-14T00:00:00.000Z","2012-07-15T00:00:00.000Z","2012-07-16T00:00:00.000Z","2012-07-17T00:00:00.000Z","2012-07-18T00:00:00.000Z","2012-07-19T00:00:00.000Z","2012-07-20T00:00:00.000Z","2012-07-21T00:00:00.000Z","2012-07-22T00:00:00.000Z","2012-07-23T00:00:00.000Z","2012-07-24T00:00:00.000Z","2012-07-25T00:00:00.000Z","2012-07-26T00:00:00.000Z","2012-07-27T00:00:00.000Z","2012-07-28T00:00:00.000Z","2012-07-29T00:00:00.000Z","2012-07-30T00:00:00.000Z","2012-07-31T00:00:00.000Z","2012-08-01T00:00:00.000Z","2012-08-02T00:00:00.000Z","2012-08-03T00:00:00.000Z","2012-08-04T00:00:00.000Z","2012-08-05T00:00:00.000Z","2012-08-06T00:00:00.000Z","2012-08-07T00:00:00.000Z","2012-08-08T00:00:00.000Z","2012-08-09T00:00:00.000Z","2012-08-10T00:00:00.000Z","2012-08-11T00:00:00.000Z","2012-08-12T00:00:00.000Z","2012-08-13T00:00:00.000Z","2012-08-14T00:00:00.000Z","2012-08-15T00:00:00.000Z","2012-08-16T00:00:00.000Z","2012-08-17T00:00:00.000Z","2012-08-18T00:00:00.000Z","2012-08-19T00:00:00.000Z","2012-08-20T00:00:00.000Z","2012-08-21T00:00:00.000Z","2012-08-22T00:00:00.000Z","2012-08-23T00:00:00.000Z","2012-08-24T00:00:00.000Z","2012-08-25T00:00:00.000Z","2012-08-26T00:00:00.000Z","2012-08-27T00:00:00.000Z","2012-08-28T00:00:00.000Z","2012-08-29T00:00:00.000Z","2012-08-30T00:00:00.000Z","2012-08-31T00:00:00.000Z","2012-09-01T00:00:00.000Z","2012-09-02T00:00:00.000Z","2012-09-03T00:00:00.000Z","2012-09-04T00:00:00.000Z","2012-09-05T00:00:00.000Z","2012-09-06T00:00:00.000Z","2012-09-07T00:00:00.000Z","2012-09-08T00:00:00.000Z","2012-09-09T00:00:00.000Z","2012-09-10T00:00:00.000Z","2012-09-11T00:00:00.000Z","2012-09-12T00:00:00.000Z","2012-09-13T00:00:00.000Z","2012-09-14T00:00:00.000Z","2012-09-15T00:00:00.000Z","2012-09-16T00:00:00.000Z","2012-09-17T00:00:00.000Z","2012-09-18T00:00:00.000Z","2012-09-19T00:00:00.000Z","2012-09-20T00:00:00.000Z","2012-09-21T00:00:00.000Z","2012-09-22T00:00:00.000Z","2012-09-23T00:00:00.000Z","2012-09-24T00:00:00.000Z","2012-09-25T00:00:00.000Z","2012-09-26T00:00:00.000Z","2012-09-27T00:00:00.000Z","2012-09-28T00:00:00.000Z","2012-09-29T00:00:00.000Z","2012-09-30T00:00:00.000Z","2012-10-01T00:00:00.000Z","2012-10-02T00:00:00.000Z","2012-10-03T00:00:00.000Z","2012-10-04T00:00:00.000Z","2012-10-05T00:00:00.000Z","2012-10-06T00:00:00.000Z","2012-10-07T00:00:00.000Z","2012-10-08T00:00:00.000Z","2012-10-09T00:00:00.000Z","2012-10-10T00:00:00.000Z","2012-10-11T00:00:00.000Z","2012-10-12T00:00:00.000Z","2012-10-13T00:00:00.000Z","2012-10-14T00:00:00.000Z","2012-10-15T00:00:00.000Z","2012-10-16T00:00:00.000Z","2012-10-17T00:00:00.000Z","2012-10-18T00:00:00.000Z","2012-10-19T00:00:00.000Z","2012-10-20T00:00:00.000Z","2012-10-21T00:00:00.000Z","2012-10-22T00:00:00.000Z","2012-10-23T00:00:00.000Z","2012-10-24T00:00:00.000Z","2012-10-25T00:00:00.000Z","2012-10-26T00:00:00.000Z","2012-10-27T00:00:00.000Z","2012-10-28T00:00:00.000Z","2012-10-29T00:00:00.000Z","2012-10-30T00:00:00.000Z","2012-10-31T00:00:00.000Z","2012-11-01T00:00:00.000Z","2012-11-02T00:00:00.000Z","2012-11-03T00:00:00.000Z","2012-11-04T00:00:00.000Z","2012-11-05T00:00:00.000Z","2012-11-06T00:00:00.000Z","2012-11-07T00:00:00.000Z","2012-11-08T00:00:00.000Z","2012-11-09T00:00:00.000Z","2012-11-10T00:00:00.000Z","2012-11-11T00:00:00.000Z","2012-11-12T00:00:00.000Z","2012-11-13T00:00:00.000Z","2012-11-14T00:00:00.000Z","2012-11-15T00:00:00.000Z","2012-11-16T00:00:00.000Z","2012-11-17T00:00:00.000Z","2012-11-18T00:00:00.000Z","2012-11-19T00:00:00.000Z","2012-11-20T00:00:00.000Z","2012-11-21T00:00:00.000Z","2012-11-22T00:00:00.000Z","2012-11-23T00:00:00.000Z","2012-11-24T00:00:00.000Z","2012-11-25T00:00:00.000Z","2012-11-26T00:00:00.000Z","2012-11-27T00:00:00.000Z","2012-11-28T00:00:00.000Z","2012-11-29T00:00:00.000Z","2012-11-30T00:00:00.000Z","2012-12-01T00:00:00.000Z","2012-12-02T00:00:00.000Z","2012-12-03T00:00:00.000Z","2012-12-04T00:00:00.000Z","2012-12-05T00:00:00.000Z","2012-12-06T00:00:00.000Z","2012-12-07T00:00:00.000Z","2012-12-08T00:00:00.000Z","2012-12-09T00:00:00.000Z","2012-12-10T00:00:00.000Z","2012-12-11T00:00:00.000Z","2012-12-12T00:00:00.000Z","2012-12-13T00:00:00.000Z","2012-12-14T00:00:00.000Z","2012-12-15T00:00:00.000Z","2012-12-16T00:00:00.000Z","2012-12-17T00:00:00.000Z","2012-12-18T00:00:00.000Z","2012-12-19T00:00:00.000Z","2012-12-20T00:00:00.000Z","2012-12-21T00:00:00.000Z","2012-12-22T00:00:00.000Z","2012-12-23T00:00:00.000Z","2012-12-24T00:00:00.000Z","2012-12-25T00:00:00.000Z","2012-12-26T00:00:00.000Z","2012-12-27T00:00:00.000Z","2012-12-28T00:00:00.000Z","2012-12-29T00:00:00.000Z","2012-12-30T00:00:00.000Z","2012-12-31T00:00:00.000Z","2013-01-01T00:00:00.000Z","2013-01-02T00:00:00.000Z","2013-01-03T00:00:00.000Z","2013-01-04T00:00:00.000Z","2013-01-05T00:00:00.000Z","2013-01-06T00:00:00.000Z","2013-01-07T00:00:00.000Z","2013-01-08T00:00:00.000Z","2013-01-09T00:00:00.000Z","2013-01-10T00:00:00.000Z","2013-01-11T00:00:00.000Z","2013-01-12T00:00:00.000Z","2013-01-13T00:00:00.000Z","2013-01-14T00:00:00.000Z","2013-01-15T00:00:00.000Z","2013-01-16T00:00:00.000Z","2013-01-17T00:00:00.000Z","2013-01-18T00:00:00.000Z","2013-01-19T00:00:00.000Z","2013-01-20T00:00:00.000Z","2013-01-21T00:00:00.000Z","2013-01-22T00:00:00.000Z","2013-01-23T00:00:00.000Z","2013-01-24T00:00:00.000Z","2013-01-25T00:00:00.000Z","2013-01-26T00:00:00.000Z","2013-01-27T00:00:00.000Z","2013-01-28T00:00:00.000Z","2013-01-29T00:00:00.000Z","2013-01-30T00:00:00.000Z","2013-01-31T00:00:00.000Z","2013-02-01T00:00:00.000Z","2013-02-02T00:00:00.000Z","2013-02-03T00:00:00.000Z","2013-02-04T00:00:00.000Z","2013-02-05T00:00:00.000Z","2013-02-06T00:00:00.000Z","2013-02-07T00:00:00.000Z","2013-02-08T00:00:00.000Z","2013-02-09T00:00:00.000Z","2013-02-10T00:00:00.000Z","2013-02-11T00:00:00.000Z","2013-02-12T00:00:00.000Z","2013-02-13T00:00:00.000Z","2013-02-14T00:00:00.000Z","2013-02-15T00:00:00.000Z","2013-02-16T00:00:00.000Z","2013-02-17T00:00:00.000Z","2013-02-18T00:00:00.000Z","2013-02-19T00:00:00.000Z","2013-02-20T00:00:00.000Z","2013-02-21T00:00:00.000Z","2013-02-22T00:00:00.000Z","2013-02-23T00:00:00.000Z","2013-02-24T00:00:00.000Z","2013-02-25T00:00:00.000Z","2013-02-26T00:00:00.000Z","2013-02-27T00:00:00.000Z","2013-02-28T00:00:00.000Z","2013-03-01T00:00:00.000Z","2013-03-02T00:00:00.000Z","2013-03-03T00:00:00.000Z","2013-03-04T00:00:00.000Z","2013-03-05T00:00:00.000Z","2013-03-06T00:00:00.000Z","2013-03-07T00:00:00.000Z","2013-03-08T00:00:00.000Z","2013-03-09T00:00:00.000Z","2013-03-10T00:00:00.000Z","2013-03-11T00:00:00.000Z","2013-03-12T00:00:00.000Z","2013-03-13T00:00:00.000Z","2013-03-14T00:00:00.000Z","2013-03-15T00:00:00.000Z","2013-03-16T00:00:00.000Z","2013-03-17T00:00:00.000Z","2013-03-18T00:00:00.000Z","2013-03-19T00:00:00.000Z","2013-03-20T00:00:00.000Z","2013-03-21T00:00:00.000Z","2013-03-22T00:00:00.000Z","2013-03-23T00:00:00.000Z","2013-03-24T00:00:00.000Z","2013-03-25T00:00:00.000Z","2013-03-26T00:00:00.000Z","2013-03-27T00:00:00.000Z","2013-03-28T00:00:00.000Z","2013-03-29T00:00:00.000Z","2013-03-30T00:00:00.000Z","2013-03-31T00:00:00.000Z","2013-04-01T00:00:00.000Z","2013-04-02T00:00:00.000Z","2013-04-03T00:00:00.000Z","2013-04-04T00:00:00.000Z","2013-04-05T00:00:00.000Z","2013-04-06T00:00:00.000Z","2013-04-07T00:00:00.000Z","2013-04-08T00:00:00.000Z","2013-04-09T00:00:00.000Z","2013-04-10T00:00:00.000Z","2013-04-11T00:00:00.000Z","2013-04-12T00:00:00.000Z","2013-04-13T00:00:00.000Z"],[4.88814569536,4.85031007752,4.89740346253,4.91930384987,4.98,4.99351351351,0,0,0,4.98677053824,5.02,5.0230162899,5.01395752638,5.02430099409,5.04,0,4.97,5.05,5.09177602667,5.13966669583,5.15,5.15732863298,5.27510331837,0,0,5.48,0,0,5.6365470852,5.60684048691,5.86674556411,5.9178313253,5.92596293675,0,6.54144809353,6.655,6.62639305464,6.69733208893,0,0,6.89146435746,6.90794182626,7,0,6.65,0,6.65,0,0,0,6.5,6.50011382114,6.53413515688,0,0,0,0,7.26161,0,6.7946932572,7.15124161387,0,9.65677419355,8.25118814815,8.35,0,9.25459,8.70376333333,0,8,9.02796,8.86369,0,8.63082,9.01729769645,8.845,0,8.845,0,9.30324,10.2056693548,11.0756819392,11.5,10.5463408232,10.97287,0,11.5575028986,11.2752054054,11.1180031549,11.8172539776,11.61,0,12.4806339243,13.0413076252,13.8202195652,14.7296026534,12.6315789474,9.95708057556,10.459092433,10.2805586057,10.4035292308,10.3732470183,10.7589251155,11.4299917081,11.3081810198,11.5766943328,11.091070529,10.4327476749,0,10.840957569,10.5746556254,10.2790438716,10.3855457143,10.4693136295,10.7442152965,10.9181450864,12.6231150013,11.3773073176,11.5462543791,11.0061578644,11.4468252911,11.5238514351,11.334826706,11.9466581066,12,12.1929037037,11.8,0,12.6711174051,13.1234537037,12.6099896681,12.6749760338,12.6058449347,11.9492310706,11.9500664045,12.1429625417,12.1967041102,12.5188293311,12.7410339358,12.4171396684,12.1904896073,12.5755823627,13.0200810711,13.0650961809,13.0357086402,13.0259923087,12.4237227104,11.9987807663,12.2113857021,12.2067876956,12.159111466,12.1572287899,12.1609940917,12.0630518077,11.8810788422,11.7310363487,11.8745987253,11.9115785261,11.6002778733,11.8570796292,11.869997288,11.7193191791,11.5103147708,11.7497872776,10.9329894475,9.09356245634,10.5090928758,3.36193856707,9.65846744465,12.3267271541,10.4839981214,11.4015419692,10.6300356328,10.2386753873,9.51555940172,10.2434203338,10.8091656894,10.92626,11.0300836607,11.0246637814,10.8065164332,11.299094911,11,10.91114,10.9458768963,11.0439335124,11.507210349,11.5362057584,11.7275512108,11.9333810566,11.6303784475,11.6258881957,11.7872242744,12.2662880119,12.2065254753,12.2018457368,12.2416072877,11.9509786262,12.1316266458,11.7686780696,12,12.5769922748,12.6542287127,12.68569,13.1264822683,13.2410662217,13.4319256144,13.0482401047,12.9176300141,12.0572998661,13.45726058,13.5537225044,13.2612713109,13.2587109486,0,0,0,13.3328874762,13.3742003777,13.2905922704,12.4616,13.702206729,13.5102346256,0,13.4483975192,12.52862,13.3537672149,13.45035,13.3313676438,13.4996870974,13.4422767089,13.5,13.4999922333,13.3602915318,13.21701,12.5850351165,13.1739970352,13.11111,13.34999,12.1866196677,0,11.2151297522,13.9809764706,0,0,13.6945402589,14.1124825198,14.6772224242,15.1330499713,15.82605,15.0357751147,0,16.4616547038,16.9892758825,17.3743259145,17.9737226248,16.943319209,17.2011756921,17.500749372,17.8462808812,18.7005438805,19.1645675809,19.5674807807,16.9515515023,20.150890123,19.97332,20.4317474699,20.5831201149,20.0631443572,21.0579471627,22.767261512,23.0854056331,18.6130783951,24.1543997035,25.5605389777,24.8070638389,26.3624620514,27.3369567625,27.68999,26.83969778,26.5,27.1742451773,32.7580578913,29.515145153,31.0241059301,30.1465687072,30.0248615642,0,31.3550317178,32.8828800761,33.2961382133,31.9683396711,34.0453565332,31.3039609638,34.456903051,36.3567530721,44.5731806439,39.0803708984,43.3066055024,44.7762126464,46.1916149675,47.8403984058,49.6256335032,47.7021022941,47.4224915362,48.1167167031,50.552420201,47.0599527217,50.1412779997,54.1864425126,60.7406015319,66.4933432312,71.5424544122,67.5451053907,73.0208810038,79.3604626438,79.8841363929,84.595026061,47.5772629187,91.8471357276,91.6416824919,96.2351114526,30.0964129542,109.402867478,136.332971738,137.739351102,134.959133254,141.366592127,152.299858442,179.493237563,208.825674034,173.537677972,114.768060677,85.1825343507,73]]},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+<p>Pretty slick, eh? And you didn’t even <em>touch</em> a spreadsheet, let alone Javascript.</p>
+<p>What would you like to do next? Let me know. Forecast future prices? Test a hypothesis about what drives the value up/down? Add additional time-series to one graph? Reply or email me.</p>
+<p>Hat tip to <a href="https://walkerke.github.io/2014/12/charting-time-series-data-with-dygraphs-in-r-and-python/">Kyle Walker</a>.</p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/data/">data</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+</div>
+
+
+
+    <br>
+    <div><center>
+    <script async data-uid="fd066e90ea" src="https://jmrphy.ck.page/fd066e90ea/index.js"></script>
+    </center></div>
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/how-to-make-county-maps/">How to make beautiful county maps of the US</a></li>
+          
+          <li><a href="/slides/data-mini/">Slides</a></li>
+          
+          <li><a href="/talk/example/">Data Blogging with R</a></li>
+          
+          <li><a href="/blog/inequality-and-pacification-of-protest/">Inequality and the Pacification of Militant Protest in the United States, 1919-2012</a></li>
+          
+          <li><a href="/blog/2018/01/15/moral-foundations-of-social-justice-warriors/">The moral foundations of social justice warriors</a></li>
+          
+        </ul>
+      </div>
+
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jmrphy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jmrphy.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.3394a224b26ce58ff36f44c54743e0ab.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    Justin Murphy &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+---
+title: Make interactive graphs of financial time-series in five minutes with R (Bitcoin example)
+date: '2019-10-15'
+slug: analyze-financial-time-series-without-touching-a-spreadsheet
+categories:
+  - resources
+tags:
+  - data
+  - R
+subtitle: ''
+summary: ''
+authors: []
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+```{r, include=F}
+
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, error = F)
+
+```
+
+We'll use two packages: The package `Quandl` for programmatically accessing a variety of financial time-series, and the package `dygraphs` for lovely interactive graphs based on the eponymous Javascript library. If you don't already have them, install them.
+
+Below, we load the packages and run a search through the Quandl database to see what kind of variables we have to choose from. Feel free to explore your own interests and run the following example on a different variable. For this example, I'm interested in Bitcoin so I'll use the `Quandl.search()` function to search for variables mentioning `bitcoin`. When you find a result you're interested in, note the dataset code and the database code.
+
+```{r}
+
+require(dygraphs)
+require(Quandl)
+
+search.results <- Quandl.search("bitcoin", silent=T)
+
+head(search.results, 2) # Show the first 2 results
+
+```
+
+
+Next, we'll use the `Quandl()` function to import the time-series of interest. I'm selecting the `BTC24USD` dataset from the `BCHARTS` database, as revealed to me in the search results above. Set the `type` option to `xts,` which is just one of R's widely-used formats for time-series variables. It plays well with the dygraph package.
+
+```{r}
+
+bitcoin <- Quandl("BCHARTS/BTC24USD", type = "xts")
+
+```
+
+After running the above line, you should now have a dataframe object named `bitcoin.` To produce a nice, interactive plot, simply use the `dygraph()` function and specify the variable of interest from your dataframe. Give it a title, and run it.
+
+```{r}
+
+dygraph(bitcoin$`Weighted Price`, main = "Bitcoin Exchange Rate (BTC vs. USD")
+
+```
+
+<br>
+
+Pretty slick, eh? And you didn't even *touch* a spreadsheet, let alone Javascript.
+
+What would you like to do next? Let me know. Forecast future prices? Test a hypothesis about what drives the value up/down? Add additional time-series to one graph? Reply or email me.
+
+Hat tip to [Kyle Walker](https://walkerke.github.io/2014/12/charting-time-series-data-with-dygraphs-in-r-and-python/).
