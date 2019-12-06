@@ -1,0 +1,145 @@
+---
+title: Use recursive partitioning and decision trees to guess someone's political opinions (using R with survey data)
+
+author: ''
+date: '2019-12-05'
+slug: recursive-partitioning-decision-trees-guess-opinions
+categories:
+  - resources
+tags:
+  - R
+  - public opinion
+  - statistical methods
+  - visualization
+  - blogging
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-12-05T18:48:28-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Let’s say you meet someone at a dinner party, and you really want to know their opinion about some juicy political topic. If you’re me, you might just ask them straight up. But often, there are reasons why you can’t be so forward.</p>
+<p>Thankfully, political opinions are not randomly distributed. So if you can glean a few facts about someone, you can often predict their other, more hidden opinions. The challenge is knowing which pieces of small-talk are the most predictive of the jucier questions you can’t quite ask them.</p>
+<p>Maybe you only have one minute; which questions should you ask? In what order should you ask them? If there’s no time limit, how many questions should you ask before you’re wasting your time?</p>
+<p>The ideal solution would be a short list of questions, in a particular order, like a tree: If they say yes to this, then ask them this, and so on. Ideally, this list would be as short and simple as necessary to make the best guess possible.</p>
+<p>It turns out there is a statistical technique that matches this challenge perfectly. Recursive partitioning is a technique that produces decision trees of binary or “yes/no” questions. The resulting decision tree represents the statistically optimal path of questioning.</p>
+<div id="how-to-conduct-recursive-partitioning-in-r" class="section level2">
+<h2>How to conduct recursive partitioning in R</h2>
+<p>Let’s say you want to predict whether or not someone supports the suppression of racist speakers. A bit akward to ask straight up at a dinner party. We can use a large public dataset such as the General Social Survey, run some recursive partitioning, and obtain the “tree” of mundane questions we can respectably ask someone at a dinner party.</p>
+<p>First, identify the variable of interest. In the GSS, there is a variable that asks whether racist speakers should be allowed to speak or not. The name of the variable is <em>spkrac.</em> (In my processing, I renamed this variable <em>spkrac.fac</em>.) Then identify the variables representing mundane facts you can observe yourself or reasonably ask about within the norms of small talk. I identified the following mundane variables (for more information, search for the GSS codebook):</p>
+<ul>
+<li>sex/gender = variable named <strong>sex</strong></li>
+<li>race = variable named <strong>race</strong></li>
+<li>left/right identification = variable named <strong>pol</strong></li>
+<li>family income = variable named <strong>realinc</strong></li>
+<li>college attendance = variable named <strong>college</strong></li>
+<li>word knowledge or verbal skill (proxy for IQ) = variable named <strong>wordsum</strong></li>
+</ul>
+</div>
+<div id="how-to-conduct-recursive-partitioning-for-a-binary-dependent-variable-in-r" class="section level1">
+<h1>How to conduct recursive partitioning for a binary dependent variable in R</h1>
+<p>In this case, our variable of interest is a binary variable: one either allows or disallows racist speakers. The modeling routines are different for different variables of interest, but so long as your variable of interest is binary, you can more or less follow the following routine. The code is commented.</p>
+<p>First we need to import the raw GSS data and process the variables we’ll be using.</p>
+<pre class="r"><code># Import the necessary packages
+require(tidyverse)
+require(haven)
+require(knitr)
+require(rpart)
+require(rpart.plot)
+
+
+gssFullPanel &lt;- read_dta(&quot;/Users/justin/Dropbox/Public/political-data/GSS7218_R1.dta&quot;)
+
+df &lt;- subset(gssFullPanel,
+                 select = c(sex, educ, realinc, 
+             polviews, spkrac, race, ethnic, wordsum))
+
+# Race
+# Optional: Assign NA to other because it&#39;s ambiguous and wildly unstable over time
+# factor() removes empty factor levels, which is useful here because IAP = 0
+df$race&lt;-factor(df$race)
+levels(df$race) &lt;- c(&quot;White&quot;,&quot;Black&quot;,&quot;Other&quot;)
+# levels(df$race)[levels(df$race)==&#39;Other&#39;] &lt;- NA
+
+# Sex
+# as_factor() from haven package brings in the labels for factor levels
+df$sex&lt;-as_factor(df$sex)
+levels(df$sex) &lt;- c(&quot;Male&quot;,&quot;Female&quot;)
+
+# College
+df$college &lt;- ifelse(as.numeric(df$educ)&lt;=12,
+                     &quot;No College&quot;,
+                     &quot;At Least Some College&quot;)
+df$college &lt;- factor(df$college,
+                     levels=c(&quot;No College&quot;, 
+                              &quot;At Least Some College&quot;))
+
+df$spkrac.fac &lt;- factor(df$spkrac -1) # Reduce to 0 and 1 and convert to factor
+levels(df$spkrac.fac)&lt;-c(&quot;Allowed&quot;, &quot;Not Allowed&quot;) # Rename levels
+
+df$pol &lt;- as_factor(df$polviews)
+df$pol &lt;- dplyr::recode(df$pol,
+                            &quot;EXTREMELY LIBERAL&quot; = &quot;Extremely Liberal&quot;,
+                            &quot;liberal&quot; = &quot;Liberal&quot;,
+                            &quot;SLIGHTLY LIBERAL&quot; = &quot;Slightly Liberal&quot;,
+                            &quot;moderate&quot; = &quot;Moderate&quot;,
+                            &quot;SLGHTLY CONSERVATIVE&quot; = &quot;Slightly Conservative&quot;,
+                            &quot;conservative&quot; = &quot;Conservative&quot;,
+                            &quot;EXTRMLY CONSERVATIVE&quot; = &quot;Extremely Conservative&quot;,
+                            .default = NA_character_)</code></pre>
+<p>Now we can conduct the partitioning. The code is pretty simple.</p>
+<pre class="r"><code># Start by subsetting your main dataset (&quot;df&quot;) to just the variables
+# of interest. We&#39;ll also omit any rows with missing values.
+sub&lt;-df %&gt;%
+  select(c(&quot;spkrac.fac&quot;, &quot;sex&quot;, &quot;race&quot;, &quot;pol&quot;,
+           &quot;realinc&quot;, &quot;college&quot;, &quot;wordsum&quot;)) %&gt;%
+  na.omit()
+
+
+# Next conduct the recursive partitioning using the rpart() function
+# Variable of interest first, then a &quot;~&quot;, as follows:
+fit &lt;- rpart(spkrac.fac ~ sex + race + pol + college + realinc + wordsum,
+             # With small data, set &#39;minsplit&#39;and &#39;cp&#39; to low values
+             control=rpart.control(minsplit=2, cp=0.001),
+             method=&quot;class&quot;, # if you&#39;re predicting a class, rather than a number
+             data=sub)
+
+# Now &quot;prune the tree&quot; with cross-validation, aka keep only the branches
+# with the most predictive value
+pfit&lt;- prune(fit, cp=fit$cptable[which.min(fit$cptable[,&quot;xerror&quot;]),&quot;CP&quot;])
+
+# Plot the decision tree
+rpart.plot(pfit,
+yesno=2, # add yes/no labels
+box.palette=&quot;GnBu&quot;, # add a swankier color palette
+shadow.col=&quot;gray&quot;,
+tweak=1.1, # increase the font size a bit
+main=&quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers&quot;)</code></pre>
+<p><img src="/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png" width="672" /></p>
+</div>
+<div id="interpretation" class="section level1">
+<h1>Interpretation</h1>
+<p>The interpretation is very intuitive. The top of the tree is the first question you should ask, the single variable that gives you the most leverage to predict your victim’s secret opinion. The top node represents your knowledge before asking them anything: If you meet a random person, there is a 38% chance they would vote to suppress racist speakers. This applies to the whole population of America (100%.)</p>
+<p>According to the analysis, the first question with the most predictive power is: “Did you ever go to college?” If they say yes, the probability of them wanting to suppress drops to 29% and that’s all you need to ask them! Nothing else will improve your guess (at least from the variables we selected).</p>
+<p>If they never went to college, the next question you have to ask yourself is whether they’re smart. You probably don’t want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a “no” in this chart. If they are smart, then you infer with a 40% probablility that they would allow the speaker. If they are dumb, it’s now a coin flip (and 26% of the population is here).</p>
+<p>Next, what is their race? This you can probably guess yourself. From here:</p>
+<ul>
+<li><p>If they are white, then there’s a 48% chance they would allow the speaker. If then they are male, there’s a 45% chance they would allow and that’s your final guess. If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they’re slightly more likely than a coin flip to <em>disallow</em> the speaker (54%).</p></li>
+<li><p>If they are dumb and non-white, there’s nothing left to ask them: There’s a 57% chance they would not allow the speaker.</p></li>
+</ul>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>For a relatively small dataset, the results strike me as reasonably useful (and intuitively plausible). To gauge this, consider that a “yes” to our first question (whether they attended any college) gives us a pretty good bet that our interlocutor would allow racist speakers (71%), and that represents about 50% of people! With only a few more questions, two of which we can observe without asking, we can get to as much as a 57% guess that they would disallow.</p>
+<p>Probably the major limitation of this short study is that we don’t get very impressive traction on those who would disallow racist speakers. The highest we get is a 57% probability, which is non-trivially better than if we know nothing about someone (in which case we’d guess a 38% probability). But it’s still not great. All this means is that we need better predictor variables, which we could identify through additional research. But as a first cut with a small handful of variables I gathered based only on my own intuitions, these results are pretty good, I think.</p>
+<p>Perhaps the most interesting implication here is that ideological identification totally drops out! It appears that it’s not predictive. This is fascinating, given that many people today tend to think of speech suppression is a fashion on the educated Left! And it is, but that’s only a highly visible minority. Political scientists would not be surprised by this result: We’ve long known that leftists and educated people are always more supportive of free expression (you just don’t hear about those people in the media right now).</p>
+<p>The next time you’re at a party, please try this. Let me know how it works!</p>
+</div>

@@ -40,6 +40,33 @@
     </item>
     
     <item>
+      <title>public opinion</title>
+      <link>/tags/public-opinion/</link>
+      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/public-opinion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistical methods</title>
+      <link>/tags/statistical-methods/</link>
+      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/statistical-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>code</title>
       <link>/tags/code/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
@@ -112,24 +139,6 @@
     </item>
     
     <item>
-      <title>public opinion</title>
-      <link>/tags/public-opinion/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/public-opinion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>statistical methods</title>
-      <link>/tags/statistical-methods/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/statistical-methods/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>time series</title>
       <link>/tags/time-series/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
@@ -153,15 +162,6 @@
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/radical-politics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>visualization</title>
-      <link>/tags/visualization/</link>
-      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/visualization/</guid>
       <description></description>
     </item>
     
@@ -450,6 +450,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>family</title>
+      <link>/tags/family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/family/</guid>
       <description></description>
     </item>
     

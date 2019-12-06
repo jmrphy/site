@@ -16,7 +16,7 @@ name: Justin Murphy
 organizations:
 - name: "Other Life"
   url: "https://theotherlifenow.com"
-role: Retired Academic
+role: Political Scientist
 social:
 - icon: envelope
   icon_pack: fas

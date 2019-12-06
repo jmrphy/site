@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Justin Murphy">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Let’s say you meet someone at a dinner party, and you really want to know their opinion about some juicy political topic. If you’re me, you might just ask them straight up. But often, there are reasons why you can’t be so forward.
+Thankfully, political opinions are not randomly distributed. So if you can glean a few facts about someone, you can often predict their other, more hidden opinions. The challenge is knowing which pieces of small-talk are the most predictive of the jucier questions you can’t quite ask them.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/recursive-partitioning-decision-trees-guess-opinions/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/sunburst.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/sunburst.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.f3c34866a5dd3fc20db500242d15fb47.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-42953742-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/recursive-partitioning-decision-trees-guess-opinions/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@jmrphy">
+  <meta property="twitter:creator" content="@jmrphy">
+  
+  <meta property="og:site_name" content="Justin Murphy">
+  <meta property="og:url" content="/post/recursive-partitioning-decision-trees-guess-opinions/">
+  <meta property="og:title" content="Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data) | Justin Murphy">
+  <meta property="og:description" content="Let’s say you meet someone at a dinner party, and you really want to know their opinion about some juicy political topic. If you’re me, you might just ask them straight up. But often, there are reasons why you can’t be so forward.
+Thankfully, political opinions are not randomly distributed. So if you can glean a few facts about someone, you can often predict their other, more hidden opinions. The challenge is knowing which pieces of small-talk are the most predictive of the jucier questions you can’t quite ask them."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-12-05T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-12-05T18:48:28-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data) | Justin Murphy</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Justin Murphy</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data)</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-12-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-12-05 18:48:28 -0500 EST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Dec 5, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/recursive-partitioning-decision-trees-guess-opinions/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/resources/">resources</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Use%20recursive%20partitioning%20and%20decision%20trees%20to%20guess%20someone%27s%20political%20opinions%20%28using%20R%20with%20survey%20data%29&amp;url=%2fpost%2frecursive-partitioning-decision-trees-guess-opinions%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2frecursive-partitioning-decision-trees-guess-opinions%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2frecursive-partitioning-decision-trees-guess-opinions%2f&amp;title=Use%20recursive%20partitioning%20and%20decision%20trees%20to%20guess%20someone%27s%20political%20opinions%20%28using%20R%20with%20survey%20data%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2frecursive-partitioning-decision-trees-guess-opinions%2f&amp;title=Use%20recursive%20partitioning%20and%20decision%20trees%20to%20guess%20someone%27s%20political%20opinions%20%28using%20R%20with%20survey%20data%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Use%20recursive%20partitioning%20and%20decision%20trees%20to%20guess%20someone%27s%20political%20opinions%20%28using%20R%20with%20survey%20data%29&amp;body=%2fpost%2frecursive-partitioning-decision-trees-guess-opinions%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>Let’s say you meet someone at a dinner party, and you really want to know their opinion about some juicy political topic. If you’re me, you might just ask them straight up. But often, there are reasons why you can’t be so forward.</p>
+<p>Thankfully, political opinions are not randomly distributed. So if you can glean a few facts about someone, you can often predict their other, more hidden opinions. The challenge is knowing which pieces of small-talk are the most predictive of the jucier questions you can’t quite ask them.</p>
+<p>Maybe you only have one minute; which questions should you ask? In what order should you ask them? If there’s no time limit, how many questions should you ask before you’re wasting your time?</p>
+<p>The ideal solution would be a short list of questions, in a particular order, like a tree: If they say yes to this, then ask them this, and so on. Ideally, this list would be as short and simple as necessary to make the best guess possible.</p>
+<p>It turns out there is a statistical technique that matches this challenge perfectly. Recursive partitioning is a technique that produces decision trees of binary or “yes/no” questions. The resulting decision tree represents the statistically optimal path of questioning.</p>
+<div id="how-to-conduct-recursive-partitioning-in-r" class="section level2">
+<h2>How to conduct recursive partitioning in R</h2>
+<p>Let’s say you want to predict whether or not someone supports the suppression of racist speakers. A bit akward to ask straight up at a dinner party. We can use a large public dataset such as the General Social Survey, run some recursive partitioning, and obtain the “tree” of mundane questions we can respectably ask someone at a dinner party.</p>
+<p>First, identify the variable of interest. In the GSS, there is a variable that asks whether racist speakers should be allowed to speak or not. The name of the variable is <em>spkrac.</em> (In my processing, I renamed this variable <em>spkrac.fac</em>.) Then identify the variables representing mundane facts you can observe yourself or reasonably ask about within the norms of small talk. I identified the following mundane variables (for more information, search for the GSS codebook):</p>
+<ul>
+<li>sex/gender = variable named <strong>sex</strong></li>
+<li>race = variable named <strong>race</strong></li>
+<li>left/right identification = variable named <strong>pol</strong></li>
+<li>family income = variable named <strong>realinc</strong></li>
+<li>college attendance = variable named <strong>college</strong></li>
+<li>word knowledge or verbal skill (proxy for IQ) = variable named <strong>wordsum</strong></li>
+</ul>
+</div>
+<div id="how-to-conduct-recursive-partitioning-for-a-binary-dependent-variable-in-r" class="section level1">
+<h1>How to conduct recursive partitioning for a binary dependent variable in R</h1>
+<p>In this case, our variable of interest is a binary variable: one either allows or disallows racist speakers. The modeling routines are different for different variables of interest, but so long as your variable of interest is binary, you can more or less follow the following routine. The code is commented.</p>
+<p>First we need to import the raw GSS data and process the variables we’ll be using.</p>
+<pre class="r"><code># Import the necessary packages
+require(tidyverse)
+require(haven)
+require(knitr)
+require(rpart)
+require(rpart.plot)
+
+
+gssFullPanel &lt;- read_dta(&quot;/Users/justin/Dropbox/Public/political-data/GSS7218_R1.dta&quot;)
+
+df &lt;- subset(gssFullPanel,
+                 select = c(sex, educ, realinc, 
+             polviews, spkrac, race, ethnic, wordsum))
+
+# Race
+# Optional: Assign NA to other because it&#39;s ambiguous and wildly unstable over time
+# factor() removes empty factor levels, which is useful here because IAP = 0
+df$race&lt;-factor(df$race)
+levels(df$race) &lt;- c(&quot;White&quot;,&quot;Black&quot;,&quot;Other&quot;)
+# levels(df$race)[levels(df$race)==&#39;Other&#39;] &lt;- NA
+
+# Sex
+# as_factor() from haven package brings in the labels for factor levels
+df$sex&lt;-as_factor(df$sex)
+levels(df$sex) &lt;- c(&quot;Male&quot;,&quot;Female&quot;)
+
+# College
+df$college &lt;- ifelse(as.numeric(df$educ)&lt;=12,
+                     &quot;No College&quot;,
+                     &quot;At Least Some College&quot;)
+df$college &lt;- factor(df$college,
+                     levels=c(&quot;No College&quot;, 
+                              &quot;At Least Some College&quot;))
+
+df$spkrac.fac &lt;- factor(df$spkrac -1) # Reduce to 0 and 1 and convert to factor
+levels(df$spkrac.fac)&lt;-c(&quot;Allowed&quot;, &quot;Not Allowed&quot;) # Rename levels
+
+df$pol &lt;- as_factor(df$polviews)
+df$pol &lt;- dplyr::recode(df$pol,
+                            &quot;EXTREMELY LIBERAL&quot; = &quot;Extremely Liberal&quot;,
+                            &quot;liberal&quot; = &quot;Liberal&quot;,
+                            &quot;SLIGHTLY LIBERAL&quot; = &quot;Slightly Liberal&quot;,
+                            &quot;moderate&quot; = &quot;Moderate&quot;,
+                            &quot;SLGHTLY CONSERVATIVE&quot; = &quot;Slightly Conservative&quot;,
+                            &quot;conservative&quot; = &quot;Conservative&quot;,
+                            &quot;EXTRMLY CONSERVATIVE&quot; = &quot;Extremely Conservative&quot;,
+                            .default = NA_character_)</code></pre>
+<p>Now we can conduct the partitioning. The code is pretty simple.</p>
+<pre class="r"><code># Start by subsetting your main dataset (&quot;df&quot;) to just the variables
+# of interest. We&#39;ll also omit any rows with missing values.
+sub&lt;-df %&gt;%
+  select(c(&quot;spkrac.fac&quot;, &quot;sex&quot;, &quot;race&quot;, &quot;pol&quot;,
+           &quot;realinc&quot;, &quot;college&quot;, &quot;wordsum&quot;)) %&gt;%
+  na.omit()
+
+
+# Next conduct the recursive partitioning using the rpart() function
+# Variable of interest first, then a &quot;~&quot;, as follows:
+fit &lt;- rpart(spkrac.fac ~ sex + race + pol + college + realinc + wordsum,
+             # With small data, set &#39;minsplit&#39;and &#39;cp&#39; to low values
+             control=rpart.control(minsplit=2, cp=0.001),
+             method=&quot;class&quot;, # if you&#39;re predicting a class, rather than a number
+             data=sub)
+
+# Now &quot;prune the tree&quot; with cross-validation, aka keep only the branches
+# with the most predictive value
+pfit&lt;- prune(fit, cp=fit$cptable[which.min(fit$cptable[,&quot;xerror&quot;]),&quot;CP&quot;])
+
+# Plot the decision tree
+rpart.plot(pfit,
+yesno=2, # add yes/no labels
+box.palette=&quot;GnBu&quot;, # add a swankier color palette
+shadow.col=&quot;gray&quot;,
+tweak=1.1, # increase the font size a bit
+main=&quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers&quot;)</code></pre>
+<p><img src="/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png" width="672" /></p>
+</div>
+<div id="interpretation" class="section level1">
+<h1>Interpretation</h1>
+<p>The interpretation is very intuitive. The top of the tree is the first question you should ask, the single variable that gives you the most leverage to predict your victim’s secret opinion. The top node represents your knowledge before asking them anything: If you meet a random person, there is a 38% chance they would vote to suppress racist speakers. This applies to the whole population of America (100%.)</p>
+<p>According to the analysis, the first question with the most predictive power is: “Did you ever go to college?” If they say yes, the probability of them wanting to suppress drops to 29% and that’s all you need to ask them! Nothing else will improve your guess (at least from the variables we selected).</p>
+<p>If they never went to college, the next question you have to ask yourself is whether they’re smart. You probably don’t want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a “no” in this chart. If they are smart, then you infer with a 40% probablility that they would allow the speaker. If they are dumb, it’s now a coin flip (and 26% of the population is here).</p>
+<p>Next, what is their race? This you can probably guess yourself. From here:</p>
+<ul>
+<li><p>If they are white, then there’s a 48% chance they would allow the speaker. If then they are male, there’s a 45% chance they would allow and that’s your final guess. If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they’re slightly more likely than a coin flip to <em>disallow</em> the speaker (54%).</p></li>
+<li><p>If they are dumb and non-white, there’s nothing left to ask them: There’s a 57% chance they would not allow the speaker.</p></li>
+</ul>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>For a relatively small dataset, the results strike me as reasonably useful (and intuitively plausible). To gauge this, consider that a “yes” to our first question (whether they attended any college) gives us a pretty good bet that our interlocutor would allow racist speakers (71%), and that represents about 50% of people! With only a few more questions, two of which we can observe without asking, we can get to as much as a 57% guess that they would disallow.</p>
+<p>Probably the major limitation of this short study is that we don’t get very impressive traction on those who would disallow racist speakers. The highest we get is a 57% probability, which is non-trivially better than if we know nothing about someone (in which case we’d guess a 38% probability). But it’s still not great. All this means is that we need better predictor variables, which we could identify through additional research. But as a first cut with a small handful of variables I gathered based only on my own intuitions, these results are pretty good, I think.</p>
+<p>Perhaps the most interesting implication here is that ideological identification totally drops out! It appears that it’s not predictive. This is fascinating, given that many people today tend to think of speech suppression is a fashion on the educated Left! And it is, but that’s only a highly visible minority. Political scientists would not be surprised by this result: We’ve long known that leftists and educated people are always more supportive of free expression (you just don’t hear about those people in the media right now).</p>
+<p>The next time you’re at a party, please try this. Let me know how it works!</p>
+</div>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/public-opinion/">public opinion</a>
+  
+  <a class="badge badge-light" href="/tags/statistical-methods/">statistical methods</a>
+  
+  <a class="badge badge-light" href="/tags/visualization/">visualization</a>
+  
+  <a class="badge badge-light" href="/tags/blogging/">blogging</a>
+  
+</div>
+
+
+
+    <br>
+    <div><center>
+    <script async data-uid="fd066e90ea" src="https://jmrphy.ck.page/fd066e90ea/index.js"></script>
+    </center></div>
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/slides/data-mini/">Slides</a></li>
+          
+          <li><a href="/talk/example/">Data Blogging with R</a></li>
+          
+          <li><a href="/publication/bjps/">Does Media Coverage Drive Public Support for UKIP or Does Public Support for UKIP Drive Media Coverage?</a></li>
+          
+          <li><a href="/blog/2018/01/15/moral-foundations-of-social-justice-warriors/">The moral foundations of social justice warriors</a></li>
+          
+          <li><a href="/blog/2012/05/22/generating-summary-statistics-in-r/">Generating summary statistics and box/violin plots in R</a></li>
+          
+        </ul>
+      </div>
+
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jmrphy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/R.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jmrphy.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.3394a224b26ce58ff36f44c54743e0ab.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    Justin Murphy &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

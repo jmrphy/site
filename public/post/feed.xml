@@ -12,6 +12,135 @@
     
     
     <item>
+      <title>Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data)</title>
+      <link>/post/recursive-partitioning-decision-trees-guess-opinions/</link>
+      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/recursive-partitioning-decision-trees-guess-opinions/</guid>
+      <description>
+
+
+&lt;p&gt;Let’s say you meet someone at a dinner party, and you really want to know their opinion about some juicy political topic. If you’re me, you might just ask them straight up. But often, there are reasons why you can’t be so forward.&lt;/p&gt;
+&lt;p&gt;Thankfully, political opinions are not randomly distributed. So if you can glean a few facts about someone, you can often predict their other, more hidden opinions. The challenge is knowing which pieces of small-talk are the most predictive of the jucier questions you can’t quite ask them.&lt;/p&gt;
+&lt;p&gt;Maybe you only have one minute; which questions should you ask? In what order should you ask them? If there’s no time limit, how many questions should you ask before you’re wasting your time?&lt;/p&gt;
+&lt;p&gt;The ideal solution would be a short list of questions, in a particular order, like a tree: If they say yes to this, then ask them this, and so on. Ideally, this list would be as short and simple as necessary to make the best guess possible.&lt;/p&gt;
+&lt;p&gt;It turns out there is a statistical technique that matches this challenge perfectly. Recursive partitioning is a technique that produces decision trees of binary or “yes/no” questions. The resulting decision tree represents the statistically optimal path of questioning.&lt;/p&gt;
+&lt;div id=&#34;how-to-conduct-recursive-partitioning-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How to conduct recursive partitioning in R&lt;/h2&gt;
+&lt;p&gt;Let’s say you want to predict whether or not someone supports the suppression of racist speakers. A bit akward to ask straight up at a dinner party. We can use a large public dataset such as the General Social Survey, run some recursive partitioning, and obtain the “tree” of mundane questions we can respectably ask someone at a dinner party.&lt;/p&gt;
+&lt;p&gt;First, identify the variable of interest. In the GSS, there is a variable that asks whether racist speakers should be allowed to speak or not. The name of the variable is &lt;em&gt;spkrac.&lt;/em&gt; (In my processing, I renamed this variable &lt;em&gt;spkrac.fac&lt;/em&gt;.) Then identify the variables representing mundane facts you can observe yourself or reasonably ask about within the norms of small talk. I identified the following mundane variables (for more information, search for the GSS codebook):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sex/gender = variable named &lt;strong&gt;sex&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;race = variable named &lt;strong&gt;race&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;left/right identification = variable named &lt;strong&gt;pol&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;family income = variable named &lt;strong&gt;realinc&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;college attendance = variable named &lt;strong&gt;college&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;word knowledge or verbal skill (proxy for IQ) = variable named &lt;strong&gt;wordsum&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-conduct-recursive-partitioning-for-a-binary-dependent-variable-in-r&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;How to conduct recursive partitioning for a binary dependent variable in R&lt;/h1&gt;
+&lt;p&gt;In this case, our variable of interest is a binary variable: one either allows or disallows racist speakers. The modeling routines are different for different variables of interest, but so long as your variable of interest is binary, you can more or less follow the following routine. The code is commented.&lt;/p&gt;
+&lt;p&gt;First we need to import the raw GSS data and process the variables we’ll be using.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import the necessary packages
+require(tidyverse)
+require(haven)
+require(knitr)
+require(rpart)
+require(rpart.plot)
+
+
+gssFullPanel &amp;lt;- read_dta(&amp;quot;/Users/justin/Dropbox/Public/political-data/GSS7218_R1.dta&amp;quot;)
+
+df &amp;lt;- subset(gssFullPanel,
+                 select = c(sex, educ, realinc, 
+             polviews, spkrac, race, ethnic, wordsum))
+
+# Race
+# Optional: Assign NA to other because it&amp;#39;s ambiguous and wildly unstable over time
+# factor() removes empty factor levels, which is useful here because IAP = 0
+df$race&amp;lt;-factor(df$race)
+levels(df$race) &amp;lt;- c(&amp;quot;White&amp;quot;,&amp;quot;Black&amp;quot;,&amp;quot;Other&amp;quot;)
+# levels(df$race)[levels(df$race)==&amp;#39;Other&amp;#39;] &amp;lt;- NA
+
+# Sex
+# as_factor() from haven package brings in the labels for factor levels
+df$sex&amp;lt;-as_factor(df$sex)
+levels(df$sex) &amp;lt;- c(&amp;quot;Male&amp;quot;,&amp;quot;Female&amp;quot;)
+
+# College
+df$college &amp;lt;- ifelse(as.numeric(df$educ)&amp;lt;=12,
+                     &amp;quot;No College&amp;quot;,
+                     &amp;quot;At Least Some College&amp;quot;)
+df$college &amp;lt;- factor(df$college,
+                     levels=c(&amp;quot;No College&amp;quot;, 
+                              &amp;quot;At Least Some College&amp;quot;))
+
+df$spkrac.fac &amp;lt;- factor(df$spkrac -1) # Reduce to 0 and 1 and convert to factor
+levels(df$spkrac.fac)&amp;lt;-c(&amp;quot;Allowed&amp;quot;, &amp;quot;Not Allowed&amp;quot;) # Rename levels
+
+df$pol &amp;lt;- as_factor(df$polviews)
+df$pol &amp;lt;- dplyr::recode(df$pol,
+                            &amp;quot;EXTREMELY LIBERAL&amp;quot; = &amp;quot;Extremely Liberal&amp;quot;,
+                            &amp;quot;liberal&amp;quot; = &amp;quot;Liberal&amp;quot;,
+                            &amp;quot;SLIGHTLY LIBERAL&amp;quot; = &amp;quot;Slightly Liberal&amp;quot;,
+                            &amp;quot;moderate&amp;quot; = &amp;quot;Moderate&amp;quot;,
+                            &amp;quot;SLGHTLY CONSERVATIVE&amp;quot; = &amp;quot;Slightly Conservative&amp;quot;,
+                            &amp;quot;conservative&amp;quot; = &amp;quot;Conservative&amp;quot;,
+                            &amp;quot;EXTRMLY CONSERVATIVE&amp;quot; = &amp;quot;Extremely Conservative&amp;quot;,
+                            .default = NA_character_)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can conduct the partitioning. The code is pretty simple.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Start by subsetting your main dataset (&amp;quot;df&amp;quot;) to just the variables
+# of interest. We&amp;#39;ll also omit any rows with missing values.
+sub&amp;lt;-df %&amp;gt;%
+  select(c(&amp;quot;spkrac.fac&amp;quot;, &amp;quot;sex&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;pol&amp;quot;,
+           &amp;quot;realinc&amp;quot;, &amp;quot;college&amp;quot;, &amp;quot;wordsum&amp;quot;)) %&amp;gt;%
+  na.omit()
+
+
+# Next conduct the recursive partitioning using the rpart() function
+# Variable of interest first, then a &amp;quot;~&amp;quot;, as follows:
+fit &amp;lt;- rpart(spkrac.fac ~ sex + race + pol + college + realinc + wordsum,
+             # With small data, set &amp;#39;minsplit&amp;#39;and &amp;#39;cp&amp;#39; to low values
+             control=rpart.control(minsplit=2, cp=0.001),
+             method=&amp;quot;class&amp;quot;, # if you&amp;#39;re predicting a class, rather than a number
+             data=sub)
+
+# Now &amp;quot;prune the tree&amp;quot; with cross-validation, aka keep only the branches
+# with the most predictive value
+pfit&amp;lt;- prune(fit, cp=fit$cptable[which.min(fit$cptable[,&amp;quot;xerror&amp;quot;]),&amp;quot;CP&amp;quot;])
+
+# Plot the decision tree
+rpart.plot(pfit,
+yesno=2, # add yes/no labels
+box.palette=&amp;quot;GnBu&amp;quot;, # add a swankier color palette
+shadow.col=&amp;quot;gray&amp;quot;,
+tweak=1.1, # increase the font size a bit
+main=&amp;quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interpretation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Interpretation&lt;/h1&gt;
+&lt;p&gt;The interpretation is very intuitive. The top of the tree is the first question you should ask, the single variable that gives you the most leverage to predict your victim’s secret opinion. The top node represents your knowledge before asking them anything: If you meet a random person, there is a 38% chance they would vote to suppress racist speakers. This applies to the whole population of America (100%.)&lt;/p&gt;
+&lt;p&gt;According to the analysis, the first question with the most predictive power is: “Did you ever go to college?” If they say yes, the probability of them wanting to suppress drops to 29% and that’s all you need to ask them! Nothing else will improve your guess (at least from the variables we selected).&lt;/p&gt;
+&lt;p&gt;If they never went to college, the next question you have to ask yourself is whether they’re smart. You probably don’t want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a “no” in this chart. If they are smart, then you infer with a 40% probablility that they would allow the speaker. If they are dumb, it’s now a coin flip (and 26% of the population is here).&lt;/p&gt;
+&lt;p&gt;Next, what is their race? This you can probably guess yourself. From here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If they are white, then there’s a 48% chance they would allow the speaker. If then they are male, there’s a 45% chance they would allow and that’s your final guess. If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they’re slightly more likely than a coin flip to &lt;em&gt;disallow&lt;/em&gt; the speaker (54%).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If they are dumb and non-white, there’s nothing left to ask them: There’s a 57% chance they would not allow the speaker.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;For a relatively small dataset, the results strike me as reasonably useful (and intuitively plausible). To gauge this, consider that a “yes” to our first question (whether they attended any college) gives us a pretty good bet that our interlocutor would allow racist speakers (71%), and that represents about 50% of people! With only a few more questions, two of which we can observe without asking, we can get to as much as a 57% guess that they would disallow.&lt;/p&gt;
+&lt;p&gt;Probably the major limitation of this short study is that we don’t get very impressive traction on those who would disallow racist speakers. The highest we get is a 57% probability, which is non-trivially better than if we know nothing about someone (in which case we’d guess a 38% probability). But it’s still not great. All this means is that we need better predictor variables, which we could identify through additional research. But as a first cut with a small handful of variables I gathered based only on my own intuitions, these results are pretty good, I think.&lt;/p&gt;
+&lt;p&gt;Perhaps the most interesting implication here is that ideological identification totally drops out! It appears that it’s not predictive. This is fascinating, given that many people today tend to think of speech suppression is a fashion on the educated Left! And it is, but that’s only a highly visible minority. Political scientists would not be surprised by this result: We’ve long known that leftists and educated people are always more supportive of free expression (you just don’t hear about those people in the media right now).&lt;/p&gt;
+&lt;p&gt;The next time you’re at a party, please try this. Let me know how it works!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Make interactive graphs of financial time-series in five minutes with R (Bitcoin example)</title>
       <link>/post/analyze-financial-time-series-without-touching-a-spreadsheet/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
@@ -2501,6 +2630,46 @@ s.out &amp;lt;-&lt;span class=&#34;st&#34;&gt; &lt;/span&gt;&lt;span class=&#34;
     document.getElementsByTagName(&#34;head&#34;)[0].appendChild(script);
   })();
 &lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to deal with family during the holidays? Relax and have fun with them</title>
+      <link>/post/2016-12-20-family-holidays/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016-12-20-family-holidays/</guid>
+      <description>&lt;p&gt;Leftists love to discuss the dilemma of &amp;ldquo;bigoted&amp;rdquo; family members. There is this kind of tradition in left-wing circles, to discuss, around the holiday season, how to &amp;ldquo;deal&amp;rdquo; with those family members who think or say things out of line with educated progressive morality.&lt;/p&gt;
+
+&lt;p&gt;This is a great example of how left-wing individuals elevate their own anxiety and insecurity into an ethical value. This recurring conversation about bigoted family members is really dumb, for a few reasons. Obviously if a family member is violently abusive, that’s a different story. My comments here are about the typical, mostly harmless Archie Bunker type with outdated and offensive viewpoints.&lt;/p&gt;
+
+&lt;p&gt;First of all, other people are not problems for you to solve; that&amp;rsquo;s actually kind of psychopathic. It’s pathological not only to see human beings as an obstacle-thing you need to strategize about, but it’s especially pathological to imagine you have some kind of knowledge or power to do something &lt;em&gt;with&lt;/em&gt; or &lt;em&gt;to&lt;/em&gt; these people you define as problem-objects, outside of their participation. When we are really honest, it is always obvious that other people are generally complete mysteries; this is true and remains true for even the people we know most deeply, so it is certainly true of most people in one’s extended family who, let’s be honest, you hardly know.&lt;/p&gt;
+
+&lt;p&gt;So what is really going on in this left-wing leitmotif about the trials and tribulations of dealing with “problematic” family members during the holidays?&lt;/p&gt;
+
+&lt;p&gt;The reality is that many left-wing people simply find it awkward and difficult to sincerely and meaningfully interact with people who perhaps have drastically different values and experiences and vocabularies. It is a difficult fact of reality that there exist fundamentally different ways of dealing with our existential situation as human beings, and some of those ways we will find horrifying. It&amp;rsquo;s fine to disagree profoundly with the attitudes or practices of family members, it&amp;rsquo;s even fine to be horrified by them. But it is a core dilemma of human existence that there will be people to whom we are inextricably bound, people with whom we share irreplaceable bio/physio/chemical/emotional mutual investments, people who literally made us and continue to make us (whether we admit it or not), who think and speak in ways we may believe to be deeply wrong. Life is filled with irresolvable tensions, and if radical politics means anything it means learning how to live &lt;em&gt;despite&lt;/em&gt; those tensions, but even more radically than inherited status quo norms permit.&lt;/p&gt;
+
+&lt;p&gt;The only reason we can so strongly disagree with the thoughts and behaviors of our own family members is because our complex society is such that we all have been cast down fundamentally different lanes of experience. Most importantly, socialization through the education system (note I do not say “education” itself), entry into urban and cosmopolitan cultural markets as a pathway to economic survival and personal advancement, etc. Educated progressive people like to imagine that what separates them from their Archie Bunker uncle is enlightenment, understanding, and ethical sensitivity. But that&amp;rsquo;s just not really true; it&amp;rsquo;s mostly the arbitrary fact of fundamentally different socialization experiences, milieus, and—what leftists never like to talk about regarding themselves—incentives. All I mean by this is that there are economic and social rewards to be gained through dexterity with “progressive” moral respectability, at least if you are an educated young adult pursuing a path for yourself in the new social economy. If you care passionately about knowing, for instance, various types of gender pronouns and your Archie Bunker uncle doesn’t, that’s in part because you have potential access to economic and social rewards for that effort (writing for cool magazines, building networks in cities, or even just feeling morally superior to others, etc.). You’re probably not a better person than your Archie Bunker uncle, you might just care more about promoting yourself in a world that he doesn’t care about impressing.&lt;/p&gt;
+
+&lt;p&gt;The only really progressive or radical question here is: how does our society separate and confuse us so drastically by subjecting us to different experiences, and how can human beings identify these mechanisms in order to find fundamentally new places and paths to collective liberation?&lt;/p&gt;
+
+&lt;p&gt;I think the way to answer this question is to begin with the more preliminary question — at least once a year! – “How have I come to be so different from the people who made me?” In this difference, is there not some higher insight to be gleaned about how social evils become not only possible but constantly reproduced over long periods by structures so much larger than you and your vaguely racist Auntie?”&lt;/p&gt;
+
+&lt;p&gt;In turn, to really approach this question with any kind of honesty, one has to at least be open to the possibility that the ways in which our society has made us different from our family members has involved errors and injustices on our end. The perennial righteousness performance observed in left-wing circles around the holidays could not be a more perfect script for someone actively dedicated to refusing any consideration of this possibility. And that&amp;rsquo;s when you begin to realize that this perennial performance has probably been evolved for exactly this purpose, for the simple reason that this process is challenging and confusing and disorienting and requires a self-distancing and detachment for which we have almost completely lost the capacity; and now, in our rapidly paced hyper-technological society, it is so much easier to protect and advance our current partial, alienated but armored selves through cheap social broadcasting.&lt;/p&gt;
+
+&lt;p&gt;One reason we can’t put our own narcissism on hold for even one long day with family is that we are the ones who have stopped placing our bets on family, instead investing most of our daily emotional resources into these electronic dopamine circuits that have become the main source of energy and inspiration for some people. The problem is  that, while this electronic dopamine intravenous may work well to make our vegetative lives endurable, so many people are choosing this membership in the electronic-cosmpolitan righteousness circuit  &lt;em&gt;at the cost of, and in betrayal of&lt;/em&gt; the deep, tense human relationships (i.e., kin, tribe, etc.) that have always been the bedrock energy supply of real revolutionary social transformations.&lt;/p&gt;
+
+&lt;p&gt;But guess what? Our species has evolved a really clever solution to this problem we all have – of getting so lost in our own heads, of becoming so infatuated with our own partial commitments and investments. It&amp;rsquo;s called &lt;em&gt;the holiday&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The whole point of holidays is to pause absolutely everything about the real, serious, workaday world. It is an unconditional timeout, a limited and specific period in which everyone agrees to stop keeping score. Already I can hear some of my friends saying, “But Uncle Johnny who uses homophobic language is the one violating this timeout, it’s his fault!” But Uncle Johnny is not &amp;ldquo;starting&amp;rdquo; the conflict here, you are starting it in your brain with you presumptions that you have and that he doesn’t have, that you&amp;rsquo;re applying to him before you even ask him what he means or what he thinks. An important fact people will rarely knowledge is that you can very well start a conflict as the listener. Aggression or &amp;ldquo;violence,” as leftist types like to say, can be initiated by a listener. This is the dirty little secret of left-wing types who type-cast family members as problems before the holiday even begins.&lt;/p&gt;
+
+&lt;p&gt;True militancy requires a capacity for the most calm sensitivity; true militancy means being militant also about one&amp;rsquo;s own limits and fixations and biases; true militancy has to be militantly honest about the fact that there are existential tensions in the world and that the deep necessity of love and familial bonds are sometimes in tension with that which we hold most dear in our personal worldviews. There&amp;rsquo;s nothing militant or radical or progressive about acting like you already have all of these things sorted and it’s all just good material for inside jokes on Facebook.&lt;/p&gt;
+
+&lt;p&gt;The truth is that we need our families because we don&amp;rsquo;t have ourselves sorted and we probably never will, because those people made us and we need them to continue making us, just as they need us to continue making them. This is a major blow to our ego’s wish for independence, but it&amp;rsquo;s an almost physiological, material fact. The holidays, if you go into them honestly and openly, can be a dynamic, interesting, challenging, and also comforting and recalibrating and inspiring experiment where people who are remarkably the same and yet so different can learn otherwise impossible-to-glean insights about the nature of society. In the process, all parties can become fundamentally different people slightly more aligned with the real truth that surely exists more fully among them than inside any one of them. This does not require anyone to have a particular education or socialization – if you think it does, then again, you should really consider whether you are not the one bringing the “violence” of everyday life into your family gatherings.&lt;/p&gt;
+
+&lt;p&gt;I write this today in a country other than the one that holds most of my family. My partner and I will spend this holiday as a family of two, but I will miss my family in the United States tremendously, especially the most conservative ones, those whose beliefs have in the past genuinely scared and saddened me. I genuinely would most love to see them and have fun with them, not because I will miss the opportunity to &amp;ldquo;educate&amp;rdquo; them, but because I will miss the opportunity to be educated &lt;em&gt;by them&lt;/em&gt; about my own anxieties, about my own inability to control others, and about the fact that fundamentally different people exist who can nonetheless have fun together. Nothing in this attitude supports bigotry or &amp;ldquo;allows it to persist;” this is something left-wing types say to convert their social anxiety and fear of tension into an act of heroic virtue. But there&amp;rsquo;s nothing heroic or virtuous about being so wrapped up in one&amp;rsquo;s head so as to be incapable of going on holiday with the people who made you.&lt;/p&gt;
+
+&lt;p&gt;If there is any heroic, progressive achievement available during the holidays, it is figuring out how to sincerely have fun with people you may sincerely consider bigots. In such a situation, sincere fun may teach you that what you thought was bigotry is not actually bigotry, or if there is real bigotry then there is a chance that together you will access something that undermines the real, core drivers of bigotry. In any event, the mutual disarming effect of sincerely uncritical being-together is almost guaranteed to provide novel reflections and insights on at least someone’s side. Tense and anxious guardedness due to vague, unspoken mutual suspiciouness may very well be the single least progressive atmosphere for a family holiday, and yet it is one of the most common. I would go so far as to say that if there is any attitude or behavior that perpetuates bigotry during family holidays it is the overly educated, anxious incapacity of the upwardly mobile to have fun with family members whose only real ethical failure is that they simply do not care what people on the internet think. This year I will miss my reactionary family members the most because I love them, and love is the most concretely exhilarating and transformative when it operates against everything else that one tends to think and feel on a daily basis.&lt;/p&gt;
 </description>
     </item>
     
