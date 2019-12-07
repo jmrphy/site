@@ -132,7 +132,7 @@ Thankfully, political opinions are not randomly distributed. So if you can glean
   
   <meta property="article:published_time" content="2019-12-05T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-12-05T18:48:28-05:00">
+  <meta property="article:modified_time" content="2019-12-06T14:18:04-05:00">
   
 
   
@@ -423,7 +423,7 @@ Thankfully, political opinions are not randomly distributed. So if you can glean
 
 
 <meta content="2019-12-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-12-05 18:48:28 -0500 EST" itemprop="dateModified">
+<meta content="2019-12-06 14:18:04 -0500 EST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -438,7 +438,7 @@ Thankfully, political opinions are not randomly distributed. So if you can glean
           Last updated on
       
     
-    <time>Dec 5, 2019</time>
+    <time>Dec 6, 2019</time>
   </span>
   
 
@@ -640,11 +640,11 @@ main=&quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers
 <h1>Interpretation</h1>
 <p>The interpretation is very intuitive. The top of the tree is the first question you should ask, the single variable that gives you the most leverage to predict your victim’s secret opinion. The top node represents your knowledge before asking them anything: If you meet a random person, there is a 38% chance they would vote to suppress racist speakers. This applies to the whole population of America (100%.)</p>
 <p>According to the analysis, the first question with the most predictive power is: “Did you ever go to college?” If they say yes, the probability of them wanting to suppress drops to 29% and that’s all you need to ask them! Nothing else will improve your guess (at least from the variables we selected).</p>
-<p>If they never went to college, the next question you have to ask yourself is whether they’re smart. You probably don’t want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a “no” in this chart. If they are smart, then you infer with a 40% probablility that they would allow the speaker. If they are dumb, it’s now a coin flip (and 26% of the population is here).</p>
+<p>If they never went to college, the next question you have to ask yourself is whether they’re smart. You probably don’t want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a “no” in this chart. If they are smart, then you infer with a 40% probablility that they would disallow the speaker (you infer that they would allow). If they are dumb, it’s now a coin flip (and 26% of the population is here).</p>
 <p>Next, what is their race? This you can probably guess yourself. From here:</p>
 <ul>
-<li><p>If they are white, then there’s a 48% chance they would allow the speaker. If then they are male, there’s a 45% chance they would allow and that’s your final guess. If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they’re slightly more likely than a coin flip to <em>disallow</em> the speaker (54%).</p></li>
-<li><p>If they are dumb and non-white, there’s nothing left to ask them: There’s a 57% chance they would not allow the speaker.</p></li>
+<li><p>If they are white, then there’s a 48% chance they would disallow the speaker. If then they are male, there’s a 45% chance they would disallow and that’s your final guess (that they would allow). If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they’re slightly more likely than a coin flip to disallow the speaker (54%).</p></li>
+<li><p>If they are dumb and non-white,then there’s a 57% chance they would not allow the speaker. And that’s your best guess.</p></li>
 </ul>
 </div>
 <div id="conclusion" class="section level1">

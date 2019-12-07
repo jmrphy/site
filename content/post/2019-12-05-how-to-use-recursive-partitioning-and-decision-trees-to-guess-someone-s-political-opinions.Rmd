@@ -146,13 +146,13 @@ The interpretation is very intuitive. The top of the tree is the first question 
 
 According to the analysis, the first question with the most predictive power is: "Did you ever go to college?" If they say yes, the probability of them wanting to suppress drops to 29% and that's all you need to ask them! Nothing else will improve your guess (at least from the variables we selected).
 
-If they never went to college, the next question you have to ask yourself is whether they're smart. You probably don't want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a "no" in this chart. If they are smart, then you infer with a 40% probablility that they would allow the speaker. If they are dumb, it's now a coin flip (and 26% of the population is here).
+If they never went to college, the next question you have to ask yourself is whether they're smart. You probably don't want to give them a vocabulary test, but conversation is pretty naturally revealing. So if they are on the dumb side, consider them a "no" in this chart. If they are smart, then you infer with a 40% probablility that they would disallow the speaker (you infer that they would allow). If they are dumb, it's now a coin flip (and 26% of the population is here).
 
 Next, what is their race? This you can probably guess yourself. From here:
 
-- If they are white, then there's a 48% chance they would allow the speaker. If then they are male, there's a 45% chance they would allow and that's your final guess. If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they're slightly more likely than a coin flip to *disallow* the speaker (54%).
+- If they are white, then there's a 48% chance they would disallow the speaker. If then they are male, there's a 45% chance they would disallow and that's your final guess (that they would allow). If they are female, you can see if their family is rich or not. If rich, they are slightly less likely than a coin flip to disallow the speaker (46%); if poor, they're slightly more likely than a coin flip to disallow the speaker (54%).
 
-- If they are dumb and non-white, there's nothing left to ask them: There's a 57% chance they would not allow the speaker.
+- If they are dumb and non-white,then there's a 57% chance they would not allow the speaker. And that's your best guess.
 
 # Conclusion
 
