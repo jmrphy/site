@@ -69,3 +69,7 @@ baseName = "feed"
   category = "categories"
   publication_type = "publication_types"
   author = "authors"
+
+[params]
+  description = "Justin Murphy's academic website."
+  images = ["icon-512.png"]

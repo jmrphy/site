@@ -20,9 +20,8 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-twitter:
-- card: "summary_large_image"
-- image: "https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png"
+images:
+- https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png
 ---
 
 Balaji Srinivasan put out [a call](https://twitter.com/balajis/status/1280261091302375424) for "the best diversity report on tech journalists," building on some initial data collected by [OoTheNigerian](https://twitter.com/OoTheNigerian). Here's my stab at it.
