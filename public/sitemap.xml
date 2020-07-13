@@ -19,7 +19,7 @@
   
   <url>
     <loc>/tags/blogging/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
@@ -34,47 +34,77 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gender/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/media/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/race/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/technology/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/theory-empirics/</loc>
+    <lastmod>2020-07-07T17:29:15-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/public-opinion/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/resources/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/statistical-methods/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>/post/recursive-partitioning-decision-trees-guess-opinions/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/visualization/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
@@ -178,11 +208,6 @@
   </url>
   
   <url>
-    <loc>/tags/media/</loc>
-    <lastmod>2019-09-27T18:05:23-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/time-series/</loc>
     <lastmod>2019-09-27T18:05:23-06:00</lastmod>
   </url>
@@ -200,11 +225,6 @@
   <url>
     <loc>/tags/social-science/</loc>
     <lastmod>2019-10-07T12:55:28-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/theory-empirics/</loc>
-    <lastmod>2019-11-27T13:51:36-07:00</lastmod>
   </url>
   
   <url>
@@ -253,11 +273,6 @@
   </url>
   
   <url>
-    <loc>/tags/race/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
@@ -293,11 +308,6 @@
   </url>
   
   <url>
-    <loc>/tags/gender/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/violence/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
@@ -309,11 +319,6 @@
   
   <url>
     <loc>/tags/mechanisms/</loc>
-    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/technology/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
   

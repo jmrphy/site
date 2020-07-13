@@ -1,0 +1,250 @@
+---
+title: Racial and Gender Diversity Among Tech Journalists on Twitter
+author: ''
+date: '2020-07-07'
+slug: racial-and-gender-diversity-among-tech-journalists-on-twitter
+categories:
+  - theory & empirics
+tags:
+  - gender
+  - race
+  - technology
+  - media
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-07T17:29:15-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Balaji Srinivasan put out <a href="https://twitter.com/balajis/status/1280261091302375424">a call</a> for “the best diversity report on tech journalists,” building on some initial data collected by <a href="https://twitter.com/OoTheNigerian">OoTheNigerian</a>. Here’s my stab at it.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>The initial dataset focused on the diversity of attendees at industry conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.</p>
+<p>Here I pursue a different strategy. I first collect lists of tech journalists on Twitter. Then I leverage data from the Census and the Social Security Administration to infer each journalist’s race and gender. The resulting dataset allows us to estimate racial and gender diversity in tech journalism.</p>
+<p>While my approach certainly has its own limitations, analyzing the culture of tech journalism via Twitter-based samples seems uniquely attractive. First, it’s possible some tech journalists are not on Twitter, but since Twitter is both a hot technology and a watering-hole for journalists, this potential selection bias seems particularly unthreatening. Twitter is arguably the ideal place to draw a sample of tech journalists. A second limitation of my approach is that I may very well fail to identify some tech journalists who are on Twitter, but this is only an analytical problem if there is some reason to believe that white people or male people are more or less likely to surface in my search procedures. Assuming this is very unlikely, the worst that can be said of my sampling method is that it’s unlikely to capture every single tech journalist on Twitter. Nonetheless, it is likely to be quite close to a random sample of all the tech journalists on Twitter, which means it should plausibly generalize.</p>
+<p>As a robustness check, I conduct the analyses on two different samples collected using two different Twitter-based sampling methods. In a first cut, I collect a sample of tech journalists by searching Twitter bios. In a second cut, I collect a sample from public lists of “Tech Journalists” curated by third parties. The results are nearly identical, suggesting the analyses below very likely reflect the underlying state of tech journalism, at least on Twitter. If I’m right that most tech journalists are on Twitter, then the analyses should generally reflect tech journalism as such. If there is a non-trivial community of tech journalists not on Twitter someone should tell them about what’s new in the world of technology.</p>
+</div>
+<div id="approach-1-tech-journalists-who-mention-a-major-tech-journalism-outlet-in-their-bio" class="section level2">
+<h2>Approach 1: Tech journalists who mention a major tech-journalism outlet in their bio</h2>
+<p>I used the R package <em>rtweet</em> to search for anyone on Twitter who mentions one of the following tech-journalism oulets in their bio: TechCrunch, ReCode, The Information, or The Verge. The API allows for up to 1,000 results per search, but in every case the number of results was less than 1,000.</p>
+<pre class="r"><code># Load required packages 
+
+require(rtweet)
+require(tidyverse)
+require(predictrace)
+require(stringr)
+require(gender)
+require(DT)
+
+# Search for accounts mentioning tech-journalism outlets 
+
+tc &lt;- search_users(&quot;@TechCrunch&quot;, n = 1000)
+tc$outlet&lt;-&quot;TechCrunch&quot;
+
+rc &lt;- search_users(&quot;@ReCode&quot;, n = 1000)
+rc$outlet&lt;-&quot;ReCode&quot;
+
+ti &lt;- search_users(&quot;@TheInformation&quot;, n = 1000)
+ti$outlet&lt;-&quot;TheInformation&quot;
+
+tv &lt;- search_users(&quot;@Verge&quot;, n = 1000)
+tv$outlet&lt;-&quot;TheVerge&quot;
+
+# Bind search results into one dataframe
+journos&lt;-rbind(tc, rc, ti, tv)
+
+# Restrict to English language accounts
+journos &lt;- journos %&gt;%
+  filter(lang==&quot;en&quot;) %&gt;%
+  select(screen_name, name, location, description, followers_count, friends_count,
+         listed_count,  statuses_count, favourites_count,   account_created_at, verified,
+         profile_expanded_url,  outlet) %&gt;%
+  drop_na(name)
+
+# Standardize and export for manual inspection
+journos &lt;- apply(journos,2,as.character)
+write.csv(journos, &quot;journos.csv&quot;)</code></pre>
+<p>The total number of accounts identified in this fashion was 1879, but most of them were false positives (the API does not seem to recognize the @ symbol). So I manually went through the results and narrowed the dataset down to individuals who included the outlet’s main Twitter handle in their personal bio. Typically the profile says something like “currently at X” or “formerly at X.” I also standardized names and removed emojis in preparation for the next stage of analysis. This process left 256 individuals.</p>
+<p>Next we leverage the <a href="https://cran.r-project.org/web/packages/predictrace/vignettes/Predict-race-of-surname.html"><em>predictrace</em></a> package to infer race from surnames, based on the co-occurrence of surnames and self-reported races in the Census datasets.</p>
+<p>And then we leverage the <a href="https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html"><em>gender</em></a> package to infer gender from first names, based on the co-occurrence of baby names and gender in the Social Security Administration datasets.</p>
+<pre class="r"><code># Load manually cleaned spreadsheet
+df&lt;-read.csv(&quot;/Users/justin/Dropbox/Public/journos.csv&quot;)
+
+# Extract surname from the full name
+df$lastnames &lt;- word(df$name,-1)
+# Predict race from surname
+race.profiles.df&lt;-predict_race(df$lastnames)
+
+# To partially mitigate the problem of under-identifying black people,
+# any surname with a probability of being black greater than .3 will
+# will be classified as black. This will increase the error rate of
+# classifying white people as black, but decrease the error rate of
+# classifying black people as white.
+
+race.profiles.df$likely_race&lt;-ifelse(race.profiles.df$probability_black&gt;.3 &amp;
+         race.profiles.df$likely_race==&quot;white&quot;,
+       &quot;black&quot;,
+       race.profiles.df$likely_race)
+
+# I think there&#39;s a bug in the predictrace package which fails
+# to infer Hispanic race even when it identifies a very high probability
+# of being Hispanic. I&#39;m correcting this manually by inferring
+# Hispanic race for any probability greater than .5.
+
+race.profiles.df$likely_race&lt;-ifelse(race.profiles.df$probability_hispanic&gt;.5,
+       &quot;hispanic&quot;,
+       race.profiles.df$likely_race)
+
+
+# Bind predicted race variables to Twitter profiles
+df &lt;- cbind(df, race.profiles.df$likely_race)
+# Rename the inferred race variable
+df$race &lt;- df$`race.profiles.df$likely_race`
+# Extract first name from the full name
+df$firstnames&lt;-word(df$name,1)
+# Predict gender from first name
+gender.profiles.df&lt;-gender(df$firstnames)
+# Rename the inferred gender variable
+gender.profiles.df$firstnames&lt;-gender.profiles.df$name
+# Merge gender variables with Twitter profiles
+df&lt;-merge(df, select(gender.profiles.df, gender, firstnames), by=&quot;firstnames&quot;)
+# Remove duplicates created in merge
+df&lt;-distinct(df)
+# Remove redundant columns
+df&lt;-select(df, -c(firstnames, lastnames, X, X.1, `race.profiles.df$likely_race`))
+
+df$race&lt;-recode(df$race, asian = &quot;Asian&quot;,
+                        black = &quot;Black&quot;,
+                        white = &quot;White&quot;)</code></pre>
+<p>Here’s the simple numerical breakdown: 108 are likely white, 19 are likely Asian, and 2 are likely black.</p>
+<p>Let’s</p>
+<pre class="r"><code># Graph of racial diversity in Sample 1
+
+df %&gt;%
+drop_na(race) %&gt;%
+ggplot(aes(x = race)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#ad313b&quot;) +
+  theme_bw() +
+  labs(title=&quot;Racial Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&quot;,
+      x=&quot;Most likely race&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Race is inferred from surname using Census data. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code># Graph of gender diversity in Sample 1
+df %&gt;%
+drop_na(gender) %&gt;%
+ggplot(aes(x = gender)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#ad313b&quot;) +
+  theme_bw() +
+  labs(title=&quot;Gender Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&quot;,
+      x=&quot;Most likely gender&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>df %&gt;%
+drop_na(gender, race) %&gt;%
+ggplot(aes(x = race)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#ad313b&quot;) +
+  theme_bw() +
+  labs(title=&quot;Racial and Gender Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&quot;,
+      x=&quot;Most likely race&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip() + facet_wrap(.~gender)</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+</div>
+<div id="approach-2-curated-lists-of-tech-journalists" class="section level2">
+<h2>Approach 2: Curated lists of “tech journalists”</h2>
+<p>I found two Twitter lists entitled “Tech Journalists” (<a href="https://twitter.com/i/lists/96162061">1</a>, <a href="https://twitter.com/i/lists/53301954">2</a>). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample.</p>
+<pre class="r"><code># Import the accounts identified by each list
+journo.list1&lt;-lists_members(96162061)
+journo.list2&lt;-lists_members(53301954)
+
+# Bind them into one dataframe
+df2&lt;-rbind(journo.list1, journo.list2)
+
+# Extract surname and predict race
+df2$lastnames&lt;-word(df2$name,-1)
+race.lists.df&lt;-predict_race(df2$lastnames)
+
+# To partially mitigate the problem of under-identifying black people,
+# any surname with a probability of being black greater than .3 will
+# will be classified as black. This will increase the error rate of
+# classifying white people as black, but decrease the error rate of
+# classifying black people as white.
+
+race.lists.df$likely_race&lt;-ifelse(race.lists.df$probability_black&gt;.3 &amp;
+         race.lists.df$likely_race==&quot;white&quot;,
+       &quot;black&quot;,
+       race.lists.df$likely_race)
+
+# I think there&#39;s a bug in the predictrace package which fails
+# to infer Hispanic race even when it identifies a very high probability
+# of being Hispanic. I&#39;m mitigating this manually by inferring
+# Hispanic race for any probability greater than .5.
+
+race.lists.df$likely_race&lt;-ifelse(race.lists.df$probability_hispanic&gt;.5,
+       &quot;hispanic&quot;,
+       race.lists.df$likely_race)
+
+df2$race&lt;-race.lists.df$likely_race
+
+# Extract first name and predict gender
+df2$firstnames&lt;-word(df2$name,1)
+gender.lists.df&lt;-gender(df2$firstnames)
+gender.lists.df$firstnames&lt;-gender.lists.df$name
+
+# Merge and remove duplicates
+df2&lt;-merge(df2, gender.lists.df, by=&quot;firstnames&quot;)
+df2&lt;-distinct(df2)
+
+df2 %&gt;%
+drop_na(race) %&gt;%
+ggplot(aes(x = race)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#ad313b&quot;) +
+  theme_bw() +
+  labs(title=&quot;Racial Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&quot;,
+      x=&quot;Most likely race&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png" width="672" /></p>
+<pre class="r"><code>df2 %&gt;%
+drop_na(gender) %&gt;%
+ggplot(aes(x = gender)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#ad313b&quot;) +
+  theme_bw() +
+  labs(title=&quot;Gender Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&quot;,
+      x=&quot;Most likely gender&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip()</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-2.png" width="672" /></p>
+<pre class="r"><code>df2 %&gt;%
+drop_na(gender, race) %&gt;%
+ggplot(aes(x = race)) +  
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
+  theme_bw() +
+  labs(title=&quot;Racial and Gender Diversity Among Tech Journalists on Twitter&quot;,
+       subtitle=&quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&quot;,
+      x=&quot;Most likely race&quot;,
+       y=&quot;Proportion&quot;,
+      caption=&quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
+  coord_flip() + facet_wrap(.~gender)</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png" width="672" /></p>
+</div>
