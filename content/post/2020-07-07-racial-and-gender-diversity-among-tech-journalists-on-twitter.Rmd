@@ -60,7 +60,7 @@ require(DT)
 
 ## Approach 1: Tech journalists who mention a major tech-journalism outlet in their bio
 
-I used the R package *rtweet* to search for anyone on Twitter who mentions one of the following tech-journalism oulets in their bio: TechCrunch, ReCode, The Information, or The Verge. The API allows for up to 1,000 results per search, but in every case the number of results was less than 1,000.
+I used the R package *rtweet* to search for anyone on Twitter who mentions one of the following tech-journalism oulets in their bio: TechCrunch, ReCode, The Information, or The Verge. The API allows for up to 1,000 results per search.
 
 ```{r setup, include=TRUE, eval=FALSE}
 
@@ -166,7 +166,7 @@ df$race<-recode(df$race, asian = "Asian",
 write.csv(df, "/Users/justin/Dropbox/Public/tech-journalists-from-bios-df.csv")
 ```
 
-Here's the simple numerical breakdown: 106 are likely white, 20 are likely Asian, 14 are likely black, and 8 are likely Hispanic. The rest could not be classfied.
+Here's the simple numerical breakdown: 106 are likely White, 20 are likely Asian, 14 are likely Black, and 8 are likely Hispanic. The rest could not be classified.
 
 ```{r}
 # Graph of racial diversity in Sample 1
@@ -214,7 +214,7 @@ ggplot(aes(x = race)) +
 
 I found two Twitter lists entitled "Tech Journalists" ([1](https://twitter.com/i/lists/96162061), [2](https://twitter.com/i/lists/53301954)). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample. The initial number of journalists in Sample 2 is 424; after removing duplicates the number is 360.
 
-The basic counts are: 165 likely to be white, 17 likely to be Asian, 23 likely to be black, and 8 likely to be Hispanic.
+The basic counts are: 165 likely to be White, 17 likely to be Asian, 23 likely to be Black, and 8 likely to be Hispanic. The rest could not be classified.
 
 ```{r analysis-sample-2}
 
@@ -308,7 +308,7 @@ ggplot(aes(x = race)) +
 
 ## Conclusion
 
-The roughly similar distributions across two different sampling methods suggests the sampling is probably a reasonable portrait of tech-journalism Twitter generally.
+The roughly similar distributions across two different sampling methods suggest the sampling is probably a reasonable portrait of tech-journalism Twitter generally.
 
 The dataset for Sample 1 (based on Twitter profiles), including race and gender inferences, [can be found here.](https://www.dropbox.com/s/uixj7vxrlmsnfdt/tech-journalists-from-bios-df.csv?dl=0)
 

@@ -44,7 +44,7 @@ images:
 </div>
 <div id="approach-1-tech-journalists-who-mention-a-major-tech-journalism-outlet-in-their-bio" class="section level2">
 <h2>Approach 1: Tech journalists who mention a major tech-journalism outlet in their bio</h2>
-<p>I used the R package <em>rtweet</em> to search for anyone on Twitter who mentions one of the following tech-journalism oulets in their bio: TechCrunch, ReCode, The Information, or The Verge. The API allows for up to 1,000 results per search, but in every case the number of results was less than 1,000.</p>
+<p>I used the R package <em>rtweet</em> to search for anyone on Twitter who mentions one of the following tech-journalism oulets in their bio: TechCrunch, ReCode, The Information, or The Verge. The API allows for up to 1,000 results per search.</p>
 <pre class="r"><code># Load required packages 
 
 require(rtweet)
@@ -137,7 +137,7 @@ df$race&lt;-recode(df$race, asian = &quot;Asian&quot;,
                         hispanic = &quot;Hispanic&quot;)
 
 write.csv(df, &quot;/Users/justin/Dropbox/Public/tech-journalists-from-bios-df.csv&quot;)</code></pre>
-<p>Here’s the simple numerical breakdown: 106 are likely white, 20 are likely Asian, 14 are likely black, and 8 are likely Hispanic. The rest could not be classfied.</p>
+<p>Here’s the simple numerical breakdown: 106 are likely White, 20 are likely Asian, 14 are likely Black, and 8 are likely Hispanic. The rest could not be classified.</p>
 <pre class="r"><code># Graph of racial diversity in Sample 1
 
 df %&gt;%
@@ -181,7 +181,7 @@ ggplot(aes(x = race)) +
 <div id="approach-2-curated-lists-of-tech-journalists" class="section level2">
 <h2>Approach 2: Curated lists of “tech journalists”</h2>
 <p>I found two Twitter lists entitled “Tech Journalists” (<a href="https://twitter.com/i/lists/96162061">1</a>, <a href="https://twitter.com/i/lists/53301954">2</a>). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample. The initial number of journalists in Sample 2 is 424; after removing duplicates the number is 360.</p>
-<p>The basic counts are: 165 likely to be white, 17 likely to be Asian, 23 likely to be black, and 8 likely to be Hispanic.</p>
+<p>The basic counts are: 165 likely to be White, 17 likely to be Asian, 23 likely to be Black, and 8 likely to be Hispanic. The rest could not be classified.</p>
 <pre class="r"><code># Import the accounts identified by each list
 journo.list1&lt;-lists_members(96162061)
 journo.list2&lt;-lists_members(53301954)
