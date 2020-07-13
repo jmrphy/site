@@ -21,6 +21,7 @@
 
 
 &lt;p&gt;Balaji Srinivasan put out &lt;a href=&#34;https://twitter.com/balajis/status/1280261091302375424&#34;&gt;a call&lt;/a&gt; for “the best diversity report on tech journalists,” building on some initial data collected by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt;. Here’s my stab at it.&lt;/p&gt;
+&lt;p&gt;This is a first cut, not a final statement on what is a rather thorny social-scientific question. There will very likely be some errors in the datasets. If you spot any, &lt;a href=&#34;https://theotherlifenow.com/contact/&#34;&gt;please contact me.&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;background-and-overview&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Background and overview&lt;/h2&gt;
 &lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt; focused on the diversity of attendees at tech-journalism conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
@@ -127,7 +128,9 @@ df&amp;lt;-select(df, -c(firstnames, lastnames, X, X.1, `race.profiles.df$likely
 df$race&amp;lt;-recode(df$race, asian = &amp;quot;Asian&amp;quot;,
                         black = &amp;quot;Black&amp;quot;,
                         white = &amp;quot;White&amp;quot;,
-                        hispanic = &amp;quot;Hispanic&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+                        hispanic = &amp;quot;Hispanic&amp;quot;)
+
+write.csv(df, &amp;quot;/Users/justin/Dropbox/Public/tech-journalists-from-bios-df.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here’s the simple numerical breakdown: 106 are likely white, 20 are likely Asian, 14 are likely black, and 8 are likely Hispanic. The rest could not be classfied.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graph of racial diversity in Sample 1
 
@@ -171,7 +174,8 @@ ggplot(aes(x = race)) +
 &lt;/div&gt;
 &lt;div id=&#34;approach-2-curated-lists-of-tech-journalists&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Approach 2: Curated lists of “tech journalists”&lt;/h2&gt;
-&lt;p&gt;I found two Twitter lists entitled “Tech Journalists” (&lt;a href=&#34;https://twitter.com/i/lists/96162061&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/i/lists/53301954&#34;&gt;2&lt;/a&gt;). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample.&lt;/p&gt;
+&lt;p&gt;I found two Twitter lists entitled “Tech Journalists” (&lt;a href=&#34;https://twitter.com/i/lists/96162061&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/i/lists/53301954&#34;&gt;2&lt;/a&gt;). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample. The initial number of journalists in Sample 2 is 424; after removing duplicates the number is 360.&lt;/p&gt;
+&lt;p&gt;The basic counts are: 165 likely to be white, 17 likely to be Asian, 23 likely to be black, and 8 likely to be Hispanic.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import the accounts identified by each list
 journo.list1&amp;lt;-lists_members(96162061)
 journo.list2&amp;lt;-lists_members(53301954)
@@ -220,6 +224,8 @@ df2$race&amp;lt;-recode(df2$race, asian = &amp;quot;Asian&amp;quot;,
                         white = &amp;quot;White&amp;quot;,
                         hispanic = &amp;quot;Hispanic&amp;quot;)
 
+write.csv(df2, &amp;quot;/Users/justin/Dropbox/Public/tech-journalists-from-lists-df.csv&amp;quot;)
+
 df2 %&amp;gt;%
 drop_na(race) %&amp;gt;%
 ggplot(aes(x = race)) +  
@@ -256,6 +262,13 @@ ggplot(aes(x = race)) +
       caption=&amp;quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip() + facet_wrap(.~gender)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The roughly similar distributions across two different sampling methods suggests the sampling is probably a reasonable portrait of tech-journalism Twitter generally.&lt;/p&gt;
+&lt;p&gt;The dataset for Sample 1 (based on Twitter profiles), including race and gender inferences, &lt;a href=&#34;https://www.dropbox.com/s/uixj7vxrlmsnfdt/tech-journalists-from-bios-df.csv?dl=0&#34;&gt;can be found here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The dataset for Sample 2 (based on third-party-curated Twitter lists), including race and gender inferences, &lt;a href=&#34;https://www.dropbox.com/s/u1qaa1gc0amajdg/tech-journalists-from-lists-df.csv?dl=0&#34;&gt;can be found here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is a first cut, not a final statement. There are likely some errors in the datasets. If you spot any, &lt;a href=&#34;https://theotherlifenow.com/contact/&#34;&gt;please contact me.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
