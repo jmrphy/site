@@ -2,32 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>theory &amp; empirics on Justin Murphy</title>
-    <link>/categories/theory-empirics/</link>
+    <link>https://jmrphy.net/categories/theory-empirics/</link>
     <description>Recent content in theory &amp; empirics on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/categories/theory-empirics/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/categories/theory-empirics/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Racial and Gender Diversity Among Tech Journalists on Twitter</title>
-      <link>/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</link>
+      <link>https://jmrphy.net/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</guid>
+      <guid>https://jmrphy.net/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</guid>
       <description>
 
 
 &lt;p&gt;Balaji Srinivasan put out &lt;a href=&#34;https://twitter.com/balajis/status/1280261091302375424&#34;&gt;a call&lt;/a&gt; for “the best diversity report on tech journalists,” building on some initial data collected by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt;. Here’s my stab at it.&lt;/p&gt;
-&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Background&lt;/h2&gt;
-&lt;p&gt;The initial dataset focused on the diversity of attendees at industry conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
+&lt;div id=&#34;background-and-overview&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background and overview&lt;/h2&gt;
+&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt; focused on the diversity of attendees at tech-journalism conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
 &lt;p&gt;Here I pursue a different strategy. I first collect lists of tech journalists on Twitter. Then I leverage data from the Census and the Social Security Administration to infer each journalist’s race and gender. The resulting dataset allows us to estimate racial and gender diversity in tech journalism.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;note-on-sampling-method&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Note on sampling method&lt;/h2&gt;
 &lt;p&gt;While my approach certainly has its own limitations, analyzing the culture of tech journalism via Twitter-based samples seems uniquely attractive. First, it’s possible some tech journalists are not on Twitter, but since Twitter is both a hot technology and a watering-hole for journalists, this potential selection bias seems particularly unthreatening. Twitter is arguably the ideal place to draw a sample of tech journalists. A second limitation of my approach is that I may very well fail to identify some tech journalists who are on Twitter, but this is only an analytical problem if there is some reason to believe that white people or male people are more or less likely to surface in my search procedures. Assuming this is very unlikely, the worst that can be said of my sampling method is that it’s unlikely to capture every single tech journalist on Twitter. Nonetheless, it is likely to be quite close to a random sample of all the tech journalists on Twitter, which means it should plausibly generalize.&lt;/p&gt;
 &lt;p&gt;As a robustness check, I conduct the analyses on two different samples collected using two different Twitter-based sampling methods. In a first cut, I collect a sample of tech journalists by searching Twitter bios. In a second cut, I collect a sample from public lists of “Tech Journalists” curated by third parties. The results are nearly identical, suggesting the analyses below very likely reflect the underlying state of tech journalism, at least on Twitter. If I’m right that most tech journalists are on Twitter, then the analyses should generally reflect tech journalism as such. If there is a non-trivial community of tech journalists not on Twitter someone should tell them about what’s new in the world of technology.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-problems-with-inferring-race-and-gender-from-names&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The problems with inferring race and gender from names&lt;/h2&gt;
+&lt;p&gt;The approach pursued here seems to be the approach with the best balance of objectivity, scalability, and efficiency, but all research methods face serious limitations. In this case, perhaps the biggest problem is due to the history of anti-black racism and slavery in the United States. Because of slavery in the United States, black people in America today frequently have non-African last names (such as Williams or Washington). Therefore, inferring race from surnames will generally under-count black people. As you’ll see below, I take some extra steps to mitigate this problem (see my comments inside the code snippets), but the results of any automated measurement method will always have some amount of error. The only alternatives would be to use subjective judgment to infer race from pictures (which seems even more fraught and potentially insensitive than the approach I’ve taken) or to solicit racial self-identifications from tech journalists (which similarly seems more fraught and potentially insensitive than the approach I’ve taken). Ultimately the best solution to the limitations of my method is to suggest that errors can be reported to me personally and I’ll either correct the dataset or, in the case of uncertainty, remove the uncertain entry in the dataset. Same for gender.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;approach-1-tech-journalists-who-mention-a-major-tech-journalism-outlet-in-their-bio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Approach 1: Tech journalists who mention a major tech-journalism outlet in their bio&lt;/h2&gt;
@@ -69,7 +76,7 @@ journos &amp;lt;- journos %&amp;gt;%
 # Standardize and export for manual inspection
 journos &amp;lt;- apply(journos,2,as.character)
 write.csv(journos, &amp;quot;journos.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The total number of accounts identified in this fashion was 1879, but most of them were false positives (the API does not seem to recognize the @ symbol). So I manually went through the results and narrowed the dataset down to individuals who included the outlet’s main Twitter handle in their personal bio. Typically the profile says something like “currently at X” or “formerly at X.” I also standardized names and removed emojis in preparation for the next stage of analysis. This process left 256 individuals.&lt;/p&gt;
+&lt;p&gt;The total number of accounts identified in this fashion was 1879, but most of them were false positives (the API does not seem to recognize the @ symbol). So I manually went through the results and narrowed the dataset down to individuals who included the outlet’s main Twitter handle in their personal bio. Typically the profile says something like “currently at X” or “formerly at X.” I also standardized names and removed emojis in preparation for the next stage of analysis. This process left 273 individuals. After removing duplicates (due to people writing for multiple outlets), the full sample for Sample 1 was 252 individuals.&lt;/p&gt;
 &lt;p&gt;Next we leverage the &lt;a href=&#34;https://cran.r-project.org/web/packages/predictrace/vignettes/Predict-race-of-surname.html&#34;&gt;&lt;em&gt;predictrace&lt;/em&gt;&lt;/a&gt; package to infer race from surnames, based on the co-occurrence of surnames and self-reported races in the Census datasets.&lt;/p&gt;
 &lt;p&gt;And then we leverage the &lt;a href=&#34;https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html&#34;&gt;&lt;em&gt;gender&lt;/em&gt;&lt;/a&gt; package to infer gender from first names, based on the co-occurrence of baby names and gender in the Social Security Administration datasets.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load manually cleaned spreadsheet
@@ -120,15 +127,15 @@ df&amp;lt;-select(df, -c(firstnames, lastnames, X, X.1, `race.profiles.df$likely
 
 df$race&amp;lt;-recode(df$race, asian = &amp;quot;Asian&amp;quot;,
                         black = &amp;quot;Black&amp;quot;,
-                        white = &amp;quot;White&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the simple numerical breakdown: 108 are likely white, 19 are likely Asian, and 2 are likely black.&lt;/p&gt;
-&lt;p&gt;Let’s&lt;/p&gt;
+                        white = &amp;quot;White&amp;quot;,
+                        hispanic = &amp;quot;Hispanic&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s the simple numerical breakdown: 106 are likely white, 20 are likely Asian, 14 are likely black, and 8 are likely Hispanic. The rest could not be classfied.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graph of racial diversity in Sample 1
 
 df %&amp;gt;%
 drop_na(race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -136,12 +143,12 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graph of gender diversity in Sample 1
 df %&amp;gt;%
 drop_na(gender) %&amp;gt;%
 ggplot(aes(x = gender)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -149,11 +156,11 @@ ggplot(aes(x = gender)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;%
 drop_na(gender, race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial and Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -161,7 +168,7 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip() + facet_wrap(.~gender)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;approach-2-curated-lists-of-tech-journalists&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Approach 2: Curated lists of “tech journalists”&lt;/h2&gt;
@@ -208,10 +215,16 @@ gender.lists.df$firstnames&amp;lt;-gender.lists.df$name
 df2&amp;lt;-merge(df2, gender.lists.df, by=&amp;quot;firstnames&amp;quot;)
 df2&amp;lt;-distinct(df2)
 
+# Fix capitalization
+df2$race&amp;lt;-recode(df2$race, asian = &amp;quot;Asian&amp;quot;,
+                        black = &amp;quot;Black&amp;quot;,
+                        white = &amp;quot;White&amp;quot;,
+                        hispanic = &amp;quot;Hispanic&amp;quot;)
+
 df2 %&amp;gt;%
 drop_na(race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&amp;quot;,
@@ -219,11 +232,11 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2 %&amp;gt;%
 drop_na(gender) %&amp;gt;%
 ggplot(aes(x = gender)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&amp;quot;,
@@ -231,7 +244,7 @@ ggplot(aes(x = gender)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2 %&amp;gt;%
 drop_na(gender, race) %&amp;gt;%
 ggplot(aes(x = race)) +  
@@ -243,17 +256,17 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip() + facet_wrap(.~gender)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Inequality and the Pacification of Militant Protest in the United States, 1919-2012</title>
-      <link>/blog/inequality-and-pacification-of-protest/</link>
+      <link>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/inequality-and-pacification-of-protest/</guid>
+      <guid>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</guid>
       <description>
 
 &lt;p&gt;To generate the graph below, you need two data files. The first is yearly income decile data from &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;Piketty (2014)&lt;/a&gt;, which should be named &amp;ldquo;Inequality_USA.csv.&amp;rdquo; The second is the Cross-National Time-Series data from &lt;a href=&#34;https://www.cntsdata.com/&#34; target=&#34;_blank&#34;&gt;Banks and Wilson (2017)&lt;/a&gt;, which should be called &amp;ldquo;2017 Edition CNTSDATA.csv.&amp;rdquo; Finally, the code snippet below should be in a file called &amp;ldquo;Baron_et_al-ISQ.R&amp;rdquo; — that will be an R script that compiles the two datasets before producing the figure from our article. To reproduce the Figure, open the R script on your computer, ensure each dataset is in the same directory as the R script, set your R working directory to that directory, and run the script.&lt;/p&gt;
@@ -346,10 +359,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>The Alt-Right is not all Right: On the ideology of Kekistan</title>
-      <link>/blog/the-alt-right-is-not-all-right/</link>
+      <link>https://jmrphy.net/blog/the-alt-right-is-not-all-right/</link>
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/the-alt-right-is-not-all-right/</guid>
+      <guid>https://jmrphy.net/blog/the-alt-right-is-not-all-right/</guid>
       <description>
 
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
@@ -664,10 +677,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>Who’s afraid of free speech in the United States?</title>
-      <link>/blog/2018/02/16/who-is-afraid-of-free-speech/</link>
+      <link>https://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/</link>
       <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018/02/16/who-is-afraid-of-free-speech/</guid>
+      <guid>https://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/</guid>
       <description>&lt;p&gt;The topic of free speech is highly salient at the moment, but if you look at the public opinion data, you find some patterns quite incongruous with many of the popular talking points circulating right now. It seems that perhaps in the pushback against political correctness, many have been too quick to make generalizations about how &amp;ldquo;the far left&amp;rdquo; and/or &amp;ldquo;radical liberals&amp;rdquo; think about free speech. The now popular view that &amp;ldquo;the left&amp;rdquo; has turned against free speech is not totally wrong, but it&amp;rsquo;s complicated. The important wrinkle is that &amp;ldquo;extreme liberals&amp;rdquo; and the &amp;ldquo;far left&amp;rdquo; have always been, and generally remain, the &lt;em&gt;most supportive&lt;/em&gt; of free speech. Curiously, it is the &amp;ldquo;slightly left&amp;rdquo; that have in recent years turned against free speech (and only for racists, not for other groups, including military fascists!).&lt;/p&gt;
 
 &lt;p&gt;For most of its surveys between 1972 and 2016, the General Social Survey asked a U.S. sample to consider the following types of potential public speakers. (They asked about a few others but the following are the ones they asked most consistently.)&lt;/p&gt;
@@ -710,10 +723,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>The moral foundations of social justice warriors</title>
-      <link>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
+      <link>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
+      <guid>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
       <description>
 
 &lt;p&gt;What is a social justice warrior? The term &lt;em&gt;SJW&lt;/em&gt;, short for &lt;em&gt;social justice warrior,&lt;/em&gt; is now a well-known piece of internet slang. It refers to a particular tendency within left-wing political activism today. People often ask me to define &amp;ldquo;social justice warrior&amp;rdquo;, or they ask: &amp;ldquo;Isn&amp;rsquo;t that just an epithet, like &amp;lsquo;political correctness,&amp;rsquo;  used by conservatives to dismiss the claims of marginalized people?&amp;rdquo; Or else it is sometimes suggested that such an ideologically loaded term is beneath a Serious Social Scientist. But I&amp;rsquo;ve been thinking about these questions a lot, and my sense is that &lt;em&gt;SJW&lt;/em&gt; seems to reasonably distinguish a particular dimension of left-wing ideology and behavior from the larger multidimensional umbrella of &amp;ldquo;the Left.&amp;rdquo;&lt;/p&gt;
@@ -784,10 +797,10 @@ democratic socialism likely revolves around principles different than those at t
     
     <item>
       <title>What is the effect of comparing Donald Trump to Hitler?</title>
-      <link>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
+      <link>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
+      <guid>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
       <description>&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
 &lt;p&gt;Critics of U.S. President Donald Trump frequently [compare him to Adolf Hitler](http://amzn.to/2GJ0rsn). Does comparing Trump to Hitler decrease support for his policies? With the help of my students at the University of Southampton, we conducted a survey experiment to investigate the causal effect of a Hitler comparison on support for one of Trump&#39;s policies.&lt;/p&gt;
 
@@ -876,10 +889,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Milo, motivated reasoning, and the left-wing Fox News</title>
-      <link>/blog/2017/10/16/milo-motivated-reasoning/</link>
+      <link>https://jmrphy.net/blog/2017/10/16/milo-motivated-reasoning/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/10/16/milo-motivated-reasoning/</guid>
+      <guid>https://jmrphy.net/blog/2017/10/16/milo-motivated-reasoning/</guid>
       <description>&lt;p&gt;It is a well-documented fact of psychology that if we are emotionally drawn to a certain conclusion, our mind tends to trust whatever looks like supporting evidence, and distrust whatever looks like contradictory evidence. A nice rule of thumb is given by the psychologist Thomas Gilovich. If we emotionally like the implication of something, our brain automatically asks &amp;ldquo;Can I believe it?&amp;rdquo; But if we don’t, our brain asks, &amp;ldquo;Must I believe it?&amp;rdquo;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; The difference might seem slight, but this asymmetry in how we process information leads to profound social confusion when it plays out iteratively over time. If you think you are above such pedestrian irrationality, you probably are not; this process operates through a system that is not conscious—in fact, it happens before conscious thought even begins. For years, lefties have gawked with amazement at the insistent stupidity of right-wing media bubbles, especially that of Fox News. Today, however, not only the “mainstream left” but even supposedly sophisticated left-wing critics appear increasingly comfortable with a level of cognitive functioning once peculiar to channels such as Fox News. The phenomenon of motivated reasoning explains why even smart people on the left appear to be getting dumber, at the same time they sincerely feel like they are more obviously correct than ever.&lt;/p&gt;
 
 &lt;p&gt;This recent &lt;a href=&#34;https://www.buzzfeed.com/josephbernstein/heres-how-breitbart-and-milo-smuggled-white-nationalism?utm_term=.clAe8nL31q#.eoxVmE6w1Q&#34; target=&#34;_blank&#34;&gt;Buzzfeed article about Milo&lt;/a&gt; is a beautiful case study of how the left is converging to equilibrium with Fox News rationality. I try to avoid writing about one-off media events, but sometimes one encounters such a perfect illustration of a larger phenomenon that it feels worthwhile to drudge through an otherwise insignificant piece of media noise. I’ve seen many articles from lefty outlets over the past few years that have made me think: this is basically Fox News. And I’ve repressed the urge to write about them because you should never give too much energy responding to noise. But this fruit is now so ripe that I feel like I should pluck it, lest someone else does a few weeks from now and I feel ashamed for my laziness.&lt;/p&gt;
@@ -930,10 +943,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Data appendix on global rioting dynamics</title>
-      <link>/blog/2017/09/12/rioting-decline-data/</link>
+      <link>https://jmrphy.net/blog/2017/09/12/rioting-decline-data/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/09/12/rioting-decline-data/</guid>
+      <guid>https://jmrphy.net/blog/2017/09/12/rioting-decline-data/</guid>
       <description>&lt;p&gt;This post serves as a short appendix for a forthcoming, online article on the cross-national historical dynamics of rioting.&lt;/p&gt;
 &lt;p&gt;Here is the citation for the dataset. The event data is based on news reports.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -950,10 +963,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Who are Jordan Peterson’s followers?</title>
-      <link>/blog/2017/09/06/jordan-peterson-followers/</link>
+      <link>https://jmrphy.net/blog/2017/09/06/jordan-peterson-followers/</link>
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/09/06/jordan-peterson-followers/</guid>
+      <guid>https://jmrphy.net/blog/2017/09/06/jordan-peterson-followers/</guid>
       <description>&lt;p&gt;I’ve been curious about the new massive camp of Jordan Peterson acolytes. In one of my many prodigal late-night lurking sessions through the depths of Reddit, I noticed they collected some data on themselves. So here we go.&lt;/p&gt;
 &lt;p&gt;If you’ve been following my recent &lt;a href=&#34;http://jmrphy.net/blog/&#34;&gt;writing&lt;/a&gt;, &lt;a href=&#34;http://jmrphy.libsyn.com/&#34;&gt;podcasts&lt;/a&gt;, and &lt;a href=&#34;https://www.youtube.com/justinmurphy&#34;&gt;videos&lt;/a&gt;, you’ll know I’m especially interested in the relationships between &lt;a href=&#34;http://jmrphy.net/blog/2016/11/10/if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/&#34;&gt;education&lt;/a&gt;, &lt;a href=&#34;http://jmrphy.net/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/&#34;&gt;political correctness&lt;/a&gt;, &lt;a href=&#34;http://jmrphy.libsyn.com/other-life-6-diana-s-fleischman&#34;&gt;taboo topics&lt;/a&gt;, and &lt;a href=&#34;https://youtu.be/ZVKyghPoYa0&#34;&gt;ideology&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I’ve been hypothesizing that there is a substantial number of culturally conservative (against &lt;a href=&#34;http://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/&#34;&gt;the cultural leftism of the West&lt;/a&gt;) but libertarian (let people do what they want, free speech, etc.) folks, who have been increasingly shut out from mainstream Western political culture for decades now. Not just from the left, but from a mainstream right that bows before cultural leftism (what the right internet lovingly refers to as “cucks”).&lt;/p&gt;
@@ -1021,10 +1034,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Are Americans becoming more conservative or liberal (right or left)?</title>
-      <link>/blog/2017/09/04/americans-conservative-liberal-left-right/</link>
+      <link>https://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/</link>
       <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/09/04/americans-conservative-liberal-left-right/</guid>
+      <guid>https://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/</guid>
       <description>
 
 &lt;div class=&#34;panel radius&#34; markdown=&#34;1&#34;&gt;
@@ -1149,10 +1162,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Feminism and the problem of supertoxic masculinity</title>
-      <link>/blog/2017/07/13/supertoxic-masculinity/</link>
+      <link>https://jmrphy.net/blog/2017/07/13/supertoxic-masculinity/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/07/13/supertoxic-masculinity/</guid>
+      <guid>https://jmrphy.net/blog/2017/07/13/supertoxic-masculinity/</guid>
       <description>&lt;p&gt;I just watched &lt;a href=&#34;http://www.imdb.com/title/tt6071534/&#34; target=&#34;_blank&#34;&gt;a documentary film about John McAfee,&lt;/a&gt; creator of the famous McAfee Antivirus you will remember from every PC in the 1990s. I didn&amp;rsquo;t know anything about this man before watching this film. I want to make a point that requires me to give you a brief summary of the story, so here is a plot-spoiling recapitulation. Basically, after he gets rich off McAfee Antivirus, McAfee has a couple of failed business ventures before proceeding through a brazenly aggressive, daring, manipulative, controlling, arrogant, violent, and ultimately murderous course of affairs.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; After a few years as a yoga guru preaching peace and wellness from a retreat center he funded, there’s some indication that he becomes disillusioned with his efforts toward egalitarian community (he suggests something to the effect that others were taking advantage of him, but this is not examined deeply). So he buys a house in Belize, hires an idealistic biologist from the US to run an alternative medicine laboratory, recruits the toughest gangsters he can find to build an in-house private security force, donates to local police equipment worth millions of dollars, and effectively purchases several poor, local women as long-term girlfriends. When he had the time to also get two gnarly tribal tattoos was unclear to me.&lt;/p&gt;
 
 &lt;p&gt;Just to round out the psychological and behavioral profile here, note that he rarely, if ever, had sex with his girlfriends; he rather liked to defecate in their mouths while lying in a hammock. When the biologist expresses concern about their business relationship, he drugs and rapes her &lt;em&gt;that evening,&lt;/em&gt; according to the biologist’s testimony in the film. McAfee’s vicious guard dogs roamed freely on the public beach around his house, so a neighbor poisoned the dogs. Then, the film suggests, McAfee promptly hired a man to kill the neighbor. This murder allegation becomes global news, and McAfee embarks on an international fugitive escape adventure. He gets into Guatemala, where he avoids extradition back to Belize by faking a heart attack, and thereby engineering his deportation back to the United States. He then promptly runs for President in the Libertarian Party, where he comes in second place.&lt;/p&gt;
@@ -1200,10 +1213,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>The affective politics of keeping it real</title>
-      <link>/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</link>
+      <link>https://jmrphy.net/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</guid>
+      <guid>https://jmrphy.net/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</guid>
       <description>&lt;p&gt;It once made sense for professional intellectuals to bite their tongue in exchange for the influence they could gain by conforming to the dominant language. For a while, this was arguably rational and defensible—perhaps even a game-theoretic necessity for anyone sincerely interested in cultivating a genuinely public and political intellectual project. While it’s obvious the internet has changed the game, old stereotypes die hard and continue to constrain human potential well after their objective basis has disappeared. In particular, the contemporary stereotype of the public intellectual as a self-possessed professional who regularly appears in “the media” to speak on public affairs in the royal language, is a contingent product of the postwar rise of mass broadcasting (one-to-many) media. In much of the postwar period, the classic “mass media”—newspapers, radio, television—had extremely large, mass audiences and where characterized by high costs of entry. This technical and economic environment offered huge rewards for speaking the dominant language within the paramaters of respectable opinion. It was probably with cable television that a centrifugal tendency began the processes of fragmentation, polarization, and decentralization that would eventually bring us to where we are today.&lt;/p&gt;
 
 &lt;p&gt;Today, there is no longer any mass audience to speak to through dominant channels, overwhelming majorities do not trust mass media, and even the cognitively fragmented semi-mass audiences that remain will only listen to what they already think. Not to mention the masses probably have less power today than anytime in the twentieth century, so why bother even trying to speak to the masses? As a young academic, if I play by the rules for the next 10 years so that I might be respected by influential academics or gain access to regularly speaking on BBC or something like that, I would have sacrificed all of my creative energy for quite nearly nothing. As far as I can tell, today, the idea of biding your time as a young and respectable intellectual, to one day earn a platform of political significance, appears finally and fully obsolete. In one sense, this is already obvious to the millions who long ago stopped following mainstream media and long ago lost all respect for academic credentials; but in another sense, an overwhelming number of human beings continue to think, speak, and behave as if we are still operating in this old world, as if there is some reason to not say everything one feels like saying, as if there is some social or political or economic reward that will come toward the end of a respectable career of professional self-restraint. It’s easy for autodidacts and natural outsiders to say, “Duh, we told you so,” but this in no way comprehends or solves the really striking and politically significant puzzle that an extraordinary degree of human power remains &lt;em&gt;voluntarily repressed&lt;/em&gt; for rewards and punishments that no longer exist.&lt;/p&gt;
@@ -1224,10 +1237,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>The psychology of prohibiting outside thinkers</title>
-      <link>/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/</link>
+      <link>https://jmrphy.net/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/</guid>
+      <guid>https://jmrphy.net/blog/2017/05/15/psychology-of-prohibiting-outside-thinkers/</guid>
       <description>&lt;p&gt;Why do so many respectable, intellectually oriented people (academics, artists, and activists) wish to exclude independent right-wing intellectual work on moral grounds? I have in mind several recent campaigns to ensure some right-wing writer/artist, not be allowed to speak or perform in some venue. I am going to make a general theoretical point about a widespread social phenomenon, but I should also be honest about the specific individuals and institutions I see as motivating case studies. I have in mind the campaign to &lt;a href=&#34;https://shutdownld50.tumblr.com/&#34; target=&#34;_blank&#34;&gt;shut down the LD50 gallery&lt;/a&gt;, and the decision of The New Centre for Research &amp;amp; Practice to &lt;a href=&#34;https://www.facebook.com/thenewcentre/posts/644026572465531&#34; target=&#34;_blank&#34;&gt;remove Nick Land from its roster of lecturers&lt;/a&gt;. I don&amp;rsquo;t know these people, and I have nothing against them personally. I have no interest in impugning them or &amp;ldquo;calling them out,&amp;rdquo; I would much rather enjoy thinking with them; the problem is that these are precisely cases of closing that door, on &amp;ldquo;progressive&amp;rdquo; grounds that appear dishonest, cowardly, and conservative. So although I have no ill will, the only way to think about door-closers is from the outside of their door, e.g. about them, rather than with them. These campaigns and institutional decisions, and so many public pronouncements by other “progressive” actors, present themselves as efforts to protect the public sphere from violent or harmful effects, but it’s increasingly impossible to believe that this is the real motivation. There is a widespread fallacy, what we might call the ad hominem fallacy fallacy, that it’s unreasonable to question someone’s motivations. It may be unreasonable to dismiss someone’s arguments by impugning their motivations, but it’s very reasonable to theorize someone’s motivations as on object of interest in its own right—&lt;em&gt;especially&lt;/em&gt; when the stated motivations are increasingly belied by the effects they repeatedly produce.&lt;/p&gt;
 
 &lt;p&gt;I want to offer a concrete, informal theoretical account of what institutional intellectuals are really doing when they pull-up their draw-bridges to independent right-wing intellectuals such as Nick Land. Very simply, they are imposing a &lt;em&gt;cordon sanitaire&lt;/em&gt; that is instrumentally necessary to the continuation of their unjustified intellectual privileges in the institutional order. I am increasingly convinced there is simply no other public function to this political repetition compulsion. The reason this is important, from the left, is that this &lt;em&gt;cordon sanitaire&lt;/em&gt; is straightforwardly a mechanism to conserve the status quo, everything progressives pretend to be interested in overthrowing. This is why neo-reactionary intellectuals speak of the status quo political order as dominated by a left-progressive “Cathedral,” and this post will provide one example of why I think they are correct to do so. In this way, genuine left revolutionaries will sooner than later learn to take heed from some of these right-wing diagnoses about what is rotten in left culture. If you believe in radical equality and collective liberation from unjust institutions, from the left, you have to be able to see how your compulsions might be a function of this Cathedral more than you care to admit. As someone who currently possesses bourgeois intellectual privileges, and as someone who believes in equality (i.e., I know I am not ultimately superior to many others who lack my platform), I wish to be perfectly clear about how these mechanisms function, as someone who bears witness to them introspectively. If it is still possible to be a genuinely radical intellectual committed to collective liberation, this is the least it will require.&lt;/p&gt;
@@ -1250,10 +1263,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Activism is a capitalist virus from the future (honesty is stage-one cybernetic communism)</title>
-      <link>/blog/2017/05/02/activism-is-a-virus/</link>
+      <link>https://jmrphy.net/blog/2017/05/02/activism-is-a-virus/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/05/02/activism-is-a-virus/</guid>
+      <guid>https://jmrphy.net/blog/2017/05/02/activism-is-a-virus/</guid>
       <description>&lt;p&gt;As knowledge has become so specialized, many people would rather ignore or criticize highly evolved specialist discourses rather than admit they simply cannot understand them. This allows specialists to emerge as genuine masters who come to dominate others through this particular dimension of objective superiority, whereas honest admissions of ignorance and uncertainty would be an empirically and normatively sophisticated basis for unifying the large mass of normal people into a living project transcending capitalism (i.e. mass movement). The crucial political insight here is that self-aware stupidity is far more scientifically correct and powerful than misleading performances of intelligence. The overwhelming majority of public performances of intelligence understate the significant uncertainty around even most true claims, as this brings material and psychological rewards, and little cost to the individual, especially as social media allow us to mute opposition. But when we all pretend we’re equally up to speed on the objective dynamics characterizing contemporary society, this simulation enforces and obfuscates the unfair distribution of intellectual legitimacy based on cultural capital.&lt;/p&gt;
 
 &lt;p&gt;We either attune to the disinterested objective truths of being or else the vicissitudes of capital attune us to an infinite future of hell. Insist upon the ultimate human equality of our ultimately shared, cosmic worthlessness (you are welcome to call this dignity, but you’d have to believe in god). Otherwise, feigning equality where it does not exist will always be a servomechanism of capital. It is a tactic of cultural capital accumulation through brute force, which is not excused by its being also weak and unsuccessful. The reality we have to process is that the hierarchy of intellectual command today is not a gradually distributed pyramid (an image that incorrectly flatters most people by suggesting they are only a little below the top while also being above many others). It is better visualized as one small group in a hot-air balloon, with computers drilled into their skulls, drifting away from almost everybody existing, all of whom are equally lost, confused, and helpless. As I will try to show, this is not sad but rather an ecstatic realization.&lt;/p&gt;
@@ -1272,10 +1285,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Capitalism is an instance, not an essence</title>
-      <link>/blog/2017/04/28/capitalism-is-an-instance/</link>
+      <link>https://jmrphy.net/blog/2017/04/28/capitalism-is-an-instance/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/04/28/capitalism-is-an-instance/</guid>
+      <guid>https://jmrphy.net/blog/2017/04/28/capitalism-is-an-instance/</guid>
       <description>&lt;p&gt;Nick Land sometimes reads Deleuze and Guattari as if all the mechanisms theorized by them are mechanisms unique to capitalism. I’m going to argue that this is one of the many specific points in which the accelerationist question remains far from settled, and in which the foreclosing of revolutionary praxis strikes me as over-hasty.&lt;/p&gt;
 
 &lt;p&gt;To Land, some of &lt;a href=&#34;http://www.xenosystems.net/re-accelerationism/&#34; target=&#34;_blank&#34;&gt;D&amp;amp;G’s concepts are not just theoretically applicable to features of capitalism but strictly synonymous with them&lt;/a&gt;:&lt;/p&gt;
@@ -1298,10 +1311,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>The formal structure of paranoid leftism (why there is no such thing as a noble error)</title>
-      <link>/blog/2017/04/24/the-formal-structure-of-paranoid-leftism/</link>
+      <link>https://jmrphy.net/blog/2017/04/24/the-formal-structure-of-paranoid-leftism/</link>
       <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/04/24/the-formal-structure-of-paranoid-leftism/</guid>
+      <guid>https://jmrphy.net/blog/2017/04/24/the-formal-structure-of-paranoid-leftism/</guid>
       <description>
 
 &lt;p&gt;People who want to think, write, or act outside of what is perceived as normal within currently consituted left-wing circles are now commonly talked about as possible fascist sympathizers. Typically, if you drill down into what is being said exactly, they are not accused of being fascists, they are accused of not clearly enough differentiating themselves from fascism, to a degree that exceeds the currently established expectations of what anti-fascism is believed to look like. When you drill down, the root of the problem (and sometimes admittedly) is reputation: “I know you’re not a fascist but these other people will wonder, ergo I must disavow you as inadequately anti-fascist.”&lt;/p&gt;
@@ -1350,10 +1363,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Two cultures of radical politics</title>
-      <link>/blog/2017/04/17/two-cultures-of-radical-politics/</link>
+      <link>https://jmrphy.net/blog/2017/04/17/two-cultures-of-radical-politics/</link>
       <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/04/17/two-cultures-of-radical-politics/</guid>
+      <guid>https://jmrphy.net/blog/2017/04/17/two-cultures-of-radical-politics/</guid>
       <description>
 
 &lt;p&gt;While many people on the left still pretend that &amp;ldquo;free speech&amp;rdquo; and &amp;ldquo;political correctness&amp;rdquo; are fake right-wing concepts, a number of us are beginning to realize the profound mistake of dismissive moral posturing. Get your popcorn ready now, because it&amp;rsquo;s going to be a fascinating mess as more and more people on the left begin to realize that the cultural politics of policing moral symbols has been fully exhausted and defeated.&lt;/p&gt;
@@ -1392,10 +1405,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>On turning left into darkness</title>
-      <link>/blog/2017/04/11/on-turning-left-into-darkness/</link>
+      <link>https://jmrphy.net/blog/2017/04/11/on-turning-left-into-darkness/</link>
       <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/04/11/on-turning-left-into-darkness/</guid>
+      <guid>https://jmrphy.net/blog/2017/04/11/on-turning-left-into-darkness/</guid>
       <description>&lt;p&gt;In the past week, many associates of mine on the radical left have expressed grave concern about my recent cultural politics. If you haven’t been following, here’s my best shot at a succinct, impartial recap. I have been blogging about &lt;a href=&#34;http://jmrphy.net/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/&#34; target=&#34;_blank&#34;&gt;what it means to engage intellectually with smart people on the right&lt;/a&gt;. By &amp;ldquo;smart people on the right,&amp;rdquo; I mean people with non-trivial intellectual projects defending right-wing perspectives, potentially even including some that appear horrifying and/or evil. I use the word “smart” only to exclude from the mind two images that have come to define “conservatism” in the left-wing imagination: infantile and fundamentally disingenuous politicians, and then mindless, racist armies of trolls. Specifically, for instance, I have expressed interest in the writings of Nick Land and Curtis Yarvin &lt;a href=&#34;http://amzn.to/2EGDgCu&#34; target=&#34;_blank&#34;&gt;aka Mencius Moldbug&lt;/a&gt;; I recently hosted a &lt;a href=&#34;http://jmrphy.libsyn.com/other-life-6-diana-s-fleischman&#34; target=&#34;_blank&#34;&gt;podcast with psychologist Diana Fleischman&lt;/a&gt; that included discussion of controversial topics such as “human biodiversity” (some say this is a euphemism for racism and some say it’s an empirical reality). Obviously not the usual talking points for a left-wing intellectual, but to be clear nobody is accusing me of writing or saying anything particularly impeachable. I did receive some very thoughtful concerns, however, so one goal of this post is to clarify at least one or two of the most fair and important criticisms I have received. This is a caring thing to do, and I still believe deeply in caring.&lt;/p&gt;
 
 &lt;p&gt;On the other hand, any culture of absolute kindness becomes a conservative system of unspoken violence insofar as painful truths get repressed and all participants become deformed over time. It is because I genuinely love my friends on the left that I am stepping up to publicly state, and seriously pursue the implications of, dozens of difficult questions we have basically had an unspoken pact to not speak about for perhaps decades now.&lt;/p&gt;
@@ -1436,10 +1449,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Is it dangerous to engage seriously with radical right-wing thinkers?</title>
-      <link>/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</link>
+      <link>https://jmrphy.net/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</link>
       <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</guid>
+      <guid>https://jmrphy.net/blog/2017/03/27/is-it-dangerous-to-engage-seriously-with-radical-right-wing-thinkers/</guid>
       <description>&lt;p&gt;First, I am generally skeptical that any intellectually radical thought or speech that takes place within the wealthy liberal democracies today has much effect on anyone, for better or worse. So it is hard to see how intellectual or even social engagement with polar ideological opposites (even if one thinks their positions are plainly wrong or violent) would itself cause unique negative consequences of any kind. The genuinely thinking members of the ultraleft and ultraright are so few and marginal that it strikes me that this fear of “dangerous associations” is a narcissistic delusion; it’s a way of pretending that anyone gives a shit about what we think or say. Nobody cares, and that’s an essential part of our predicament, that human beings today are quite fully pacified and neutralized in their capacity to be moved.&lt;/p&gt;
 
 &lt;p&gt;It stands to reason that, if there is any way out of our collective virtual jail cells of separation and alienation, it might have to involve finding those who are most alien and frightening, to see if perhaps they know something we don’t. To see if, possibly, one reason the revolution never comes is that it’s always been posited on this obsessive insistence that our evil enemies could not possibly know something we do not know. Even if you believe someone is evil, you can still wonder if they know something you don’t. Clearly, collective revolutionary liberation has not occurred yet, so almost by definition there must be a large number of things ultraleftists remain fundamentally incorrect about, right? I don’t think it’s such a crazy idea to suppose that the most intelligent people on the right could be a source of great insight, especially into the dumbest and most ineffectual aspects of ourselves, aspects which we are possibly unable to see as clearly as we need to. I understand this is a moral heresy on the left, but what if this very structure of paranoid-neurotic moral prohibitions is itself one of the most dangerous problems, and one we are uniquely ill-equipped to see in ourselves, by ourselves? This seems not only plausible but, in my view, increasingly likely to be true.&lt;/p&gt;
@@ -1452,10 +1465,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Social science and the radical politics of not knowing</title>
-      <link>/blog/2017/02/02/politics-of-not-knowing/</link>
+      <link>https://jmrphy.net/blog/2017/02/02/politics-of-not-knowing/</link>
       <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/02/02/politics-of-not-knowing/</guid>
+      <guid>https://jmrphy.net/blog/2017/02/02/politics-of-not-knowing/</guid>
       <description>&lt;p&gt;The amount of bullshit circulating at the moment is astounding. And to be clear, it appears to be just as bad in left-wing circles. In fact, what I see happening on the left is the most troubling to me because that’s where I’m positioned. There’s this idea you should “punch up” or focus one’s criticisms on one’s “enemies” but I think that’s a fatally mistaken notion. If you and your friends are thinking or doing something incorrectly, that is the most urgent issue.&lt;/p&gt;
 
 &lt;p&gt;As a political scientist, the truth is I usually don&amp;rsquo;t have that much to offer regarding current affairs. I think most social scientists, if they are being honest, have to admit this with respect to most issues at most times. But if there&amp;rsquo;s one thing my “expertise” gives me, if I have one valuable thing to offer in a time of crisis, it&amp;rsquo;s a highly refined bullshit detector. If there is one thing you learn as a well-trained social scientist, it is this: it is so hard to make correct inferences about what is going on in social phenomena. Most of the training of a social scientist is learning all the reasons why you cannot make certain inferences. So in times of crisis, when most people seem over-eager to make inferences (as a way of dealing with all of the cognitive and emotional anxieties), it is perhaps here that social scientists are most useful, to remind you that, whatever you think is going on—you are mostly wrong.&lt;/p&gt;
@@ -1483,10 +1496,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>Notes on some rare Deleuze lectures</title>
-      <link>/blog/2015/11/22/notes-on-rare-deleuze-lectures/</link>
+      <link>https://jmrphy.net/blog/2015/11/22/notes-on-rare-deleuze-lectures/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2015/11/22/notes-on-rare-deleuze-lectures/</guid>
+      <guid>https://jmrphy.net/blog/2015/11/22/notes-on-rare-deleuze-lectures/</guid>
       <description>&lt;p&gt;In 1975-76, a student named Marielle Burkhalter recorded video of Gilles Deleuze’s lectures at the University of Paris VIII in Vincennes. Some of the video has been translated and re-presented by a couple of artists named Silvia Maglioni and Graeme Thomson, in an on-going project called &lt;em&gt;Through the Letterbox.&lt;/em&gt; In &lt;a href=&#34;http://www.whitechapelgallery.org/events/a-life-beyond-the-facts-deleuze-now/&#34; target=&#34;_blank&#34;&gt;a recent showing at the Whitechapel Gallery&lt;/a&gt; in London, I got to watch a set of clips with English subtitles.&lt;/p&gt;
 
 &lt;p&gt;The videos were extraordinary. My French would not have been nearly good enough to get much from them had it not been for the subtitles. But the subtitles felt very well done. He is very intense and improvisational but faster and less self-important than someone like Lacan.&lt;/p&gt;
@@ -1633,10 +1646,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>A theory of ethically-biased technological change (toward an empirical test of the Frankfurt School)</title>
-      <link>/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</link>
+      <link>https://jmrphy.net/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</guid>
+      <guid>https://jmrphy.net/blog/2014/06/21/a-theory-of-ethically-biased-technological-change-toward-an-empirical-test-of-the-frankfurt-school/</guid>
       <description>
 
 &lt;h5 id=&#34;the-puzzle&#34;&gt;The Puzzle&lt;/h5&gt;
@@ -1690,10 +1703,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>The link between public opinion and public policy</title>
-      <link>/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</link>
+      <link>https://jmrphy.net/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</link>
       <pubDate>Sat, 15 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</guid>
+      <guid>https://jmrphy.net/blog/2014/02/15/some-questions-about-the-opinion-policy-link/</guid>
       <description>&lt;p&gt;Early theorists in modern political science had high hopes for using new survey techniques to analyze the individual-level psychological and behavorial processes which constitute modern liberal democracy. Berelson (1952), for instance, noted that democratic theory assumes that citizens meet certain requirements related to tolerance, patience, interest, knowledge, and the will to participate. See also the famous book &lt;a href=&#34;http://amzn.to/2C96WGA&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Voting&lt;/em&gt; (Berelson, Lazarsfeld, and McPhee 1954)&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;But early research in political behavior was bleak. Seminal citations for this view are &lt;a href=&#34;http://amzn.to/2Fh74Cu&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;The American Voter&lt;/em&gt; (Campbell et al. 1960)&lt;/a&gt; and &lt;a href=&#34;http://amzn.to/2EGmAec&#34; target=&#34;_blank&#34;&gt;Converse (1964)&lt;/a&gt;. Most people were found to have little knowledge of politics, most political opinions were not based on facts, most people were generally authoritarian and prejudiced, they typically only listened to views they already agreed with, and participation in politics was low (Prothro and Grigg 1960; McCloskey 1964; Cobb and Elder 1971, 893). In short, much of this first wave of political science research, largely based on the new survey methods growing popular at the time, would have seemed damning evidence that the citizens of the United States&amp;rsquo; simply do not constitute what is called democracy.&lt;/p&gt;
@@ -1718,10 +1731,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>A diagram of stratification</title>
-      <link>/blog/2013/12/19/dg-stratifcation/</link>
+      <link>https://jmrphy.net/blog/2013/12/19/dg-stratifcation/</link>
       <pubDate>Thu, 19 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2013/12/19/dg-stratifcation/</guid>
+      <guid>https://jmrphy.net/blog/2013/12/19/dg-stratifcation/</guid>
       <description>&lt;p&gt;Below is a sketch of what Deleuze and Guattari describe as &amp;ldquo;the pincer&amp;rdquo; or &amp;ldquo;double articulation&amp;rdquo; of stratification.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;iframe src=&#34;http://wl.figshare.com/articles/881284/embed?show_title=0&#34; width=&#34;650&#34; height=&#34;424&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;   
@@ -1741,10 +1754,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>Remodeling revolutionary agency</title>
-      <link>/post/2013-11-17-remodeling-revolutionary-agency/</link>
+      <link>https://jmrphy.net/post/2013-11-17-remodeling-revolutionary-agency/</link>
       <pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/post/2013-11-17-remodeling-revolutionary-agency/</guid>
+      <guid>https://jmrphy.net/post/2013-11-17-remodeling-revolutionary-agency/</guid>
       <description>&lt;p&gt;When thinking about revolutionary agency, I move away from the traditional Marxian concept of the “proletariat,” a particular class which is most able to generate revolutionary resistance, in favor of a more general conception of whosever happens to fall through the cracks of capitalist subjectivation.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; I am interested in those whose thoughts, behaviors, and projects, &lt;em&gt;for whatever reason&lt;/em&gt;, remain relatively undisciplined by the normalizing and neutralizing tendencies inherent in contemporary society. Is someone’s life very consistent with what the status quo expects of them, or is it very inconsistent. What proportion of someone’s thoughts and behaviors are &lt;em&gt;systematic&lt;/em&gt; (predictable) and what proportion are in the statistical error term?&lt;/p&gt;
 
 &lt;p&gt;This would be consistent with, but more general than, the classical conception. Immiseration of the “workers” as in the Marxian eschatology would become only a special case of such falling through the cracks. Capitalism grinds the workers to the bottom of its barrel and the revolutionary mechanism in the Marxian view is essentially that, eventually, the workers are pushed through the barrel itself, they see the system from its outside (class consciousness), and therefore are finally free to smash the barrel. But metaphors for the “system” are just metaphors, and however we wish to model the system, there’s no reason why there shouldn’t be many conceivable pathways where individuals could find themselves (intentionally or randomly) having dodged the social conditioning which normalizes individuals into identification with the system. This would explain why and how intellectuals are disproportionately inclined to revolutionary conversion: they fall through the cracks by a totally different path, via the leisure of education, study, and creative intellectual work. But the essential logic which makes workers radical in the Marxian view could thus be unified with the same logic that makes intellectuals revolutionary. And then it would be a matter of identifying through theoretical and empirical research the necessary and sufficient conditions for individuals to escape the grid which so thoroughly shapes most individuals.&lt;/p&gt;
@@ -1780,10 +1793,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>How to deal with family during the holidays? Relax and have fun with them</title>
-      <link>/post/2016-12-20-family-holidays/</link>
+      <link>https://jmrphy.net/post/2016-12-20-family-holidays/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/post/2016-12-20-family-holidays/</guid>
+      <guid>https://jmrphy.net/post/2016-12-20-family-holidays/</guid>
       <description>&lt;p&gt;Leftists love to discuss the dilemma of &amp;ldquo;bigoted&amp;rdquo; family members. There is this kind of tradition in left-wing circles, to discuss, around the holiday season, how to &amp;ldquo;deal&amp;rdquo; with those family members who think or say things out of line with educated progressive morality.&lt;/p&gt;
 
 &lt;p&gt;This is a great example of how left-wing individuals elevate their own anxiety and insecurity into an ethical value. This recurring conversation about bigoted family members is really dumb, for a few reasons. Obviously if a family member is violently abusive, that’s a different story. My comments here are about the typical, mostly harmless Archie Bunker type with outdated and offensive viewpoints.&lt;/p&gt;
@@ -1820,10 +1833,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>If educated progressives are so smart, why is right-wing populism winning?</title>
-      <link>/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</link>
+      <link>https://jmrphy.net/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</guid>
+      <guid>https://jmrphy.net/post/2016-11-10-if-educated-progressives-are-so-smart-why-is-right-wing-populism-succeeding/</guid>
       <description>&lt;p&gt;Moderate educated progressives across the West are currently horrified by the recent successes of right-wing populist politics, from Donald Trump in the US to Brexit in the UK. But underneath this public performance of shocked horror coming from the typical cosmopolitan progressive today, hides a curiously under-discussed paradox. If the forces of ignorant hate suddenly appear to be winning, then shouldn’t the sophisticated and morally enlightened be clever enough to understand what is happening and do something to stop these trends? If we are so smart and moral and our understanding of the world so much more reasonable and broad and sophisticated, then why are we so puzzled and terrified at the election of Donald Trump or the vote for Brexit? Shouldn’t we be able to understand it and act with our greater moral and empirical sophistication to resist and reverse these developments? If close-minded and hateful ideas and actors are gaining political ground, then why are we not clever enough to understand what is happening and act in order to change it?&lt;/p&gt;
 
 &lt;p&gt;I believe the most likely answer is that educated progressives are significantly less clever than we pretend to be; indeed, if one is really shocked and horrified at the election of Trump or Brexit, the truly clever and ethical thing to do would be to think really hard and honestly about whether one has possibly been deeply mistaken about something, somewhere along the line. Of course, almost nobody does this, largely because those whose job it is to think and speak in public get paid (in money or else cultural capital) to assume the position of knowing more than someone else. There is no market for people who want to reflect at length about the ways in which they have been dumb, so all we ever hear or read is educated progressives pretending to be smart, no matter how badly they seem to be losing their battles and misestimating events. Shock and horror are natural enough responses, but that’s the problem: shock and horror are the easiest and most immediately reasonable responses to any turn of events that reveals something about one’s basic worldview to be mistaken when that basic worldview nonetheless remins tightly held.&lt;/p&gt;

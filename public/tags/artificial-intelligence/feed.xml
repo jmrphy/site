@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>artificial intelligence on Justin Murphy</title>
-    <link>/tags/artificial-intelligence/</link>
+    <link>https://jmrphy.net/tags/artificial-intelligence/</link>
     <description>Recent content in artificial intelligence on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/artificial-intelligence/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/artificial-intelligence/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Artificial Intelligence, Rationality, and the World Wide Web</title>
-      <link>/publication/ieee/</link>
+      <link>https://jmrphy.net/publication/ieee/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/ieee/</guid>
+      <guid>https://jmrphy.net/publication/ieee/</guid>
       <description></description>
     </item>
     

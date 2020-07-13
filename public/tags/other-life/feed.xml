@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Other Life on Justin Murphy</title>
-    <link>/tags/other-life/</link>
+    <link>https://jmrphy.net/tags/other-life/</link>
     <description>Recent content in Other Life on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/other-life/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/other-life/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Based Deleuze</title>
-      <link>/project/based-deleuze/</link>
+      <link>https://jmrphy.net/project/based-deleuze/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/based-deleuze/</guid>
+      <guid>https://jmrphy.net/project/based-deleuze/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Other Life</title>
-      <link>/project/other-life/</link>
+      <link>https://jmrphy.net/project/other-life/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/other-life/</guid>
+      <guid>https://jmrphy.net/project/other-life/</guid>
       <description></description>
     </item>
     

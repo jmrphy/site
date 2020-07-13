@@ -2,32 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>media on Justin Murphy</title>
-    <link>/tags/media/</link>
+    <link>https://jmrphy.net/tags/media/</link>
     <description>Recent content in media on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/media/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/media/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Racial and Gender Diversity Among Tech Journalists on Twitter</title>
-      <link>/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</link>
+      <link>https://jmrphy.net/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</guid>
+      <guid>https://jmrphy.net/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</guid>
       <description>
 
 
 &lt;p&gt;Balaji Srinivasan put out &lt;a href=&#34;https://twitter.com/balajis/status/1280261091302375424&#34;&gt;a call&lt;/a&gt; for “the best diversity report on tech journalists,” building on some initial data collected by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt;. Here’s my stab at it.&lt;/p&gt;
-&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Background&lt;/h2&gt;
-&lt;p&gt;The initial dataset focused on the diversity of attendees at industry conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
+&lt;div id=&#34;background-and-overview&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background and overview&lt;/h2&gt;
+&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt; focused on the diversity of attendees at tech-journalism conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
 &lt;p&gt;Here I pursue a different strategy. I first collect lists of tech journalists on Twitter. Then I leverage data from the Census and the Social Security Administration to infer each journalist’s race and gender. The resulting dataset allows us to estimate racial and gender diversity in tech journalism.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;note-on-sampling-method&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Note on sampling method&lt;/h2&gt;
 &lt;p&gt;While my approach certainly has its own limitations, analyzing the culture of tech journalism via Twitter-based samples seems uniquely attractive. First, it’s possible some tech journalists are not on Twitter, but since Twitter is both a hot technology and a watering-hole for journalists, this potential selection bias seems particularly unthreatening. Twitter is arguably the ideal place to draw a sample of tech journalists. A second limitation of my approach is that I may very well fail to identify some tech journalists who are on Twitter, but this is only an analytical problem if there is some reason to believe that white people or male people are more or less likely to surface in my search procedures. Assuming this is very unlikely, the worst that can be said of my sampling method is that it’s unlikely to capture every single tech journalist on Twitter. Nonetheless, it is likely to be quite close to a random sample of all the tech journalists on Twitter, which means it should plausibly generalize.&lt;/p&gt;
 &lt;p&gt;As a robustness check, I conduct the analyses on two different samples collected using two different Twitter-based sampling methods. In a first cut, I collect a sample of tech journalists by searching Twitter bios. In a second cut, I collect a sample from public lists of “Tech Journalists” curated by third parties. The results are nearly identical, suggesting the analyses below very likely reflect the underlying state of tech journalism, at least on Twitter. If I’m right that most tech journalists are on Twitter, then the analyses should generally reflect tech journalism as such. If there is a non-trivial community of tech journalists not on Twitter someone should tell them about what’s new in the world of technology.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-problems-with-inferring-race-and-gender-from-names&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The problems with inferring race and gender from names&lt;/h2&gt;
+&lt;p&gt;The approach pursued here seems to be the approach with the best balance of objectivity, scalability, and efficiency, but all research methods face serious limitations. In this case, perhaps the biggest problem is due to the history of anti-black racism and slavery in the United States. Because of slavery in the United States, black people in America today frequently have non-African last names (such as Williams or Washington). Therefore, inferring race from surnames will generally under-count black people. As you’ll see below, I take some extra steps to mitigate this problem (see my comments inside the code snippets), but the results of any automated measurement method will always have some amount of error. The only alternatives would be to use subjective judgment to infer race from pictures (which seems even more fraught and potentially insensitive than the approach I’ve taken) or to solicit racial self-identifications from tech journalists (which similarly seems more fraught and potentially insensitive than the approach I’ve taken). Ultimately the best solution to the limitations of my method is to suggest that errors can be reported to me personally and I’ll either correct the dataset or, in the case of uncertainty, remove the uncertain entry in the dataset. Same for gender.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;approach-1-tech-journalists-who-mention-a-major-tech-journalism-outlet-in-their-bio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Approach 1: Tech journalists who mention a major tech-journalism outlet in their bio&lt;/h2&gt;
@@ -69,7 +76,7 @@ journos &amp;lt;- journos %&amp;gt;%
 # Standardize and export for manual inspection
 journos &amp;lt;- apply(journos,2,as.character)
 write.csv(journos, &amp;quot;journos.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The total number of accounts identified in this fashion was 1879, but most of them were false positives (the API does not seem to recognize the @ symbol). So I manually went through the results and narrowed the dataset down to individuals who included the outlet’s main Twitter handle in their personal bio. Typically the profile says something like “currently at X” or “formerly at X.” I also standardized names and removed emojis in preparation for the next stage of analysis. This process left 256 individuals.&lt;/p&gt;
+&lt;p&gt;The total number of accounts identified in this fashion was 1879, but most of them were false positives (the API does not seem to recognize the @ symbol). So I manually went through the results and narrowed the dataset down to individuals who included the outlet’s main Twitter handle in their personal bio. Typically the profile says something like “currently at X” or “formerly at X.” I also standardized names and removed emojis in preparation for the next stage of analysis. This process left 273 individuals. After removing duplicates (due to people writing for multiple outlets), the full sample for Sample 1 was 252 individuals.&lt;/p&gt;
 &lt;p&gt;Next we leverage the &lt;a href=&#34;https://cran.r-project.org/web/packages/predictrace/vignettes/Predict-race-of-surname.html&#34;&gt;&lt;em&gt;predictrace&lt;/em&gt;&lt;/a&gt; package to infer race from surnames, based on the co-occurrence of surnames and self-reported races in the Census datasets.&lt;/p&gt;
 &lt;p&gt;And then we leverage the &lt;a href=&#34;https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html&#34;&gt;&lt;em&gt;gender&lt;/em&gt;&lt;/a&gt; package to infer gender from first names, based on the co-occurrence of baby names and gender in the Social Security Administration datasets.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load manually cleaned spreadsheet
@@ -120,15 +127,15 @@ df&amp;lt;-select(df, -c(firstnames, lastnames, X, X.1, `race.profiles.df$likely
 
 df$race&amp;lt;-recode(df$race, asian = &amp;quot;Asian&amp;quot;,
                         black = &amp;quot;Black&amp;quot;,
-                        white = &amp;quot;White&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the simple numerical breakdown: 108 are likely white, 19 are likely Asian, and 2 are likely black.&lt;/p&gt;
-&lt;p&gt;Let’s&lt;/p&gt;
+                        white = &amp;quot;White&amp;quot;,
+                        hispanic = &amp;quot;Hispanic&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s the simple numerical breakdown: 106 are likely white, 20 are likely Asian, 14 are likely black, and 8 are likely Hispanic. The rest could not be classfied.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graph of racial diversity in Sample 1
 
 df %&amp;gt;%
 drop_na(race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -136,12 +143,12 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graph of gender diversity in Sample 1
 df %&amp;gt;%
 drop_na(gender) %&amp;gt;%
 ggplot(aes(x = gender)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -149,11 +156,11 @@ ggplot(aes(x = gender)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;%
 drop_na(gender, race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial and Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 1: Profiles mentioning TechCrunch, The Verge, Recode, or The Information&amp;quot;,
@@ -161,7 +168,7 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip() + facet_wrap(.~gender)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;approach-2-curated-lists-of-tech-journalists&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Approach 2: Curated lists of “tech journalists”&lt;/h2&gt;
@@ -208,10 +215,16 @@ gender.lists.df$firstnames&amp;lt;-gender.lists.df$name
 df2&amp;lt;-merge(df2, gender.lists.df, by=&amp;quot;firstnames&amp;quot;)
 df2&amp;lt;-distinct(df2)
 
+# Fix capitalization
+df2$race&amp;lt;-recode(df2$race, asian = &amp;quot;Asian&amp;quot;,
+                        black = &amp;quot;Black&amp;quot;,
+                        white = &amp;quot;White&amp;quot;,
+                        hispanic = &amp;quot;Hispanic&amp;quot;)
+
 df2 %&amp;gt;%
 drop_na(race) %&amp;gt;%
 ggplot(aes(x = race)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&amp;quot;,
@@ -219,11 +232,11 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2 %&amp;gt;%
 drop_na(gender) %&amp;gt;%
 ggplot(aes(x = gender)) +  
-  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#ad313b&amp;quot;) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&amp;quot;,
@@ -231,7 +244,7 @@ ggplot(aes(x = gender)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2 %&amp;gt;%
 drop_na(gender, race) %&amp;gt;%
 ggplot(aes(x = race)) +  
@@ -243,26 +256,26 @@ ggplot(aes(x = race)) +
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip() + facet_wrap(.~gender)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Does Media Coverage Drive Public Support for UKIP or Does Public Support for UKIP Drive Media Coverage?</title>
-      <link>/publication/bjps/</link>
+      <link>https://jmrphy.net/publication/bjps/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/bjps/</guid>
+      <guid>https://jmrphy.net/publication/bjps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>What is the effect of comparing Donald Trump to Hitler?</title>
-      <link>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
+      <link>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
+      <guid>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
       <description>&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
 &lt;p&gt;Critics of U.S. President Donald Trump frequently [compare him to Adolf Hitler](http://amzn.to/2GJ0rsn). Does comparing Trump to Hitler decrease support for his policies? With the help of my students at the University of Southampton, we conducted a survey experiment to investigate the causal effect of a Hitler comparison on support for one of Trump&#39;s policies.&lt;/p&gt;
 
@@ -351,10 +364,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Milo, motivated reasoning, and the left-wing Fox News</title>
-      <link>/blog/2017/10/16/milo-motivated-reasoning/</link>
+      <link>https://jmrphy.net/blog/2017/10/16/milo-motivated-reasoning/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/10/16/milo-motivated-reasoning/</guid>
+      <guid>https://jmrphy.net/blog/2017/10/16/milo-motivated-reasoning/</guid>
       <description>&lt;p&gt;It is a well-documented fact of psychology that if we are emotionally drawn to a certain conclusion, our mind tends to trust whatever looks like supporting evidence, and distrust whatever looks like contradictory evidence. A nice rule of thumb is given by the psychologist Thomas Gilovich. If we emotionally like the implication of something, our brain automatically asks &amp;ldquo;Can I believe it?&amp;rdquo; But if we don’t, our brain asks, &amp;ldquo;Must I believe it?&amp;rdquo;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; The difference might seem slight, but this asymmetry in how we process information leads to profound social confusion when it plays out iteratively over time. If you think you are above such pedestrian irrationality, you probably are not; this process operates through a system that is not conscious—in fact, it happens before conscious thought even begins. For years, lefties have gawked with amazement at the insistent stupidity of right-wing media bubbles, especially that of Fox News. Today, however, not only the “mainstream left” but even supposedly sophisticated left-wing critics appear increasingly comfortable with a level of cognitive functioning once peculiar to channels such as Fox News. The phenomenon of motivated reasoning explains why even smart people on the left appear to be getting dumber, at the same time they sincerely feel like they are more obviously correct than ever.&lt;/p&gt;
 
 &lt;p&gt;This recent &lt;a href=&#34;https://www.buzzfeed.com/josephbernstein/heres-how-breitbart-and-milo-smuggled-white-nationalism?utm_term=.clAe8nL31q#.eoxVmE6w1Q&#34; target=&#34;_blank&#34;&gt;Buzzfeed article about Milo&lt;/a&gt; is a beautiful case study of how the left is converging to equilibrium with Fox News rationality. I try to avoid writing about one-off media events, but sometimes one encounters such a perfect illustration of a larger phenomenon that it feels worthwhile to drudge through an otherwise insignificant piece of media noise. I’ve seen many articles from lefty outlets over the past few years that have made me think: this is basically Fox News. And I’ve repressed the urge to write about them because you should never give too much energy responding to noise. But this fruit is now so ripe that I feel like I should pluck it, lest someone else does a few weeks from now and I feel ashamed for my laziness.&lt;/p&gt;
@@ -405,10 +418,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>The affective politics of keeping it real</title>
-      <link>/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</link>
+      <link>https://jmrphy.net/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</guid>
+      <guid>https://jmrphy.net/blog/2017/06/20/the-affective-politics-of-keeping-it-real/</guid>
       <description>&lt;p&gt;It once made sense for professional intellectuals to bite their tongue in exchange for the influence they could gain by conforming to the dominant language. For a while, this was arguably rational and defensible—perhaps even a game-theoretic necessity for anyone sincerely interested in cultivating a genuinely public and political intellectual project. While it’s obvious the internet has changed the game, old stereotypes die hard and continue to constrain human potential well after their objective basis has disappeared. In particular, the contemporary stereotype of the public intellectual as a self-possessed professional who regularly appears in “the media” to speak on public affairs in the royal language, is a contingent product of the postwar rise of mass broadcasting (one-to-many) media. In much of the postwar period, the classic “mass media”—newspapers, radio, television—had extremely large, mass audiences and where characterized by high costs of entry. This technical and economic environment offered huge rewards for speaking the dominant language within the paramaters of respectable opinion. It was probably with cable television that a centrifugal tendency began the processes of fragmentation, polarization, and decentralization that would eventually bring us to where we are today.&lt;/p&gt;
 
 &lt;p&gt;Today, there is no longer any mass audience to speak to through dominant channels, overwhelming majorities do not trust mass media, and even the cognitively fragmented semi-mass audiences that remain will only listen to what they already think. Not to mention the masses probably have less power today than anytime in the twentieth century, so why bother even trying to speak to the masses? As a young academic, if I play by the rules for the next 10 years so that I might be respected by influential academics or gain access to regularly speaking on BBC or something like that, I would have sacrificed all of my creative energy for quite nearly nothing. As far as I can tell, today, the idea of biding your time as a young and respectable intellectual, to one day earn a platform of political significance, appears finally and fully obsolete. In one sense, this is already obvious to the millions who long ago stopped following mainstream media and long ago lost all respect for academic credentials; but in another sense, an overwhelming number of human beings continue to think, speak, and behave as if we are still operating in this old world, as if there is some reason to not say everything one feels like saying, as if there is some social or political or economic reward that will come toward the end of a respectable career of professional self-restraint. It’s easy for autodidacts and natural outsiders to say, “Duh, we told you so,” but this in no way comprehends or solves the really striking and politically significant puzzle that an extraordinary degree of human power remains &lt;em&gt;voluntarily repressed&lt;/em&gt; for rewards and punishments that no longer exist.&lt;/p&gt;
@@ -429,10 +442,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Social science and the radical politics of not knowing</title>
-      <link>/blog/2017/02/02/politics-of-not-knowing/</link>
+      <link>https://jmrphy.net/blog/2017/02/02/politics-of-not-knowing/</link>
       <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/02/02/politics-of-not-knowing/</guid>
+      <guid>https://jmrphy.net/blog/2017/02/02/politics-of-not-knowing/</guid>
       <description>&lt;p&gt;The amount of bullshit circulating at the moment is astounding. And to be clear, it appears to be just as bad in left-wing circles. In fact, what I see happening on the left is the most troubling to me because that’s where I’m positioned. There’s this idea you should “punch up” or focus one’s criticisms on one’s “enemies” but I think that’s a fatally mistaken notion. If you and your friends are thinking or doing something incorrectly, that is the most urgent issue.&lt;/p&gt;
 
 &lt;p&gt;As a political scientist, the truth is I usually don&amp;rsquo;t have that much to offer regarding current affairs. I think most social scientists, if they are being honest, have to admit this with respect to most issues at most times. But if there&amp;rsquo;s one thing my “expertise” gives me, if I have one valuable thing to offer in a time of crisis, it&amp;rsquo;s a highly refined bullshit detector. If there is one thing you learn as a well-trained social scientist, it is this: it is so hard to make correct inferences about what is going on in social phenomena. Most of the training of a social scientist is learning all the reasons why you cannot make certain inferences. So in times of crisis, when most people seem over-eager to make inferences (as a way of dealing with all of the cognitive and emotional anxieties), it is perhaps here that social scientists are most useful, to remind you that, whatever you think is going on—you are mostly wrong.&lt;/p&gt;
@@ -460,10 +473,10 @@ Speak and act decisively, at the highest intensity you can sustain, but only on 
     
     <item>
       <title>Slides on &#39;Democracy&#39; as propaganda for capitalism</title>
-      <link>/blog/2014/07/14/propaganda-democracy-capitalism/</link>
+      <link>https://jmrphy.net/blog/2014/07/14/propaganda-democracy-capitalism/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2014/07/14/propaganda-democracy-capitalism/</guid>
+      <guid>https://jmrphy.net/blog/2014/07/14/propaganda-democracy-capitalism/</guid>
       <description>&lt;p&gt;Resisting the conventional wisdom that propaganda is mostly associated with authoritarian governments, these slides sketch how the liberal, capitalist government of the United States at the time of World War I exploited the concept of &amp;ldquo;Democracy&amp;rdquo; in what would become perhaps the most remarkable propaganda achievement in modern history. Includes photos, videos, historical data from Google Books, and a discussion of some recent research suprisingly consistent with this argument.&lt;/p&gt;
 
 &lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/36951992&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt;&lt;/div&gt;&lt;/p&gt;

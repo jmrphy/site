@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Time-Series Modeling (Two-Day Bootcamp for Organizations) on Justin Murphy</title>
-    <link>/courses/time-series/</link>
+    <link>https://jmrphy.net/courses/time-series/</link>
     <description>Recent content in Time-Series Modeling (Two-Day Bootcamp for Organizations) on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/courses/time-series/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/courses/time-series/feed.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

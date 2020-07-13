@@ -2,463 +2,454 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Justin Murphy</title>
-    <link>/tags/</link>
+    <link>https://jmrphy.net/tags/</link>
     <description>Recent content in Tags on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/tags/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>blogging</title>
-      <link>/tags/blogging/</link>
+      <link>https://jmrphy.net/tags/blogging/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/tags/blogging/</guid>
+      <guid>https://jmrphy.net/tags/blogging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data</title>
-      <link>/tags/data/</link>
+      <link>https://jmrphy.net/tags/data/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/tags/data/</guid>
+      <guid>https://jmrphy.net/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>https://jmrphy.net/tags/r/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://jmrphy.net/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gender</title>
-      <link>/tags/gender/</link>
+      <link>https://jmrphy.net/tags/gender/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gender/</guid>
+      <guid>https://jmrphy.net/tags/gender/</guid>
       <description></description>
     </item>
     
     <item>
       <title>media</title>
-      <link>/tags/media/</link>
+      <link>https://jmrphy.net/tags/media/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/media/</guid>
+      <guid>https://jmrphy.net/tags/media/</guid>
       <description></description>
     </item>
     
     <item>
       <title>race</title>
-      <link>/tags/race/</link>
+      <link>https://jmrphy.net/tags/race/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/race/</guid>
+      <guid>https://jmrphy.net/tags/race/</guid>
       <description></description>
     </item>
     
     <item>
       <title>technology</title>
-      <link>/tags/technology/</link>
+      <link>https://jmrphy.net/tags/technology/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/technology/</guid>
+      <guid>https://jmrphy.net/tags/technology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>public opinion</title>
-      <link>/tags/public-opinion/</link>
+      <link>https://jmrphy.net/tags/public-opinion/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/public-opinion/</guid>
+      <guid>https://jmrphy.net/tags/public-opinion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>statistical methods</title>
-      <link>/tags/statistical-methods/</link>
+      <link>https://jmrphy.net/tags/statistical-methods/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/statistical-methods/</guid>
+      <guid>https://jmrphy.net/tags/statistical-methods/</guid>
       <description></description>
     </item>
     
     <item>
       <title>visualization</title>
-      <link>/tags/visualization/</link>
+      <link>https://jmrphy.net/tags/visualization/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/visualization/</guid>
+      <guid>https://jmrphy.net/tags/visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>code</title>
-      <link>/tags/code/</link>
+      <link>https://jmrphy.net/tags/code/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/code/</guid>
+      <guid>https://jmrphy.net/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidycensus</title>
-      <link>/tags/tidycensus/</link>
+      <link>https://jmrphy.net/tags/tidycensus/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidycensus/</guid>
+      <guid>https://jmrphy.net/tags/tidycensus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>academic research</title>
-      <link>/tags/academic-research/</link>
+      <link>https://jmrphy.net/tags/academic-research/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/academic-research/</guid>
+      <guid>https://jmrphy.net/tags/academic-research/</guid>
       <description></description>
     </item>
     
     <item>
       <title>liberal peace</title>
-      <link>/tags/liberal-peace/</link>
+      <link>https://jmrphy.net/tags/liberal-peace/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/liberal-peace/</guid>
+      <guid>https://jmrphy.net/tags/liberal-peace/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pacification</title>
-      <link>/tags/pacification/</link>
+      <link>https://jmrphy.net/tags/pacification/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/pacification/</guid>
+      <guid>https://jmrphy.net/tags/pacification/</guid>
       <description></description>
     </item>
     
     <item>
       <title>artificial intelligence</title>
-      <link>/tags/artificial-intelligence/</link>
+      <link>https://jmrphy.net/tags/artificial-intelligence/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/artificial-intelligence/</guid>
+      <guid>https://jmrphy.net/tags/artificial-intelligence/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ideology</title>
-      <link>/tags/ideology/</link>
+      <link>https://jmrphy.net/tags/ideology/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ideology/</guid>
+      <guid>https://jmrphy.net/tags/ideology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>time series</title>
-      <link>/tags/time-series/</link>
+      <link>https://jmrphy.net/tags/time-series/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/time-series/</guid>
+      <guid>https://jmrphy.net/tags/time-series/</guid>
       <description></description>
     </item>
     
     <item>
       <title>social science</title>
-      <link>/tags/social-science/</link>
+      <link>https://jmrphy.net/tags/social-science/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/social-science/</guid>
+      <guid>https://jmrphy.net/tags/social-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>radical politics</title>
-      <link>/tags/radical-politics/</link>
+      <link>https://jmrphy.net/tags/radical-politics/</link>
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/radical-politics/</guid>
+      <guid>https://jmrphy.net/tags/radical-politics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>free speech</title>
-      <link>/tags/free-speech/</link>
+      <link>https://jmrphy.net/tags/free-speech/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/free-speech/</guid>
+      <guid>https://jmrphy.net/tags/free-speech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gilles Deleuze</title>
-      <link>/tags/gilles-deleuze/</link>
+      <link>https://jmrphy.net/tags/gilles-deleuze/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gilles-deleuze/</guid>
+      <guid>https://jmrphy.net/tags/gilles-deleuze/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jacques Lacan</title>
-      <link>/tags/jacques-lacan/</link>
+      <link>https://jmrphy.net/tags/jacques-lacan/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/jacques-lacan/</guid>
+      <guid>https://jmrphy.net/tags/jacques-lacan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Michel Foucault</title>
-      <link>/tags/michel-foucault/</link>
+      <link>https://jmrphy.net/tags/michel-foucault/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/michel-foucault/</guid>
+      <guid>https://jmrphy.net/tags/michel-foucault/</guid>
       <description></description>
     </item>
     
     <item>
       <title>activism</title>
-      <link>/tags/activism/</link>
+      <link>https://jmrphy.net/tags/activism/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/activism/</guid>
+      <guid>https://jmrphy.net/tags/activism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>violence</title>
-      <link>/tags/violence/</link>
+      <link>https://jmrphy.net/tags/violence/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/violence/</guid>
+      <guid>https://jmrphy.net/tags/violence/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emotions</title>
-      <link>/tags/emotions/</link>
+      <link>https://jmrphy.net/tags/emotions/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/emotions/</guid>
+      <guid>https://jmrphy.net/tags/emotions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mechanisms</title>
-      <link>/tags/mechanisms/</link>
+      <link>https://jmrphy.net/tags/mechanisms/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mechanisms/</guid>
+      <guid>https://jmrphy.net/tags/mechanisms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>academia</title>
-      <link>/tags/academia/</link>
+      <link>https://jmrphy.net/tags/academia/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/academia/</guid>
+      <guid>https://jmrphy.net/tags/academia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>liberation</title>
-      <link>/tags/liberation/</link>
+      <link>https://jmrphy.net/tags/liberation/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/liberation/</guid>
+      <guid>https://jmrphy.net/tags/liberation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>accelerationism</title>
-      <link>/tags/accelerationism/</link>
+      <link>https://jmrphy.net/tags/accelerationism/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/accelerationism/</guid>
+      <guid>https://jmrphy.net/tags/accelerationism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deleuze</title>
-      <link>/tags/deleuze/</link>
+      <link>https://jmrphy.net/tags/deleuze/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/deleuze/</guid>
+      <guid>https://jmrphy.net/tags/deleuze/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Guattari</title>
-      <link>/tags/guattari/</link>
+      <link>https://jmrphy.net/tags/guattari/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/guattari/</guid>
+      <guid>https://jmrphy.net/tags/guattari/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nick Land</title>
-      <link>/tags/nick-land/</link>
+      <link>https://jmrphy.net/tags/nick-land/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/nick-land/</guid>
+      <guid>https://jmrphy.net/tags/nick-land/</guid>
       <description></description>
     </item>
     
     <item>
       <title>life</title>
-      <link>/tags/life/</link>
+      <link>https://jmrphy.net/tags/life/</link>
       <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/life/</guid>
+      <guid>https://jmrphy.net/tags/life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Other Life</title>
-      <link>/tags/other-life/</link>
+      <link>https://jmrphy.net/tags/other-life/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/tags/other-life/</guid>
+      <guid>https://jmrphy.net/tags/other-life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>notes</title>
-      <link>/tags/notes/</link>
+      <link>https://jmrphy.net/tags/notes/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/notes/</guid>
+      <guid>https://jmrphy.net/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Virginia Woolf</title>
-      <link>/tags/virginia-woolf/</link>
+      <link>https://jmrphy.net/tags/virginia-woolf/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/virginia-woolf/</guid>
+      <guid>https://jmrphy.net/tags/virginia-woolf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>teaching</title>
-      <link>/tags/teaching/</link>
+      <link>https://jmrphy.net/tags/teaching/</link>
       <pubDate>Sat, 27 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/teaching/</guid>
+      <guid>https://jmrphy.net/tags/teaching/</guid>
       <description></description>
     </item>
     
     <item>
       <title>slides</title>
-      <link>/tags/slides/</link>
+      <link>https://jmrphy.net/tags/slides/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/slides/</guid>
+      <guid>https://jmrphy.net/tags/slides/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Adorno</title>
-      <link>/tags/adorno/</link>
+      <link>https://jmrphy.net/tags/adorno/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/adorno/</guid>
+      <guid>https://jmrphy.net/tags/adorno/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Frankfurt School</title>
-      <link>/tags/frankfurt-school/</link>
+      <link>https://jmrphy.net/tags/frankfurt-school/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/frankfurt-school/</guid>
+      <guid>https://jmrphy.net/tags/frankfurt-school/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Horkheimer</title>
-      <link>/tags/horkheimer/</link>
+      <link>https://jmrphy.net/tags/horkheimer/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/horkheimer/</guid>
+      <guid>https://jmrphy.net/tags/horkheimer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Marcuse</title>
-      <link>/tags/marcuse/</link>
+      <link>https://jmrphy.net/tags/marcuse/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/marcuse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Academic</title>
-      <link>/tags/academic/</link>
-      <pubDate>Sun, 20 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/academic/</guid>
+      <guid>https://jmrphy.net/tags/marcuse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>public policy</title>
-      <link>/tags/public-policy/</link>
+      <link>https://jmrphy.net/tags/public-policy/</link>
       <pubDate>Sat, 15 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/public-policy/</guid>
+      <guid>https://jmrphy.net/tags/public-policy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Marx</title>
-      <link>/tags/marx/</link>
+      <link>https://jmrphy.net/tags/marx/</link>
       <pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/marx/</guid>
+      <guid>https://jmrphy.net/tags/marx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>statistics</title>
-      <link>/tags/statistics/</link>
+      <link>https://jmrphy.net/tags/statistics/</link>
       <pubDate>Tue, 22 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>/tags/statistics/</guid>
+      <guid>https://jmrphy.net/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>education</title>
-      <link>/tags/education/</link>
+      <link>https://jmrphy.net/tags/education/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tags/education/</guid>
+      <guid>https://jmrphy.net/tags/education/</guid>
       <description></description>
     </item>
     
     <item>
       <title>family</title>
-      <link>/tags/family/</link>
+      <link>https://jmrphy.net/tags/family/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tags/family/</guid>
+      <guid>https://jmrphy.net/tags/family/</guid>
       <description></description>
     </item>
     

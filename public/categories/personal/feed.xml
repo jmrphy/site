@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>personal on Justin Murphy</title>
-    <link>/categories/personal/</link>
+    <link>https://jmrphy.net/categories/personal/</link>
     <description>Recent content in personal on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sat, 08 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/categories/personal/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://jmrphy.net/categories/personal/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Migrated to Hugo</title>
-      <link>/post/migrated-to-hugo/</link>
+      <link>https://jmrphy.net/post/migrated-to-hugo/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/migrated-to-hugo/</guid>
+      <guid>https://jmrphy.net/post/migrated-to-hugo/</guid>
       <description>&lt;p&gt;All the old content should still be here, with the same URLs. The Jekyll site was cool, but too liable to unexpected Ruby snags that I&amp;rsquo;m not competent enough to fix rapidly. The other major reason for switching to Hugo is to leverage the &lt;em&gt;blogdown&lt;/em&gt; workflow within Rstudio, and the smooth github-netlify publishing flow.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>“I Think We&#39;re Really Onto Something:” Mark Fisher and My Revolutionary Friends</title>
-      <link>/blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/</link>
+      <link>https://jmrphy.net/blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/</link>
       <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/</guid>
+      <guid>https://jmrphy.net/blog/2017/01/27/mark-fisher-and-my-revolutionary-friends/</guid>
       <description>
 
 &lt;h3 id=&#34;1&#34;&gt;1&lt;/h3&gt;
