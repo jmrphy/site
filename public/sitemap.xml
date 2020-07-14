@@ -34,7 +34,7 @@
   
   <url>
     <loc>https://jmrphy.net/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
@@ -44,42 +44,12 @@
   
   <url>
     <loc>https://jmrphy.net/tags/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://jmrphy.net/categories/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/tags/gender/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/tags/media/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/tags/race/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/post/racial-and-gender-diversity-among-tech-journalists-on-twitter/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/tags/technology/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jmrphy.net/categories/theory-empirics/</loc>
-    <lastmod>2020-07-13T17:11:31-06:00</lastmod>
+    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
   </url>
   
   <url>
@@ -208,6 +178,11 @@
   </url>
   
   <url>
+    <loc>https://jmrphy.net/tags/media/</loc>
+    <lastmod>2019-09-27T18:05:23-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jmrphy.net/tags/time-series/</loc>
     <lastmod>2019-09-27T18:05:23-06:00</lastmod>
   </url>
@@ -220,6 +195,11 @@
   <url>
     <loc>https://jmrphy.net/tags/social-science/</loc>
     <lastmod>2019-10-07T12:55:28-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/categories/theory-empirics/</loc>
+    <lastmod>2019-11-27T13:51:36-07:00</lastmod>
   </url>
   
   <url>
@@ -268,6 +248,11 @@
   </url>
   
   <url>
+    <loc>https://jmrphy.net/tags/race/</loc>
+    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
@@ -303,6 +288,11 @@
   </url>
   
   <url>
+    <loc>https://jmrphy.net/tags/gender/</loc>
+    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jmrphy.net/tags/violence/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
@@ -314,6 +304,11 @@
   
   <url>
     <loc>https://jmrphy.net/tags/mechanisms/</loc>
+    <lastmod>2019-09-21T15:37:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jmrphy.net/tags/technology/</loc>
     <lastmod>2019-09-21T15:37:02-06:00</lastmod>
   </url>
   

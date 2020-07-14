@@ -1,6 +1,7 @@
 ---
 title: Racial and Gender Diversity Among Tech Journalists on Twitter
 author: ''
+draft: yes
 date: '2020-07-07'
 slug: racial-and-gender-diversity-among-tech-journalists-on-twitter
 categories:
