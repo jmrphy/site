@@ -88,6 +88,37 @@ ti$outlet<-"TheInformation"
 tv <- search_users("@Verge", n = 1000)
 tv$outlet<-"TheVerge"
 
+
+go1 <- search_users("reporter Gigaom", n = 1000)
+go2 <- search_users("journalist Gigaom", n = 1000)
+go3 <- search_users("producer Gigaom", n = 1000)
+go4 <- search_users("designer Gigaom", n = 1000)
+go5 <- search_users("editor Gigaom", n = 1000)
+go6 <- search_users("writer Gigaom", n = 1000)
+go7 <- search_users("analyst Gigaom", n = 1000)
+go8 <- search_users("current Gigaom", n = 1000)
+go9 <- search_users("former Gigaom", n = 1000)
+go10 <- search_users("bylines Gigaom", n = 1000)
+go11 <- search_users("columnist Gigaom", n = 1000)
+go12 <- search_users("freelance Gigaom", n = 1000)
+go13 <- search_users("beat Gigaom", n = 1000)
+
+rbind()
+
+
+
+
+
+
+
+
+
+
+
+
+tv$outlet<-"TheVerge"
+
+
 # Bind search results into one dataframe
 journos<-rbind(tc, rc, ti, tv)
 
