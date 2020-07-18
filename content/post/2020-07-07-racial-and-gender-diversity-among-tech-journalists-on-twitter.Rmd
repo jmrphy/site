@@ -3,7 +3,7 @@ title: Tech Journalism is Less Diverse than Tech
 author: ''
 draft: yes
 date: '2020-07-07'
-slug: racial-and-gender-diversity-among-tech-journalists-on-twitter
+slug: tech-journalism
 categories:
   - theory & empirics
 tags:
