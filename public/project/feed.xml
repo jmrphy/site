@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Justin Murphy</title>
-    <link>https://jmrphy.net/project/</link>
+    <link>/project/</link>
     <description>Recent content in Projects on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/project/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/project/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Based Deleuze</title>
-      <link>https://jmrphy.net/project/based-deleuze/</link>
+      <link>/project/based-deleuze/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/project/based-deleuze/</guid>
+      <guid>/project/based-deleuze/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Blogging with R (Free Course)</title>
-      <link>https://jmrphy.net/project/data-blogging/</link>
+      <link>/project/data-blogging/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/project/data-blogging/</guid>
+      <guid>/project/data-blogging/</guid>
       <description>&lt;p&gt;In one week, you&amp;rsquo;ll publish your first data-driven blog post — and gain your first readers. Guaranteed.&lt;/p&gt;
 
 &lt;p&gt;Also — I genuinely encourage you to ask me questions, if you&amp;rsquo;d like. I’m using this free course as a testing ground to build up a higher-value course, so helping you troubleshoot will help me know what to focus on.&lt;/p&gt;
@@ -38,10 +38,10 @@
     
     <item>
       <title>Other Life</title>
-      <link>https://jmrphy.net/project/other-life/</link>
+      <link>/project/other-life/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/project/other-life/</guid>
+      <guid>/project/other-life/</guid>
       <description></description>
     </item>
     

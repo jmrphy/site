@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Political Science of the Media (Retired) on Justin Murphy</title>
-    <link>https://jmrphy.net/courses/media/</link>
+    <link>/courses/media/</link>
     <description>Recent content in Political Science of the Media (Retired) on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/courses/media/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/courses/media/feed.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

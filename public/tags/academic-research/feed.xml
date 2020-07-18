@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>academic research on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/academic-research/</link>
+    <link>/tags/academic-research/</link>
     <description>Recent content in academic research on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/academic-research/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/academic-research/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Liberal Pacification and the Phenomenology of Violence</title>
-      <link>https://jmrphy.net/publication/isq/</link>
+      <link>/publication/isq/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/publication/isq/</guid>
+      <guid>/publication/isq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Artificial Intelligence, Rationality, and the World Wide Web</title>
-      <link>https://jmrphy.net/publication/ieee/</link>
+      <link>/publication/ieee/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/publication/ieee/</guid>
+      <guid>/publication/ieee/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Inequality and the Pacification of Militant Protest in the United States, 1919-2012</title>
-      <link>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</link>
+      <link>/blog/inequality-and-pacification-of-protest/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</guid>
+      <guid>/blog/inequality-and-pacification-of-protest/</guid>
       <description>
 
 &lt;p&gt;To generate the graph below, you need two data files. The first is yearly income decile data from &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;Piketty (2014)&lt;/a&gt;, which should be named &amp;ldquo;Inequality_USA.csv.&amp;rdquo; The second is the Cross-National Time-Series data from &lt;a href=&#34;https://www.cntsdata.com/&#34; target=&#34;_blank&#34;&gt;Banks and Wilson (2017)&lt;/a&gt;, which should be called &amp;ldquo;2017 Edition CNTSDATA.csv.&amp;rdquo; Finally, the code snippet below should be in a file called &amp;ldquo;Baron_et_al-ISQ.R&amp;rdquo; — that will be an R script that compiles the two datasets before producing the figure from our article. To reproduce the Figure, open the R script on your computer, ensure each dataset is in the same directory as the R script, set your R working directory to that directory, and run the script.&lt;/p&gt;
@@ -128,10 +128,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>Who’s afraid of free speech in the United States?</title>
-      <link>https://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/</link>
+      <link>/blog/2018/02/16/who-is-afraid-of-free-speech/</link>
       <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2018/02/16/who-is-afraid-of-free-speech/</guid>
+      <guid>/blog/2018/02/16/who-is-afraid-of-free-speech/</guid>
       <description>&lt;p&gt;The topic of free speech is highly salient at the moment, but if you look at the public opinion data, you find some patterns quite incongruous with many of the popular talking points circulating right now. It seems that perhaps in the pushback against political correctness, many have been too quick to make generalizations about how &amp;ldquo;the far left&amp;rdquo; and/or &amp;ldquo;radical liberals&amp;rdquo; think about free speech. The now popular view that &amp;ldquo;the left&amp;rdquo; has turned against free speech is not totally wrong, but it&amp;rsquo;s complicated. The important wrinkle is that &amp;ldquo;extreme liberals&amp;rdquo; and the &amp;ldquo;far left&amp;rdquo; have always been, and generally remain, the &lt;em&gt;most supportive&lt;/em&gt; of free speech. Curiously, it is the &amp;ldquo;slightly left&amp;rdquo; that have in recent years turned against free speech (and only for racists, not for other groups, including military fascists!).&lt;/p&gt;
 
 &lt;p&gt;For most of its surveys between 1972 and 2016, the General Social Survey asked a U.S. sample to consider the following types of potential public speakers. (They asked about a few others but the following are the ones they asked most consistently.)&lt;/p&gt;
@@ -174,10 +174,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>The moral foundations of social justice warriors</title>
-      <link>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
+      <link>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
+      <guid>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
       <description>
 
 &lt;p&gt;What is a social justice warrior? The term &lt;em&gt;SJW&lt;/em&gt;, short for &lt;em&gt;social justice warrior,&lt;/em&gt; is now a well-known piece of internet slang. It refers to a particular tendency within left-wing political activism today. People often ask me to define &amp;ldquo;social justice warrior&amp;rdquo;, or they ask: &amp;ldquo;Isn&amp;rsquo;t that just an epithet, like &amp;lsquo;political correctness,&amp;rsquo;  used by conservatives to dismiss the claims of marginalized people?&amp;rdquo; Or else it is sometimes suggested that such an ideologically loaded term is beneath a Serious Social Scientist. But I&amp;rsquo;ve been thinking about these questions a lot, and my sense is that &lt;em&gt;SJW&lt;/em&gt; seems to reasonably distinguish a particular dimension of left-wing ideology and behavior from the larger multidimensional umbrella of &amp;ldquo;the Left.&amp;rdquo;&lt;/p&gt;
@@ -248,19 +248,19 @@ democratic socialism likely revolves around principles different than those at t
     
     <item>
       <title>What Does It Mean to Make-Up the Mind (οὕτω διανοεῖσθε)?</title>
-      <link>https://jmrphy.net/publication/parrhesia/</link>
+      <link>/publication/parrhesia/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/publication/parrhesia/</guid>
+      <guid>/publication/parrhesia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>What is the effect of comparing Donald Trump to Hitler?</title>
-      <link>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
+      <link>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
+      <guid>/blog/2017/12/10/what-is-the-effect-of-comparing-donald-trump-to-hitler/</guid>
       <description>&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
 &lt;p&gt;Critics of U.S. President Donald Trump frequently [compare him to Adolf Hitler](http://amzn.to/2GJ0rsn). Does comparing Trump to Hitler decrease support for his policies? With the help of my students at the University of Southampton, we conducted a survey experiment to investigate the causal effect of a Hitler comparison on support for one of Trump&#39;s policies.&lt;/p&gt;
 
@@ -349,10 +349,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Data appendix on global rioting dynamics</title>
-      <link>https://jmrphy.net/blog/2017/09/12/rioting-decline-data/</link>
+      <link>/blog/2017/09/12/rioting-decline-data/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2017/09/12/rioting-decline-data/</guid>
+      <guid>/blog/2017/09/12/rioting-decline-data/</guid>
       <description>&lt;p&gt;This post serves as a short appendix for a forthcoming, online article on the cross-national historical dynamics of rioting.&lt;/p&gt;
 &lt;p&gt;Here is the citation for the dataset. The event data is based on news reports.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -369,10 +369,10 @@ The Effect of a Hitler Comparison
     
     <item>
       <title>Are Americans becoming more conservative or liberal (right or left)?</title>
-      <link>https://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/</link>
+      <link>/blog/2017/09/04/americans-conservative-liberal-left-right/</link>
       <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2017/09/04/americans-conservative-liberal-left-right/</guid>
+      <guid>/blog/2017/09/04/americans-conservative-liberal-left-right/</guid>
       <description>
 
 &lt;div class=&#34;panel radius&#34; markdown=&#34;1&#34;&gt;

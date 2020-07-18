@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses on Justin Murphy</title>
-    <link>https://jmrphy.net/courses/</link>
+    <link>/courses/</link>
     <description>Recent content in Courses on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     
-	    <atom:link href="https://jmrphy.net/courses/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/courses/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Causal Inference for the Social Sciences (Retired)</title>
-      <link>https://jmrphy.net/courses/causal-inference/</link>
+      <link>/courses/causal-inference/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/courses/causal-inference/</guid>
+      <guid>/courses/causal-inference/</guid>
       <description>
 
 &lt;h2 id=&#34;flexibility&#34;&gt;Flexibility&lt;/h2&gt;
@@ -63,10 +63,10 @@
     
     <item>
       <title>Political Science of the Media (Retired)</title>
-      <link>https://jmrphy.net/courses/media/</link>
+      <link>/courses/media/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/courses/media/</guid>
+      <guid>/courses/media/</guid>
       <description>
 
 &lt;h2 id=&#34;flexibility&#34;&gt;Flexibility&lt;/h2&gt;
@@ -113,10 +113,10 @@
     
     <item>
       <title>Time-Series Modeling (Two-Day Bootcamp for Organizations)</title>
-      <link>https://jmrphy.net/courses/time-series/</link>
+      <link>/courses/time-series/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/courses/time-series/</guid>
+      <guid>/courses/time-series/</guid>
       <description>
 
 &lt;h2 id=&#34;flexibility&#34;&gt;Flexibility&lt;/h2&gt;

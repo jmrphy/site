@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/r/</link>
+    <link>/tags/r/</link>
     <description>Recent content in R on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/r/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/r/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Data Blogging with R</title>
-      <link>https://jmrphy.net/talk/example/</link>
+      <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/talk/example/</guid>
+      <guid>/talk/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -38,10 +38,10 @@
     
     <item>
       <title>Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data)</title>
-      <link>https://jmrphy.net/post/recursive-partitioning-decision-trees-guess-opinions/</link>
+      <link>/post/recursive-partitioning-decision-trees-guess-opinions/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/recursive-partitioning-decision-trees-guess-opinions/</guid>
+      <guid>/post/recursive-partitioning-decision-trees-guess-opinions/</guid>
       <description>
 
 
@@ -142,7 +142,7 @@ box.palette=&amp;quot;GnBu&amp;quot;, # add a swankier color palette
 shadow.col=&amp;quot;gray&amp;quot;,
 tweak=1.1, # increase the font size a bit
 main=&amp;quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interpretation&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Interpretation&lt;/h1&gt;
@@ -167,20 +167,20 @@ main=&amp;quot;Decision Tree Predicting If Someone Wants to Suppress Racist Spea
     
     <item>
       <title>Make interactive graphs of financial time-series in five minutes with R (Bitcoin example)</title>
-      <link>https://jmrphy.net/post/analyze-financial-time-series-without-touching-a-spreadsheet/</link>
+      <link>/post/analyze-financial-time-series-without-touching-a-spreadsheet/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/analyze-financial-time-series-without-touching-a-spreadsheet/</guid>
+      <guid>/post/analyze-financial-time-series-without-touching-a-spreadsheet/</guid>
       <description>
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://jmrphy.net/rmarkdown-libs/dygraphs/dygraph.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/dygraphs/dygraph-combined.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/dygraphs/shapes.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/moment/moment.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://jmrphy.net/rmarkdown-libs/dygraphs-binding/dygraphs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/dygraphs/dygraph.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/dygraph-combined.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/shapes.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment/moment.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs-binding/dygraphs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;We’ll use two packages: The package &lt;code&gt;Quandl&lt;/code&gt; for programmatically accessing a variety of financial time-series, and the package &lt;code&gt;dygraphs&lt;/code&gt; for lovely interactive graphs based on the eponymous Javascript library. If you don’t already have them, install them.&lt;/p&gt;
@@ -221,10 +221,10 @@ head(search.results, 2) # Show the first 2 results&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>How to make beautiful county maps of the US</title>
-      <link>https://jmrphy.net/post/how-to-make-county-maps/</link>
+      <link>/post/how-to-make-county-maps/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/how-to-make-county-maps/</guid>
+      <guid>/post/how-to-make-county-maps/</guid>
       <description>
 
 
@@ -251,17 +251,17 @@ ggplot(us.county.income) +
   theme_minimal() + 
   scale_fill_viridis_c() +
   labs(fill = &amp;quot;Estimated Avg.&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2019-10-07-make-a-map_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-10-07-make-a-map_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;For more advanced instructions, including some tips on how to search the Census variables from within R, see &lt;a href=&#34;https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t&#34;&gt;these slides by Kyle Walker.&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Slides</title>
-      <link>https://jmrphy.net/slides/data-mini/</link>
+      <link>/slides/data-mini/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/slides/data-mini/</guid>
+      <guid>/slides/data-mini/</guid>
       <description>
 
 &lt;h1 id=&#34;start-a-data-blog-to-win-friends-and-influence-people&#34;&gt;Start a Data Blog to Win Friends and Influence People&lt;/h1&gt;
@@ -304,10 +304,10 @@ ggplot(us.county.income) +
     
     <item>
       <title>Inequality and the Pacification of Militant Protest in the United States, 1919-2012</title>
-      <link>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</link>
+      <link>/blog/inequality-and-pacification-of-protest/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/inequality-and-pacification-of-protest/</guid>
+      <guid>/blog/inequality-and-pacification-of-protest/</guid>
       <description>
 
 &lt;p&gt;To generate the graph below, you need two data files. The first is yearly income decile data from &lt;a href=&#34;https://amzn.to/2JhLrGT&#34; target=&#34;_blank&#34;&gt;Piketty (2014)&lt;/a&gt;, which should be named &amp;ldquo;Inequality_USA.csv.&amp;rdquo; The second is the Cross-National Time-Series data from &lt;a href=&#34;https://www.cntsdata.com/&#34; target=&#34;_blank&#34;&gt;Banks and Wilson (2017)&lt;/a&gt;, which should be called &amp;ldquo;2017 Edition CNTSDATA.csv.&amp;rdquo; Finally, the code snippet below should be in a file called &amp;ldquo;Baron_et_al-ISQ.R&amp;rdquo; — that will be an R script that compiles the two datasets before producing the figure from our article. To reproduce the Figure, open the R script on your computer, ensure each dataset is in the same directory as the R script, set your R working directory to that directory, and run the script.&lt;/p&gt;
@@ -400,10 +400,10 @@ ggplot(molt, aes(x=year, y=value, colour=variable, linetype=variable)) +
     
     <item>
       <title>The moral foundations of social justice warriors</title>
-      <link>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
+      <link>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
+      <guid>/blog/2018/01/15/moral-foundations-of-social-justice-warriors/</guid>
       <description>
 
 &lt;p&gt;What is a social justice warrior? The term &lt;em&gt;SJW&lt;/em&gt;, short for &lt;em&gt;social justice warrior,&lt;/em&gt; is now a well-known piece of internet slang. It refers to a particular tendency within left-wing political activism today. People often ask me to define &amp;ldquo;social justice warrior&amp;rdquo;, or they ask: &amp;ldquo;Isn&amp;rsquo;t that just an epithet, like &amp;lsquo;political correctness,&amp;rsquo;  used by conservatives to dismiss the claims of marginalized people?&amp;rdquo; Or else it is sometimes suggested that such an ideologically loaded term is beneath a Serious Social Scientist. But I&amp;rsquo;ve been thinking about these questions a lot, and my sense is that &lt;em&gt;SJW&lt;/em&gt; seems to reasonably distinguish a particular dimension of left-wing ideology and behavior from the larger multidimensional umbrella of &amp;ldquo;the Left.&amp;rdquo;&lt;/p&gt;
@@ -474,10 +474,10 @@ democratic socialism likely revolves around principles different than those at t
     
     <item>
       <title>Data Blogging with R (Free Course)</title>
-      <link>https://jmrphy.net/project/data-blogging/</link>
+      <link>/project/data-blogging/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/project/data-blogging/</guid>
+      <guid>/project/data-blogging/</guid>
       <description>&lt;p&gt;In one week, you&amp;rsquo;ll publish your first data-driven blog post — and gain your first readers. Guaranteed.&lt;/p&gt;
 
 &lt;p&gt;Also — I genuinely encourage you to ask me questions, if you&amp;rsquo;d like. I’m using this free course as a testing ground to build up a higher-value course, so helping you troubleshoot will help me know what to focus on.&lt;/p&gt;
@@ -489,10 +489,10 @@ democratic socialism likely revolves around principles different than those at t
     
     <item>
       <title>Generating summary statistics and box/violin plots in R</title>
-      <link>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</link>
+      <link>/blog/2012/05/22/generating-summary-statistics-in-r/</link>
       <pubDate>Tue, 22 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
+      <guid>/blog/2012/05/22/generating-summary-statistics-in-r/</guid>
       <description>
 
 &lt;p&gt;Here is a script (with highly detailed comments) to get you up and running in R, analyzing a real social science dataset. Data come from the 1970-2010 General Social Survey dataset. When you download the original master file from the web, the whole dataset has more than 5,000 variables and more than 55,000 respondents, which is too large for most computers to handle efficiently. So I&amp;rsquo;ve limited the original file to 613 of some of the most commonly used and generally valuable variables–still large and comprehensive enough to be useful for a wide-range of research interests, but a little more manageable.&lt;/p&gt;
@@ -595,10 +595,10 @@ library(wvioplot)                        # load the library of the package &amp;
     
     <item>
       <title>A quick-start guide to the statistical analysis of political attitudes and behaviors</title>
-      <link>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
+      <link>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
+      <guid>/post/2016-12-06-a-quick-start-guide-to-the-statistical-analysis-of-political-attitudes-and-behaviors/</guid>
       <description>&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview&lt;/h1&gt;
 &lt;p&gt;The purpose of this document is to get you up and running with (potentially) professional-level, statistical analysis of political data, quickly. It will automatically import the Eurobarometer Trend File (1970-2002), a large survey dataset asking individuals across European countries a wide variety of questions in many different years. This document is intended to rapidly “bootstrap” individuals with zero programming knowledge into being able to conduct fairly sophisticated anlayses on a wide variety of political questions. In particular, this is intended especially for undergraduate political science students with no background in computer programming, interested in questions about political attitudes/behaviors, who wish to challenge themselves and build their skills/experience with quantitative data analysis. You can use this as a springboard to learning how to use R independently, but this document is not intended to teach you that. It’s a purely practical guide to jumpstart your capacity to produce analyses; everything else is up to you.&lt;/p&gt;
@@ -817,10 +817,10 @@ s.out &amp;lt;-&lt;span class=&#34;st&#34;&gt; &lt;/span&gt;&lt;span class=&#34;
     
     <item>
       <title>Intro to R for graduate students</title>
-      <link>https://jmrphy.net/blog/2014/11/22/intro-to-r-for-grad-students/</link>
+      <link>/blog/2014/11/22/intro-to-r-for-grad-students/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/blog/2014/11/22/intro-to-r-for-grad-students/</guid>
+      <guid>/blog/2014/11/22/intro-to-r-for-grad-students/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://jmrphy.net/r_intro_for_grad_students/r_intro.pdf&#34;&gt;&lt;i class=&#34;fa fa-file-pdf fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt; |
 &lt;a href=&#34;https://github.com/jmrphy/r_intro_for_grad_students&#34;&gt;&lt;i class=&#34;fa fa-flask fa-2x&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 

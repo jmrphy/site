@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>statistical methods on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/statistical-methods/</link>
+    <link>/tags/statistical-methods/</link>
     <description>Recent content in statistical methods on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Thu, 05 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/statistical-methods/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/statistical-methods/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data)</title>
-      <link>https://jmrphy.net/post/recursive-partitioning-decision-trees-guess-opinions/</link>
+      <link>/post/recursive-partitioning-decision-trees-guess-opinions/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/recursive-partitioning-decision-trees-guess-opinions/</guid>
+      <guid>/post/recursive-partitioning-decision-trees-guess-opinions/</guid>
       <description>
 
 
@@ -118,7 +118,7 @@ box.palette=&amp;quot;GnBu&amp;quot;, # add a swankier color palette
 shadow.col=&amp;quot;gray&amp;quot;,
 tweak=1.1, # increase the font size a bit
 main=&amp;quot;Decision Tree Predicting If Someone Wants to Suppress Racist Speakers&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-12-05-how-to-use-recursive-partitioning-and-decision-trees-to-guess-someone-s-political-opinions_files/figure-html/partitioning-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interpretation&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Interpretation&lt;/h1&gt;
@@ -143,10 +143,10 @@ main=&amp;quot;Decision Tree Predicting If Someone Wants to Suppress Racist Spea
     
     <item>
       <title>Does Media Coverage Drive Public Support for UKIP or Does Public Support for UKIP Drive Media Coverage?</title>
-      <link>https://jmrphy.net/publication/bjps/</link>
+      <link>/publication/bjps/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/publication/bjps/</guid>
+      <guid>/publication/bjps/</guid>
       <description></description>
     </item>
     

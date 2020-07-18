@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidycensus on Justin Murphy</title>
-    <link>https://jmrphy.net/tags/tidycensus/</link>
+    <link>/tags/tidycensus/</link>
     <description>Recent content in tidycensus on Justin Murphy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Justin Murphy</copyright>
     <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="https://jmrphy.net/tags/tidycensus/feed.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/tidycensus/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to make beautiful county maps of the US</title>
-      <link>https://jmrphy.net/post/how-to-make-county-maps/</link>
+      <link>/post/how-to-make-county-maps/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jmrphy.net/post/how-to-make-county-maps/</guid>
+      <guid>/post/how-to-make-county-maps/</guid>
       <description>
 
 
@@ -44,7 +44,7 @@ ggplot(us.county.income) +
   theme_minimal() + 
   scale_fill_viridis_c() +
   labs(fill = &amp;quot;Estimated Avg.&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://jmrphy.net/post/2019-10-07-make-a-map_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-10-07-make-a-map_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;For more advanced instructions, including some tips on how to search the Census variables from within R, see &lt;a href=&#34;https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t&#34;&gt;these slides by Kyle Walker.&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
