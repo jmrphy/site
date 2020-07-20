@@ -21,12 +21,17 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-images:
-- https://jmrphy.net/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png
 ---
 
+Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
 
-Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the racial and gender diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
+## TLDR
+
+The workforce of the big five tech companies is about 51% white, averaging across each company's most recent diversity report. Big Tech is therefore more diverse than tech journalism, which our analysis suggests to be between 78% and 84% white (averaging across 824 individuals who've worked for 13 popular tech-journalism outlets).
+
+As of 2020, the percentage of White employees at Facebook is [63.2%.](https://diversity.fb.com/read-report/) At Google, [51.7%](https://kstatic.googleusercontent.com/files/25badfc6b6d1b33f3b87372ff7545d79261520d821e6ee9a82c4ab2de42a01216be2156bc5a60ae3337ffe7176d90b8b2b3000891ac6e516a650ecebf0e3f866). At Microsoft, [53.2%](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aqv1). At Amazon, [34.7%.](https://www.aboutamazon.com/working-at-amazon/diversity-and-inclusion/our-workforce-data). At Apple, [50%](https://www.apple.com/diversity/).
+
+[Here is our dataset.](https://docs.google.com/spreadsheets/d/168IcCzJ6i3-YuEy1aQWYHwA2GqFleVfe0YVuOtMGd6o/edit?usp=sharing)
 
 ## Background and overview of the methodology
 
@@ -35,6 +40,7 @@ The initial dataset gathered by [OoTheNigerian](https://twitter.com/OoTheNigeria
 Here we pursue a different approach, using multiple methods to check the robustness of our results. Thanks to OoTheNigerian for his help.
 
 ## Two different sampling methods
+
 We use two different sampling methods to make sure our results are not sensitive to how the set of "tech journalists" is defined. In a first sampling method, we collected lists of individuals on Twitter whose bios indicate current or past work for any one of 13 major tech-journalism outlets (namely Verge, Gigaom, Cnet, Wired, Engadget, The Information, Recode, The Next Web, Venture Beat, TechRadar, TechCrunch, Gizmodo, and Motherboard).
 
 Alternatively, we also gather a dataset of tech journalists by combining two publicly available, third-party-curated lists called "Tech Journalists." We had no role in the curation of these lists, so if the results of our diversity analysis are similar when conducted on this sample as well, we should be highly confident that our analyses accurately reflect the true state of tech journalism on Twitter.
@@ -297,12 +303,12 @@ mb10 <- search_users("bylines motherboard", n = 1000)
 mb11 <- search_users("columnist motherboard", n = 1000)
 mb12 <- search_users("freelance motherboard", n = 1000)
 mb<-rbind(mb1, mb2, mb3, mb4, mb5, mb6, mb7, mb8, mb9, mb10, mb11, mb12)
-mb$outlet<-"Recode"
+mb$outlet<-"Motherboard"
 rm(mb1, mb2, mb3, mb4, mb5, mb6, mb7, mb8, mb9, mb10, mb11, mb12)
 
 df<-rbind(v, go, e, vb, wi, nw, gm, cn, tr, ti, tc, rc, mb)
 
-# Read Write, Forbes Tech, and TechDirt were queried but excluded because
+# ReadWrite, ForbesTech, and TechDirt were queried but excluded because
 # each one had fewer than ten results.
 
 # Restrict to English language accounts
@@ -315,7 +321,7 @@ df <- df %>%
 
 # Standardize and export for manual inspection
 journos <- apply(df,2,as.character)
-write.csv(df, "journos.csv")
+write.csv(df, "journos-all.csv")
 
 ```
 
@@ -325,6 +331,15 @@ The total number of accounts identified in this fashion was 1740, including some
 
 # Load manually cleaned spreadsheet
 df<-read.csv("/Users/justin/Dropbox/Public/journos.csv")
+
+totals.subjective<-df %>%
+  drop_na(subjective_race) %>%
+  group_by(outlet, subjective_race) %>%
+  summarise(n = n()) %>%
+  mutate(Percent = n / sum(n)) %>%
+  filter(subjective_race=="White")
+
+# mean(totals.subjective$Percent)
 
 df %>%
   drop_na(subjective_race) %>%
@@ -338,7 +353,7 @@ df %>%
   theme_bw() +
   labs(x="", y="Percent White",
        title="Racial Diversity Across 13 Major Tech-Journalism Outlets",
-       subtitle = "Race inferred by subjective judgment. N=824.",
+       subtitle = "Race inferred from Twitter bios, by subjective judgment. N=824.",
        caption= "By Justin Murphy (jmrphy.net, @jmrphy).")
 
 # summary(df$subjective_race)
@@ -369,18 +384,19 @@ Also according to our subjective judgment, 430 are Male and 287 are Female.
 Next we leverage the [*predictrace*](https://cran.r-project.org/web/packages/predictrace/vignettes/Predict-race-of-surname.html) package to infer race from surnames, based on the co-occurrence of surnames and self-reported races in the Census datasets.
 
 ```{r}
+
 # Extract surname from the full name
 df$lastnames <- word(df$name,-1)
 # Predict race from surname
 race.profiles.df<-predict_race(df$lastnames)
 
 # To partially mitigate the problem of under-identifying black people,
-# any surname with a probability of being black greater than .3 will
+# any surname with a probability of being black greater than .4 will
 # will be classified as black. This will increase the error rate of
 # classifying white people as black, but decrease the error rate of
 # classifying black people as white.
 
-race.profiles.df$likely_race<-ifelse(race.profiles.df$probability_black>.5 &
+race.profiles.df$likely_race<-ifelse(race.profiles.df$probability_black>.4 &
          race.profiles.df$likely_race=="white",
        "black",
        race.profiles.df$likely_race)
@@ -399,6 +415,7 @@ race.profiles.df$likely_race<-ifelse(race.profiles.df$probability_hispanic>.5,
 df <- cbind(df, race.profiles.df$likely_race)
 # Rename the inferred race variable
 df$race <- df$`race.profiles.df$likely_race`
+
 # Extract first name from the full name
 df$firstnames<-word(df$name,1)
 # Predict gender from first name
@@ -416,10 +433,19 @@ df$race<-recode(df$race, asian = "Asian",
                         black = "Black",
                         white = "White",
                         hispanic = "Hispanic")
-
-write.csv(df, "/Users/justin/Dropbox/Public/tech-journalists-from-bios-df.csv")
-
 # summary(df$race)
+
+
+write.csv(df, "/Users/justin/Dropbox/Public/journos-out.csv")
+
+totals.objective<-df %>%
+  drop_na(race) %>%
+  group_by(outlet, race) %>%
+  summarise(n = n()) %>%
+  mutate(Percent = n / sum(n)) %>%
+  filter(race=="White")
+
+# mean(totals.objective$Percent)
 
 df %>%
   drop_na(race) %>%
@@ -439,7 +465,7 @@ df %>%
 
 ```
 
-According to the automated data-driven method, 398 are likely White, 44 Asian, 16 Black, and 23 Hispanic. The rest could not be classified.
+According to the automated data-driven method, 391 are likely White, 44 Asian, 23 Black, and 23 Hispanic. The rest could not be classified. The White percentage is very close to our estimates based on subjective assessments: About 81%.
 
 ```{r}
 
@@ -455,6 +481,8 @@ ggplot(aes(x = race)) +
       caption="By Justin Murphy (jmrphy.net, @jmrphy)") +
   coord_flip()
 ```
+
+Setting aside outlets, below is the graph for the distribution of race according to our subjective assessments of race.
 
 ```{r}
 
@@ -567,7 +595,9 @@ df %>%
 
 I found two Twitter lists entitled "Tech Journalists" ([1](https://twitter.com/i/lists/96162061), [2](https://twitter.com/i/lists/53301954)). I take these at face value and combine all the listed Twitter accounts into a new sample of tech journalists. Then I re-run all of the analyses above on this new sample. The initial number of journalists in Sample 2 is 424; after removing duplicates the number is 360.
 
-The basic counts are: 165 likely to be White, 17 likely to be Asian, 23 likely to be Black, and 8 likely to be Hispanic. The rest could not be classified.
+The basic counts are: 179 likely to be White, 17 likely to be Asian, 9 likely to be Black, and 8 likely to be Hispanic. The rest could not be classified.
+
+The result is very close to our previous results, again: 84% White.
 
 ```{r analysis-sample-2}
 
@@ -583,12 +613,12 @@ df2$lastnames<-word(df2$name,-1)
 race.lists.df<-predict_race(df2$lastnames)
 
 # To partially mitigate the problem of under-identifying black people,
-# any surname with a probability of being black greater than .5 will
+# any surname with a probability of being black greater than .4 will
 # will be classified as black. This will increase the error rate of
 # classifying white people as black, but decrease the error rate of
 # classifying black people as white.
 
-race.lists.df$likely_race<-ifelse(race.lists.df$probability_black>.5 &
+race.lists.df$likely_race<-ifelse(race.lists.df$probability_black>.4 &
          race.lists.df$likely_race=="white",
        "black",
        race.lists.df$likely_race)
@@ -632,7 +662,9 @@ ggplot(aes(x = race)) +
        y="Proportion",
       caption="Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)") +
   coord_flip()
+```
 
+```{r}
 df2 %>%
 drop_na(gender) %>%
 ggplot(aes(x = gender)) +  
