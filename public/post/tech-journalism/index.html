@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
-TLDR The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report.">
+TLDR The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report, linked below.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/tech-journalism/">
@@ -127,12 +127,12 @@ TLDR The workforce of the big five tech companies is about 51% white, averaging 
   <meta property="og:url" content="/post/tech-journalism/">
   <meta property="og:title" content="Tech Journalism is Less Diverse than Tech | Justin Murphy">
   <meta property="og:description" content="Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
-TLDR The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report."><meta property="og:image" content="/img/icon-192.png">
+TLDR The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report, linked below."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-07-07T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2020-07-17T20:51:45-06:00">
+  <meta property="article:modified_time" content="2020-07-19T23:09:30-06:00">
   
 
   
@@ -423,7 +423,7 @@ TLDR The workforce of the big five tech companies is about 51% white, averaging 
 
 
 <meta content="2020-07-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2020-07-17 20:51:45 -0600 MDT" itemprop="dateModified">
+<meta content="2020-07-19 23:09:30 -0600 MDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -438,7 +438,7 @@ TLDR The workforce of the big five tech companies is about 51% white, averaging 
           Last updated on
       
     
-    <time>Jul 17, 2020</time>
+    <time>Jul 19, 2020</time>
   </span>
   
 
@@ -447,7 +447,7 @@ TLDR The workforce of the big five tech companies is about 51% white, averaging 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    19 min read
+    21 min read
   </span>
   
 
@@ -540,9 +540,9 @@ TLDR The workforce of the big five tech companies is about 51% white, averaging 
 <p>Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.</p>
 <div id="tldr" class="section level2">
 <h2>TLDR</h2>
-<p>The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report. Big Tech is therefore more diverse than tech journalism, which our analysis suggests to be between 78% and 84% white (averaging across 824 individuals who’ve worked for 13 popular tech-journalism outlets).</p>
-<p>As of 2020, the percentage of White employees at Facebook is <a href="https://diversity.fb.com/read-report/">63.2%.</a> At Google, <a href="https://kstatic.googleusercontent.com/files/25badfc6b6d1b33f3b87372ff7545d79261520d821e6ee9a82c4ab2de42a01216be2156bc5a60ae3337ffe7176d90b8b2b3000891ac6e516a650ecebf0e3f866">51.7%</a>. At Microsoft, <a href="https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aqv1">53.2%</a>. At Amazon, <a href="https://www.aboutamazon.com/working-at-amazon/diversity-and-inclusion/our-workforce-data">34.7%.</a>. At Apple, <a href="https://www.apple.com/diversity/">50%</a>.</p>
-<p><a href="https://docs.google.com/spreadsheets/d/168IcCzJ6i3-YuEy1aQWYHwA2GqFleVfe0YVuOtMGd6o/edit?usp=sharing">Here is our dataset.</a></p>
+<p>The workforce of the big five tech companies is about 51% white, averaging across each company’s most recent diversity report, linked below. Big Tech is therefore more diverse than tech journalism, which our analysis suggests to be somewhere between 77% on the low end (if we infer race from surnames of 855 Twitter accounts) and 84% white on the high end (if we check our results against third-party-curated Twitter lists of tech journalists). If we guess race from a manual, subjective assessment of the 855 Twitter accounts we identified, then it appears that 80% of tech journalists are white. The tightness of these estimates for tech journalism should inspire some confidence in their accuracy.</p>
+<p>As of 2020, the percentage of White employees at Facebook is <a href="https://diversity.fb.com/read-report/">63.2%.</a> At Google, <a href="https://kstatic.googleusercontent.com/files/25badfc6b6d1b33f3b87372ff7545d79261520d821e6ee9a82c4ab2de42a01216be2156bc5a60ae3337ffe7176d90b8b2b3000891ac6e516a650ecebf0e3f866">51.7%</a>. At Microsoft, <a href="https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aqv1">53.2%</a>. At Amazon, <a href="https://www.aboutamazon.com/working-at-amazon/diversity-and-inclusion/our-workforce-data">34.7%</a>. At Apple, <a href="https://www.apple.com/diversity/">50%</a>.</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1aFy9DamIUbRwY_jK0ac1Pg-iYqbMlieLxaASinY3AJw/edit?usp=sharing">Here is our dataset.</a></p>
 </div>
 <div id="background-and-overview-of-the-methodology" class="section level2">
 <h2>Background and overview of the methodology</h2>
@@ -579,6 +579,7 @@ require(predictrace)
 require(stringr)
 require(gender)
 require(DT)
+require(grid)
 
 # Search for accounts mentioning tech-journalism outlets 
 
@@ -810,12 +811,16 @@ df &lt;- df %&gt;%
   distinct()
 
 # Standardize and export for manual inspection
-journos &lt;- apply(df,2,as.character)
-write.csv(df, &quot;journos-all.csv&quot;)</code></pre>
-<p>The total number of accounts identified in this fashion was 1740, including some false positives. So we manually went through the results and narrowed the dataset down. We then conducted the subjective assignment of race and gender. We also standardized names and removed emojis in preparation for the next stage of analysis. This process left 824 individuals. There are a few duplicates (people who have written for multiple tech journalism outlets), which we retain for our diversity analysis at the outlet-level. We remove duplicates otherwise.</p>
-<pre class="r"><code># Load manually cleaned spreadsheet
-df&lt;-read.csv(&quot;/Users/justin/Dropbox/Public/journos.csv&quot;)
 
+# journos &lt;- apply(df,2,as.character)
+
+# write.csv(df, &quot;journos.intermediate.csv&quot;)</code></pre>
+<p>The total number of accounts identified in this fashion was 1740, including some false positives such as generic brand entities or irrelevant coincidences. So we manually went through the results and narrowed the dataset down. We then conducted the subjective assignment of race and gender. We also standardized names and removed emojis in preparation for the next stage of analysis. This process left 855 individuals. There are a few duplicates (people who have written for multiple tech journalism outlets), which we retain for our diversity analysis at the outlet-level. We remove duplicates otherwise.</p>
+<pre class="r"><code># Load the manually cleaned spreadsheet
+
+# df&lt;-read.csv(&quot;/Users/justin/Dropbox/Public/journos.intermediate.csv&quot;)
+
+# Calculate percent white within each tech journalism outlet
 totals.subjective&lt;-df %&gt;%
   drop_na(subjective_race) %&gt;%
   group_by(outlet, subjective_race) %&gt;%
@@ -823,25 +828,73 @@ totals.subjective&lt;-df %&gt;%
   mutate(Percent = n / sum(n)) %&gt;%
   filter(subjective_race==&quot;White&quot;)
 
+# Calculate the grand mean across outlets
 # mean(totals.subjective$Percent)
 
-df %&gt;%
+# Prepare a dataframe to make the main featured graph
+main.graph.df&lt;-df %&gt;%
   drop_na(subjective_race) %&gt;%
   group_by(outlet, subjective_race) %&gt;%
   summarise(n = n()) %&gt;%
   mutate(Percent = n / sum(n)) %&gt;%
   filter(subjective_race==&quot;White&quot;) %&gt;%
-  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent)) +
-  geom_point(color = &quot;#9124b5&quot;) +
-  coord_flip() +
-  theme_bw() +
-  labs(x=&quot;&quot;, y=&quot;Percent White&quot;,
-       title=&quot;Racial Diversity Across 13 Major Tech-Journalism Outlets&quot;,
-       subtitle = &quot;Race inferred from Twitter bios, by subjective judgment. N=824.&quot;,
-       caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-1.png" width="672" /></p>
-<pre class="r"><code># summary(df$subjective_race)
+  select(outlet, Percent) %&gt;%
+  mutate(Percent = Percent*100)
 
+# Add tech company workforces stats
+outlet&lt;-c(&quot;Facebook&quot;, &quot;Google&quot;, &quot;Microsoft&quot;, &quot;Amazon&quot;, &quot;Apple&quot;)
+Percent&lt;-c(63.2, 51.7, 53.2, 34.7, 50)
+tech.df&lt;-as.data.frame(cbind(outlet, Percent))
+tech.df$Percent&lt;-as.numeric(levels(tech.df$Percent))[tech.df$Percent]
+
+# Wrangle the two together
+main.graph.df&lt;-bind_rows(main.graph.df, tech.df)</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector</code></pre>
+<pre class="r"><code>main.graph.df$Type &lt;- NA
+main.graph.df$Type[1:13] &lt;- &quot;Tech Journalism&quot;
+main.graph.df$Type[14:18] &lt;- &quot;Tech Companies&quot;
+
+# Create main featured graph
+main.graph.df %&gt;%
+  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
+  geom_point(size=6) +
+  coord_flip() +
+  theme_bw(base_size = 16) +
+  labs(x=&quot;&quot;, y=&quot;Percent White&quot;) +
+       #title=&quot;Tech Journalism Is Less Diverse Than Tech&quot;,
+       #subtitle = &quot;Percent white, tech journalists vs. tech companies&quot;) +
+       theme(legend.position=&quot;bottom&quot;) +
+       theme(legend.title=element_blank()) +
+  theme(plot.margin = grid::unit(c(3,5,1,1), &quot;cm&quot;)) +
+  scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))</code></pre>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-1.png" width="672" /></p>
+<pre class="r"><code># ggsave(&quot;~/Downloads/Tech-journalism-is-less-diverse-than-tech.png&quot;, width=8, height=9)
+
+# Make a Twitter card version of the featured graph
+# main.graph.df %&gt;%
+#   ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
+#   geom_point(size=4) +
+#   coord_flip() +
+#   theme_bw(base_size = 14) +
+#   labs(x=&quot;&quot;, y=&quot;Percent White&quot;) +
+#        #title=&quot;Tech Journalism Is Less Diverse Than Tech&quot;,
+#        #subtitle = &quot;Percent white, tech journalists vs. tech companies&quot;) +
+#        theme(legend.position=&quot;bottom&quot;) +
+#        theme(legend.title=element_blank()) +
+#   theme(plot.margin = grid::unit(c(3,1.5,1.5,1.5), &quot;cm&quot;)) +
+#   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))
+# 
+# ggsave(&quot;~/Downloads/Tech-journalism-is-less-diverse-than-tech-for-Twitter.png&quot;, width=8, height=6)
+
+# Calculate overall stats for subjectively assigned race
+# summary(df$subjective_race)
+
+# Visualize overall stats for subjectively assigned race
 df %&gt;%
   drop_na(subjective_gender) %&gt;%
   group_by(outlet, subjective_gender) %&gt;%
@@ -852,16 +905,19 @@ df %&gt;%
   geom_point(color = &quot;#9124b5&quot;) +
   coord_flip() +
   theme_bw() +
-  labs(x=&quot;&quot;, y=&quot;Percent Male&quot;,
+  labs(x=&quot;&quot;, y=&quot;Proportion Male&quot;,
        title=&quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&quot;,
        subtitle = &quot;Race inferred by subjective judgment. N=717.&quot;,
        caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
 <p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-2.png" width="672" /></p>
-<pre class="r"><code># summary(df$subjective_gender)</code></pre>
-<p>According to our subjective judgment, 520 are likely White, 84 Asian, 15 Black, and 4 Hispanic.</p>
-<p>Also according to our subjective judgment, 430 are Male and 287 are Female.</p>
+<pre class="r"><code># Calculate overall stats for subjectively assigned gender
+# summary(df$subjective_gender)</code></pre>
+<p>According to our subjective judgment, 568 are likely White, 102 Asian, 18 Black, and 8 Hispanic.</p>
+<p>Also according to our subjective judgment, 477 are Male and 317 are Female.</p>
 <p>Next we leverage the <a href="https://cran.r-project.org/web/packages/predictrace/vignettes/Predict-race-of-surname.html"><em>predictrace</em></a> package to infer race from surnames, based on the co-occurrence of surnames and self-reported races in the Census datasets.</p>
-<pre class="r"><code># Extract surname from the full name
+<pre class="r"><code># Use names and publicly available datasets to infer race and gender non-subjectively
+
+# Extract surname from the full name
 df$lastnames &lt;- word(df$name,-1)
 # Predict race from surname
 race.profiles.df&lt;-predict_race(df$lastnames)
@@ -899,7 +955,7 @@ gender.profiles.df&lt;-gender(df$firstnames)
 # Rename the inferred gender variable
 gender.profiles.df$firstnames&lt;-gender.profiles.df$name
 # Merge gender variables with Twitter profiles
-df&lt;-merge(df, select(gender.profiles.df, gender, firstnames), by=&quot;firstnames&quot;)
+df&lt;-merge(df, select(gender.profiles.df, gender, firstnames), by=&quot;firstnames&quot;, all.x=T)
 # Remove duplicates created in merge
 df&lt;-distinct(df)
 # Remove redundant columns
@@ -908,13 +964,14 @@ df&lt;-select(df, -c(firstnames, lastnames, `race.profiles.df$likely_race`))
 df$race&lt;-recode(df$race, asian = &quot;Asian&quot;,
                         black = &quot;Black&quot;,
                         white = &quot;White&quot;,
-                        hispanic = &quot;Hispanic&quot;)
+                        hispanic = &quot;Hispanic&quot;,
+                        american_indian = &quot;American Indian&quot;)
 # summary(df$race)
 
+# Export final spreadsheet (this is the one you can download)
 
-write.csv(df, &quot;/Users/justin/Dropbox/Public/journos-out.csv&quot;)
-
-totals.objective&lt;-df %&gt;%
+# write.csv(df, &quot;/Users/justin/Dropbox/Public/journos.csv&quot;)</code></pre>
+<pre class="r"><code>totals.objective&lt;-df %&gt;%
   drop_na(race) %&gt;%
   group_by(outlet, race) %&gt;%
   summarise(n = n()) %&gt;%
@@ -937,20 +994,20 @@ df %&gt;%
        title=&quot;Racial Diversity Across 13 Major Tech-Journalism Outlets&quot;,
        subtitle = &quot;Race inferred from surnames using Census Data. N=481.&quot;,
        caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>According to the automated data-driven method, 391 are likely White, 44 Asian, 23 Black, and 23 Hispanic. The rest could not be classified. The White percentage is very close to our estimates based on subjective assessments: About 81%.</p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>According to this automated data-driven method, 416 are likely White, 54 Asian, 24 Black, 26 Hispanic, and 1 American Indian. (We did not code for American Indian when we did the subjective assessment.) The rest could not be classified. The White percentage is still very close to our estimates based on subjective assessments: About 77%.</p>
 <pre class="r"><code>df %&gt;%
 drop_na(race) %&gt;%
 ggplot(aes(x = race)) +  
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Racial Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Race inferred from surname using Census data. N=481.&quot;,
+       subtitle=&quot;Race inferred from surname using Census data. N=521.&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Setting aside outlets, below is the graph for the distribution of race according to our subjective assessments of race.</p>
 <pre class="r"><code>df %&gt;%
 drop_na(subjective_race) %&gt;%
@@ -958,12 +1015,12 @@ ggplot(aes(x = subjective_race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Racial Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Race inferred by subjective judgment. N=717.&quot;,
+       subtitle=&quot;Race inferred by subjective judgment. N=696.&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>And then we leverage the <a href="https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html"><em>gender</em></a> package to infer gender from first names, based on the co-occurrence of baby names and gender in the Social Security Administration datasets.</p>
 <pre class="r"><code># Graph of gender diversity in Sample 1
 df %&gt;%
@@ -972,48 +1029,48 @@ ggplot(aes(x = gender)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Gender Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Gender inferred from first name using SSA data. N=772.&quot;,
+       subtitle=&quot;Gender inferred from first name using SSA data. N=806.&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>df %&gt;%
 drop_na(gender, race) %&gt;%
 ggplot(aes(x = race)) +  
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Racial and Gender Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Race and gender inferred from names using government data. N=481.&quot;,
+       subtitle=&quot;Race and gender inferred from names using government data. N=500.&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
   coord_flip() + facet_wrap(.~gender)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 <pre class="r"><code>df %&gt;%
 drop_na(subjective_gender) %&gt;%
 ggplot(aes(x = subjective_gender)) +  
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Gender Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Gender inferred by subjective judgment. N=717.&quot;,
+       subtitle=&quot;Gender inferred by subjective judgment. N=794.&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
 <pre class="r"><code>df %&gt;%
 drop_na(subjective_gender, subjective_race) %&gt;%
 ggplot(aes(x = subjective_race)) +  
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &quot;#9124b5&quot;) +
   theme_bw() +
   labs(title=&quot;Racial and Gender Diversity Among Tech Journalists on Twitter&quot;,
-       subtitle=&quot;Race and gender inferred by subjective judgment. N=717.&quot;,
+       subtitle=&quot;Race and gender inferred by subjective judgment..&quot;,
       x=&quot;&quot;,
        y=&quot;Proportion&quot;,
       caption=&quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
   coord_flip() + facet_wrap(.~subjective_gender)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
 <pre class="r"><code>df %&gt;%
   drop_na(race) %&gt;%
   group_by(outlet, race) %&gt;%
@@ -1026,9 +1083,9 @@ ggplot(aes(x = subjective_race)) +
   theme_bw() +
   labs(x=&quot;&quot;, y=&quot;Percent White&quot;,
        title=&quot;Racial Diversity Across 13 Major Tech-Journalism Outlets&quot;,
-       subtitle = &quot;Race inferred from surnames using government data. N=481.&quot;,
+       subtitle = &quot;Race inferred from surnames using government data. N=521.&quot;,
        caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code># summary(df$subjective_race)
 
 df %&gt;%
@@ -1043,9 +1100,9 @@ df %&gt;%
   theme_bw() +
   labs(x=&quot;&quot;, y=&quot;Percent Male&quot;,
        title=&quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&quot;,
-       subtitle = &quot;Gender inferred by subjective judgment. N=772.&quot;,
+       subtitle = &quot;Gender inferred by subjective judgment. N=794.&quot;,
        caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 </div>
 <div id="approach-2-curated-lists-of-tech-journalists" class="section level2">
 <h2>Approach 2: Curated lists of “tech journalists”</h2>
@@ -1100,7 +1157,16 @@ df2$race&lt;-recode(df2$race, asian = &quot;Asian&quot;,
                         white = &quot;White&quot;,
                         hispanic = &quot;Hispanic&quot;)
 
-write.csv(df2, &quot;/Users/justin/Dropbox/Public/tech-journalists-from-lists-df.csv&quot;)
+# Export
+# write.csv(df2, &quot;/Users/justin/Dropbox/Public/tech-journalists-from-lists-df.csv&quot;)
+
+# Total percentages from lists
+totals.from.lists&lt;-df2 %&gt;%
+  drop_na(race) %&gt;%
+  group_by(race) %&gt;%
+  summarise(n = n()) %&gt;%
+  mutate(Percent = n / sum(n)) %&gt;%
+  filter(race==&quot;White&quot;)
 
 df2 %&gt;%
 drop_na(race) %&gt;%
@@ -1113,7 +1179,7 @@ ggplot(aes(x = race)) +
        y=&quot;Proportion&quot;,
       caption=&quot;Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-2-1.png" width="672" /></p>
+<p>Using the third-party Twitter lists of tech journalists and inferring race surnames suggests that tech journalists are 84% White.</p>
 <pre class="r"><code>df2 %&gt;%
 drop_na(gender) %&gt;%
 ggplot(aes(x = gender)) +  
@@ -1125,7 +1191,7 @@ ggplot(aes(x = gender)) +
        y=&quot;Proportion&quot;,
       caption=&quot;Gender is inferred from Social Security Administration data. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
   coord_flip()</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>df2 %&gt;%
 drop_na(gender, race) %&gt;%
 ggplot(aes(x = race)) +  
@@ -1137,7 +1203,7 @@ ggplot(aes(x = race)) +
        y=&quot;Proportion&quot;,
       caption=&quot;Race is inferred from surname using Census data; gender from \n first name using Social Security Administration baby names. \n By Justin Murphy (jmrphy.net, @jmrphy)&quot;) +
   coord_flip() + facet_wrap(.~gender)</code></pre>
-<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p><img src="/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
