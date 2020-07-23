@@ -40,42 +40,6 @@
     </item>
     
     <item>
-      <title>gender</title>
-      <link>/tags/gender/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/gender/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>media</title>
-      <link>/tags/media/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/media/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>race</title>
-      <link>/tags/race/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/race/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>technology</title>
-      <link>/tags/technology/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/technology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>public opinion</title>
       <link>/tags/public-opinion/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
@@ -166,6 +130,15 @@
     </item>
     
     <item>
+      <title>media</title>
+      <link>/tags/media/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>time series</title>
       <link>/tags/time-series/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
@@ -229,11 +202,29 @@
     </item>
     
     <item>
+      <title>race</title>
+      <link>/tags/race/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/race/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>activism</title>
       <link>/tags/activism/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/activism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gender</title>
+      <link>/tags/gender/</link>
+      <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gender/</guid>
       <description></description>
     </item>
     
@@ -261,6 +252,15 @@
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/mechanisms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>technology</title>
+      <link>/tags/technology/</link>
+      <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/technology/</guid>
       <description></description>
     </item>
     
