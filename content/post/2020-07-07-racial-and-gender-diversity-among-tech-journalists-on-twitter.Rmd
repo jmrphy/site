@@ -1,6 +1,7 @@
 ---
 title: Tech Journalism is Less Diverse than Tech
 author: ''
+draft: yes
 date: '2020-07-07'
 slug: tech-journalism
 categories:

@@ -281,6 +281,9 @@ mb&amp;lt;-rbind(mb1, mb2, mb3, mb4, mb5, mb6, mb7, mb8, mb9, mb10, mb11, mb12)
 mb$outlet&amp;lt;-&amp;quot;Motherboard&amp;quot;
 rm(mb1, mb2, mb3, mb4, mb5, mb6, mb7, mb8, mb9, mb10, mb11, mb12)
 
+nyt &amp;lt;- search_users(&amp;quot;tech nytimes&amp;quot;, n = 1000)
+lookup_users(c(&amp;quot;MikeIsaac&amp;quot;, &amp;quot;markoff&amp;quot;, &amp;quot;kevinroose&amp;quot;, &amp;quot;nathanielpopper&amp;quot;))
+
 df&amp;lt;-rbind(v, go, e, vb, wi, nw, gm, cn, tr, ti, tc, rc, mb)
 
 # ReadWrite, ForbesTech, and TechDirt were queried but excluded because
@@ -354,25 +357,26 @@ main.graph.df %&amp;gt;%
        #subtitle = &amp;quot;Percent white, tech journalists vs. tech companies&amp;quot;) +
        theme(legend.position=&amp;quot;bottom&amp;quot;) +
        theme(legend.title=element_blank()) +
-  theme(plot.margin = grid::unit(c(3,5,1,1), &amp;quot;cm&amp;quot;)) +
+  theme(plot.margin = grid::unit(c(1,3,.5,1), &amp;quot;cm&amp;quot;)) +
   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggsave(&amp;quot;~/Downloads/Tech-journalism-is-less-diverse-than-tech.png&amp;quot;, width=8, height=9)
 
 # Make a Twitter card version of the featured graph
-# main.graph.df %&amp;gt;%
-#   ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
-#   geom_point(size=4) +
-#   coord_flip() +
-#   theme_bw(base_size = 14) +
-#   labs(x=&amp;quot;&amp;quot;, y=&amp;quot;Percent White&amp;quot;) +
-#        #title=&amp;quot;Tech Journalism Is Less Diverse Than Tech&amp;quot;,
-#        #subtitle = &amp;quot;Percent white, tech journalists vs. tech companies&amp;quot;) +
-#        theme(legend.position=&amp;quot;bottom&amp;quot;) +
-#        theme(legend.title=element_blank()) +
-#   theme(plot.margin = grid::unit(c(3,1.5,1.5,1.5), &amp;quot;cm&amp;quot;)) +
-#   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))
-# 
+main.graph.df %&amp;gt;%
+  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
+  geom_point(size=4) +
+  coord_flip() +
+  theme_bw(base_size = 14) +
+  labs(x=&amp;quot;&amp;quot;, y=&amp;quot;Percent White&amp;quot;) +
+       #title=&amp;quot;Tech Journalism Is Less Diverse Than Tech&amp;quot;,
+       #subtitle = &amp;quot;Percent white, tech journalists vs. tech companies&amp;quot;) +
+       theme(legend.position=&amp;quot;bottom&amp;quot;) +
+       theme(legend.title=element_blank()) +
+  theme(plot.margin = grid::unit(c(3,1.5,1.5,.5), &amp;quot;cm&amp;quot;)) +
+  scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 
 # ggsave(&amp;quot;~/Downloads/Tech-journalism-is-less-diverse-than-tech-for-Twitter.png&amp;quot;, width=8, height=6)
 
 # Calculate overall stats for subjectively assigned race
@@ -393,7 +397,7 @@ df %&amp;gt;%
        title=&amp;quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&amp;quot;,
        subtitle = &amp;quot;Race inferred by subjective judgment. N=717.&amp;quot;,
        caption= &amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-07-07-racial-and-gender-diversity-among-tech-journalists-on-twitter_files/figure-html/analysis-sample-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Calculate overall stats for subjectively assigned gender
 # summary(df$subjective_gender)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;According to our subjective judgment, 568 are likely White, 102 Asian, 18 Black, and 8 Hispanic.&lt;/p&gt;
@@ -660,8 +664,8 @@ ggplot(aes(x = race)) +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
        subtitle=&amp;quot;Sample 2: Lists of tech journalists on Twitter, curated by third parties&amp;quot;,
       x=&amp;quot;Most likely race&amp;quot;,
-       y=&amp;quot;Proportion&amp;quot;,
-      caption=&amp;quot;Race is inferred from surname using Census data.\n By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
+       y=&amp;quot;Proportion&amp;quot;) +
+#      caption=&amp;quot;Race is inferred from surname using Census data.\n By Justin Murphy #(jmrphy.net, @jmrphy)&amp;quot;) +
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Using the third-party Twitter lists of tech journalists and inferring race surnames suggests that tech journalists are 84% White.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2 %&amp;gt;%
