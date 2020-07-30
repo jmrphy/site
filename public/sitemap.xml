@@ -24,7 +24,7 @@
   
   <url>
     <loc>/tags/data/</loc>
-    <lastmod>2019-12-06T14:18:04-05:00</lastmod>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
   </url>
   
   <url>
@@ -34,7 +34,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
   </url>
   
   <url>
@@ -44,12 +44,22 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-12-07T11:27:54-05:00</lastmod>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/theory-empirics/</loc>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/tech-journalism/</loc>
+    <lastmod>2020-07-29T19:36:05-06:00</lastmod>
   </url>
   
   <url>
@@ -200,11 +210,6 @@
   <url>
     <loc>/tags/social-science/</loc>
     <lastmod>2019-10-07T12:55:28-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/theory-empirics/</loc>
-    <lastmod>2019-11-27T13:51:36-07:00</lastmod>
   </url>
   
   <url>
