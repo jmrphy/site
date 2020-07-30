@@ -49,11 +49,11 @@ Alternatively, we also gather a dataset of tech journalists by combining two pub
 
 ## Two ways of estimating race and gender
 
-Estimating race and gender is fraught. A method based on measurable, objective aspects of a person's identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.
+Estimating race and gender is fraught. A method based on measurable, algorithmic aspects of a person's identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.
 
 *Subjective judgment.* Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual's race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an "NA" for the given variable. Given some controversy over the race of Arab and Persian people (the US census says "white" but many people have contested this), we sidestep the matter by assigning Arabs and Persians "NA" for race. (There were only about 15 total so neither racial classification would have much effect on our key findings.)    
 
-*Objective judgment.* Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist's race and gender from surnames and first names, respectively.
+*Algorithmic judgment.* Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist's race and gender from surnames and first names, respectively.
 
 ## Note on the analytic virtue of using Twitter data
 
@@ -98,8 +98,10 @@ require(gender)
 require(DT)
 require(grid)
 
-# Search for accounts mentioning tech-journalism outlets 
-
+# ==================================================
+#  Search for accounts mentioning tech-journalism outlets 
+#  It's not pretty, but it's readable for normies ;-)
+# ================================================== 
 
 v1 <- search_users("reporter Verge", n = 1000)
 v2 <- search_users("journalist Verge", n = 1000)
@@ -457,22 +459,47 @@ main.graph.df %>%
 # summary(df$subjective_race)
 ```
 
+Next, let's consider gender diversity in tech journalism relative to gender diversity in the big five tech companies. Facebook reports a workforce that's 37% male. Google is 68% male. Microsoft is 72% male. Amazon is 57% male. Apple is 67% male.
+
 ```{r}
-# Visualize overall stats for subjectively assigned race
-df %>%
+
+gender.graph.df<-df %>%
   drop_na(subjective_gender) %>%
   group_by(outlet, subjective_gender) %>%
   summarise(n = n()) %>%
   mutate(Percent = n / sum(n)) %>%
   filter(subjective_gender=="Male") %>%
-  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent)) +
-  geom_point(color = "#9124b5") +
+  select(outlet, Percent) %>%
+  mutate(Percent = Percent*100)
+
+# Add tech company workforces stats
+outlet<-c("Facebook", "Google", "Microsoft", "Amazon", "Apple")
+Percent<-c(37, 68, 72, 57, 67)
+tech.df<-as.data.frame(cbind(outlet, Percent))
+tech.df$Percent<-as.numeric(levels(tech.df$Percent))[tech.df$Percent]
+
+# Wrangle the two together
+gender.graph.df<-bind_rows(gender.graph.df, tech.df)
+
+gender.graph.df$Type <- NA
+gender.graph.df$Type[1:14] <- "Tech Journalism"
+gender.graph.df$Type[15:19] <- "Tech Companies"
+
+# Create gender comparison graph
+gender.graph.df %>%
+  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
+  geom_point(size=4) +
   coord_flip() +
-  theme_bw() +
-  labs(x="", y="Proportion Male",
-       title="Gender Diversity Across 13 Major Tech-Journalism Outlets",
-       subtitle = "Gender inferred by subjective judgment.",
-       caption= "By Justin Murphy (jmrphy.net, @jmrphy).")
+  theme_bw(base_size = 16) +
+  labs(x="", y="Percent Male",
+       title="Tech Journalism and Tech Companies Are Similar on Gender") +
+       #subtitle = "Percent male, tech journalists vs. tech companies") +
+       theme(legend.position="bottom") +
+       theme(legend.title=element_blank()) +
+  scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100))) +
+  scale_colour_manual(values = c("#00AFBB","#FC4E07"))
+
+
 
 # Calculate overall stats for subjectively assigned gender
 # summary(df$subjective_gender)

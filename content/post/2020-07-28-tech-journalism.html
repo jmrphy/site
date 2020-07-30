@@ -43,9 +43,9 @@ projects: []
 </div>
 <div id="two-ways-of-estimating-race-and-gender" class="section level2">
 <h2>Two ways of estimating race and gender</h2>
-<p>Estimating race and gender is fraught. A method based on measurable, objective aspects of a person’s identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.</p>
+<p>Estimating race and gender is fraught. A method based on measurable, algorithmic aspects of a person’s identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.</p>
 <p><em>Subjective judgment.</em> Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual’s race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an “NA” for the given variable. Given some controversy over the race of Arab and Persian people (the US census says “white” but many people have contested this), we sidestep the matter by assigning Arabs and Persians “NA” for race. (There were only about 15 total so neither racial classification would have much effect on our key findings.)</p>
-<p><em>Objective judgment.</em> Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist’s race and gender from surnames and first names, respectively.</p>
+<p><em>Algorithmic judgment.</em> Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist’s race and gender from surnames and first names, respectively.</p>
 </div>
 <div id="note-on-the-analytic-virtue-of-using-twitter-data" class="section level2">
 <h2>Note on the analytic virtue of using Twitter data</h2>
@@ -69,8 +69,10 @@ require(gender)
 require(DT)
 require(grid)
 
-# Search for accounts mentioning tech-journalism outlets 
-
+# ==================================================
+#  Search for accounts mentioning tech-journalism outlets 
+#  It&#39;s not pretty, but it&#39;s readable for normies ;-)
+# ================================================== 
 
 v1 &lt;- search_users(&quot;reporter Verge&quot;, n = 1000)
 v2 &lt;- search_users(&quot;journalist Verge&quot;, n = 1000)
@@ -382,21 +384,47 @@ main.graph.df %&gt;%
        theme(legend.title=element_blank()) +
   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100)))</code></pre>
 <p><img src="/post/2020-07-28-tech-journalism_files/figure-html/analysis-sample-1-1.png" width="672" /></p>
-<pre class="r"><code># Visualize overall stats for subjectively assigned race
-df %&gt;%
+<p>Next, let’s consider gender diversity in tech journalism relative to gender diversity in the big five tech companies. Facebook reports a workforce that’s 37% male. Google is 68% male. Microsoft is 72% male. Amazon is 57% male. Apple is 67% male.</p>
+<pre class="r"><code>gender.graph.df&lt;-df %&gt;%
   drop_na(subjective_gender) %&gt;%
   group_by(outlet, subjective_gender) %&gt;%
   summarise(n = n()) %&gt;%
   mutate(Percent = n / sum(n)) %&gt;%
   filter(subjective_gender==&quot;Male&quot;) %&gt;%
-  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent)) +
-  geom_point(color = &quot;#9124b5&quot;) +
+  select(outlet, Percent) %&gt;%
+  mutate(Percent = Percent*100)
+
+# Add tech company workforces stats
+outlet&lt;-c(&quot;Facebook&quot;, &quot;Google&quot;, &quot;Microsoft&quot;, &quot;Amazon&quot;, &quot;Apple&quot;)
+Percent&lt;-c(37, 68, 72, 57, 67)
+tech.df&lt;-as.data.frame(cbind(outlet, Percent))
+tech.df$Percent&lt;-as.numeric(levels(tech.df$Percent))[tech.df$Percent]
+
+# Wrangle the two together
+gender.graph.df&lt;-bind_rows(gender.graph.df, tech.df)</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector</code></pre>
+<pre class="r"><code>gender.graph.df$Type &lt;- NA
+gender.graph.df$Type[1:14] &lt;- &quot;Tech Journalism&quot;
+gender.graph.df$Type[15:19] &lt;- &quot;Tech Companies&quot;
+
+# Create gender comparison graph
+gender.graph.df %&gt;%
+  ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
+  geom_point(size=4) +
   coord_flip() +
-  theme_bw() +
-  labs(x=&quot;&quot;, y=&quot;Proportion Male&quot;,
-       title=&quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&quot;,
-       subtitle = &quot;Gender inferred by subjective judgment.&quot;,
-       caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;)</code></pre>
+  theme_bw(base_size = 16) +
+  labs(x=&quot;&quot;, y=&quot;Percent Male&quot;,
+       title=&quot;Tech Journalism and Tech Companies Are Similar on Gender&quot;) +
+       #subtitle = &quot;Percent male, tech journalists vs. tech companies&quot;) +
+       theme(legend.position=&quot;bottom&quot;) +
+       theme(legend.title=element_blank()) +
+  scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100))) +
+  scale_colour_manual(values = c(&quot;#00AFBB&quot;,&quot;#FC4E07&quot;))</code></pre>
 <p><img src="/post/2020-07-28-tech-journalism_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code># Calculate overall stats for subjectively assigned gender
 # summary(df$subjective_gender)</code></pre>
