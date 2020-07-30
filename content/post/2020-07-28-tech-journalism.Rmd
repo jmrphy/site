@@ -20,8 +20,6 @@ image:
 projects: []
 ---
 
-Disclosure: I conducted this analysis for [one of Balaji Srinivasan's contests](https://twitter.com/balajis/status/1280261091302375424) and received from him $1k in BTC.
-
 Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
 
 The code here may be of use to others analyzing racial and/or gender diversity in other domains as well.
