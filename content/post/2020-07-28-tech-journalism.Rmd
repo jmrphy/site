@@ -1,9 +1,9 @@
 ---
-title: Using Twitter to Analyze Diversity in Professional Domains (Appendix for Tech Journalism is Less Diverse than Tech)
+title: Tech Journalism is Less Diverse than Tech (Code and Data)
 draft: yes
 author: ''
 date: '2020-07-28'
-slug: tech-journalism
+slug: tech-journalism-is-less-diverse-than-tech-code-and-data
 categories:
   - theory & empirics
 tags:
@@ -20,6 +20,8 @@ image:
 projects: []
 ---
 
+![](/img/Tech-journalism-is-less-diverse-than-tech.png)
+
 Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.
 
 The code here may be of use to others analyzing racial and/or gender diversity in other domains as well.
@@ -35,7 +37,7 @@ As of 2020, the percentage of White employees at Facebook is [63.2%.](https://di
 
 ## Background and overview of the methodology
 
-The initial dataset gathered by [Oo Nwoye](https://oonwoye.com/subscribe) [@OoTheNigerian](https://twitter.com/OoTheNigerian) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.
+The initial dataset gathered by [Oo Nwoye](https://oonwoye.com/subscribe) ([\@OoTheNigerian](https://twitter.com/OoTheNigerian)) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.
 
 Here we pursue a different approach, using multiple methods to check the robustness of our results. Thanks to OoTheNigerian for his help.
 
@@ -49,7 +51,7 @@ Alternatively, we also gather a dataset of tech journalists by combining two pub
 
 Estimating race and gender is fraught. A method based on measurable, objective aspects of a person's identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.
 
-*Subjective judgment.* Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual's race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an "NA" for the given variable. Given some controversy over the race of Arab and Persian people (the US census says "white" but many people have contested this), we sidestep the matter by assigning Arabs and Persians "NA" for race. (There were only about 15 total so including them would likely make tech journalism even less diverse.)    
+*Subjective judgment.* Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual's race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an "NA" for the given variable. Given some controversy over the race of Arab and Persian people (the US census says "white" but many people have contested this), we sidestep the matter by assigning Arabs and Persians "NA" for race. (There were only about 15 total so neither racial classification would have much effect on our key findings.)    
 
 *Objective judgment.* Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist's race and gender from surnames and first names, respectively.
 
@@ -469,7 +471,7 @@ df %>%
   theme_bw() +
   labs(x="", y="Proportion Male",
        title="Gender Diversity Across 13 Major Tech-Journalism Outlets",
-       subtitle = "Race inferred by subjective judgment.",
+       subtitle = "Gender inferred by subjective judgment.",
        caption= "By Justin Murphy (jmrphy.net, @jmrphy).")
 
 # Calculate overall stats for subjectively assigned gender
@@ -540,7 +542,7 @@ df$race<-recode(df$race, asian = "Asian",
 
 # Export final spreadsheet (this is the one you can download)
 
-# write.csv(df, "/Users/justin/Dropbox/Public/journos.csv")
+# write.csv(df, "journos.csv")
 ```
 
 
@@ -581,7 +583,7 @@ ggplot(aes(x = race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = "#9124b5") +
   theme_bw() +
   labs(title="Racial Diversity Among Tech Journalists on Twitter",
-       subtitle="Race inferred from surname using Census data. N=521.",
+       subtitle="Race inferred from surname using Census data.",
       x="",
        y="Proportion",
       caption="By Justin Murphy (jmrphy.net, @jmrphy)") +
@@ -598,7 +600,7 @@ ggplot(aes(x = subjective_race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = "#9124b5") +
   theme_bw() +
   labs(title="Racial Diversity Among Tech Journalists on Twitter",
-       subtitle="Race inferred by subjective judgment. N=696.",
+       subtitle="Race inferred by subjective judgment.",
       x="",
        y="Proportion",
       caption="By Justin Murphy (jmrphy.net, @jmrphy).") +
@@ -616,7 +618,7 @@ ggplot(aes(x = gender)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = "#9124b5") +
   theme_bw() +
   labs(title="Gender Diversity Among Tech Journalists on Twitter",
-       subtitle="Gender inferred from first name using SSA data. N=806.",
+       subtitle="Gender inferred from first name using SSA data.",
       x="",
        y="Proportion",
       caption="By Justin Murphy (jmrphy.net, @jmrphy).") +
@@ -628,7 +630,7 @@ ggplot(aes(x = race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = "#9124b5") +
   theme_bw() +
   labs(title="Racial and Gender Diversity Among Tech Journalists on Twitter",
-       subtitle="Race and gender inferred from names using government data. N=500.",
+       subtitle="Race and gender inferred from names using government data.",
       x="",
        y="Proportion",
       caption="By Justin Murphy (jmrphy.net, @jmrphy).") +
@@ -640,7 +642,7 @@ ggplot(aes(x = subjective_gender)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = "#9124b5") +
   theme_bw() +
   labs(title="Gender Diversity Among Tech Journalists on Twitter",
-       subtitle="Gender inferred by subjective judgment. N=794.",
+       subtitle="Gender inferred by subjective judgment.",
       x="",
        y="Proportion",
       caption="By Justin Murphy (jmrphy.net, @jmrphy).") +
@@ -692,7 +694,7 @@ df %>%
   theme_bw() +
   labs(x="", y="Percent Male",
        title="Gender Diversity Across 13 Major Tech-Journalism Outlets",
-       subtitle = "Gender inferred by subjective judgment. N=794.",
+       subtitle = "Gender inferred by subjective judgment.",
        caption= "By Justin Murphy (jmrphy.net, @jmrphy).")
 
 ```
@@ -756,7 +758,7 @@ df2$race<-recode(df2$race, asian = "Asian",
                         hispanic = "Hispanic")
 
 # Export
-# write.csv(df2, "/Users/justin/Dropbox/Public/tech-journalists-from-lists-df.csv")
+# write.csv(df2, "tech-journalists-from-lists-df.csv")
 
 # Total percentages from lists
 totals.from.lists<-df2 %>%
@@ -816,4 +818,4 @@ If you spot any errors, [please contact me.](https://theotherlifenow.com/contact
 
 # Acknowledgements
 
-I collaborated with [Oo Nwoye](https://oonwoye.com/subscribe) [@OoTheNigerian](https://twitter.com/OoTheNigerian) on this analysis. This project won the $1000 Bitcoin prize that [@balajis](https://twitter.com/balajis) had put up on Twitter for building on Oo’s work.
+I collaborated with [Oo Nwoye](https://oonwoye.com/subscribe) ([\@OoTheNigerian](https://twitter.com/OoTheNigerian)) on this analysis. This project won the $1000 Bitcoin prize that [\@balajis](https://twitter.com/balajis) had put up on Twitter for building on Oo’s work.

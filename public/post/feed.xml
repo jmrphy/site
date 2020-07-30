@@ -12,14 +12,15 @@
     
     
     <item>
-      <title>Using Twitter to Analyze Diversity in Professional Domains (Appendix for Tech Journalism is Less Diverse than Tech)</title>
-      <link>/post/tech-journalism/</link>
+      <title>Tech Journalism is Less Diverse than Tech (Code and Data)</title>
+      <link>/post/tech-journalism-is-less-diverse-than-tech-code-and-data/</link>
       <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/tech-journalism/</guid>
+      <guid>/post/tech-journalism-is-less-diverse-than-tech-code-and-data/</guid>
       <description>
 
 
+&lt;p&gt;&lt;img src=&#34;/img/Tech-journalism-is-less-diverse-than-tech.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Tech journalists often criticize the technology sector for a lack of racial and gender diversity. So we analyzed the diversity of tech journalists. Using multiple sampling methods, and multiple ways of measuring race and gender, we find that tech journalism is almost certainly less racially diverse than tech itself.&lt;/p&gt;
 &lt;p&gt;The code here may be of use to others analyzing racial and/or gender diversity in other domains as well.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.google.com/spreadsheets/d/1c4IimnX1DpPEOTI5CLhWmxuhlaocYlFD2wy1D6i-2oQ/edit?usp=sharing&#34;&gt;Here is the final dataset with the estimated race and gender of 982 tech journalists.&lt;/a&gt;&lt;/p&gt;
@@ -30,7 +31,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;background-and-overview-of-the-methodology&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Background and overview of the methodology&lt;/h2&gt;
-&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; &lt;span class=&#34;citation&#34;&gt;[@OoTheNigerian]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34; class=&#34;uri&#34;&gt;https://twitter.com/OoTheNigerian&lt;/a&gt;) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
+&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; (&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;@OoTheNigerian&lt;/a&gt;) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
 &lt;p&gt;Here we pursue a different approach, using multiple methods to check the robustness of our results. Thanks to OoTheNigerian for his help.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;two-different-sampling-methods&#34; class=&#34;section level2&#34;&gt;
@@ -41,7 +42,7 @@
 &lt;div id=&#34;two-ways-of-estimating-race-and-gender&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Two ways of estimating race and gender&lt;/h2&gt;
 &lt;p&gt;Estimating race and gender is fraught. A method based on measurable, objective aspects of a person’s identity may fail to capture certain nuances in how race and gender are socially constructed. A method based on subjective human judgment might err by being inconsistent, ignorant, or prejudiced about how race and gender are assigned. To deal with the limitations of each method, we estimate race and gender through both methods: If the results are similar, we should be relatively confident in their accuracy.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Subjective judgment.&lt;/em&gt; Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual’s race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an “NA” for the given variable. Given some controversy over the race of Arab and Persian people (the US census says “white” but many people have contested this), we sidestep the matter by assigning Arabs and Persians “NA” for race. (There were only about 15 total so including them would likely make tech journalism even less diverse.)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Subjective judgment.&lt;/em&gt; Estimating race and gender through subjective judgment was straightforward, if not always possible: We looked at each Twitter account and inferred the individual’s race and gender holistically, using their profile photo, name, and context-clues in their bio. In most cases, the inference was unambiguous. In cases where either the gender or race was unclear, we assigned an “NA” for the given variable. Given some controversy over the race of Arab and Persian people (the US census says “white” but many people have contested this), we sidestep the matter by assigning Arabs and Persians “NA” for race. (There were only about 15 total so neither racial classification would have much effect on our key findings.)&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Objective judgment.&lt;/em&gt; Alternatively, we leveraged data from the Census and the Social Security Administration to infer journalist’s race and gender from surnames and first names, respectively.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;note-on-the-analytic-virtue-of-using-twitter-data&#34; class=&#34;section level2&#34;&gt;
@@ -392,7 +393,7 @@ df %&amp;gt;%
   theme_bw() +
   labs(x=&amp;quot;&amp;quot;, y=&amp;quot;Proportion Male&amp;quot;,
        title=&amp;quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&amp;quot;,
-       subtitle = &amp;quot;Race inferred by subjective judgment.&amp;quot;,
+       subtitle = &amp;quot;Gender inferred by subjective judgment.&amp;quot;,
        caption= &amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-07-28-tech-journalism_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Calculate overall stats for subjectively assigned gender
@@ -455,7 +456,7 @@ df$race&amp;lt;-recode(df$race, asian = &amp;quot;Asian&amp;quot;,
 
 # Export final spreadsheet (this is the one you can download)
 
-# write.csv(df, &amp;quot;/Users/justin/Dropbox/Public/journos.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+# write.csv(df, &amp;quot;journos.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;totals.objective&amp;lt;-df %&amp;gt;%
   drop_na(race) %&amp;gt;%
   group_by(outlet, race) %&amp;gt;%
@@ -487,7 +488,7 @@ ggplot(aes(x = race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
-       subtitle=&amp;quot;Race inferred from surname using Census data. N=521.&amp;quot;,
+       subtitle=&amp;quot;Race inferred from surname using Census data.&amp;quot;,
       x=&amp;quot;&amp;quot;,
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;By Justin Murphy (jmrphy.net, @jmrphy)&amp;quot;) +
@@ -500,7 +501,7 @@ ggplot(aes(x = subjective_race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial Diversity Among Tech Journalists on Twitter&amp;quot;,
-       subtitle=&amp;quot;Race inferred by subjective judgment. N=696.&amp;quot;,
+       subtitle=&amp;quot;Race inferred by subjective judgment.&amp;quot;,
       x=&amp;quot;&amp;quot;,
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;) +
@@ -514,7 +515,7 @@ ggplot(aes(x = gender)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
-       subtitle=&amp;quot;Gender inferred from first name using SSA data. N=806.&amp;quot;,
+       subtitle=&amp;quot;Gender inferred from first name using SSA data.&amp;quot;,
       x=&amp;quot;&amp;quot;,
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;) +
@@ -526,7 +527,7 @@ ggplot(aes(x = race)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Racial and Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
-       subtitle=&amp;quot;Race and gender inferred from names using government data. N=500.&amp;quot;,
+       subtitle=&amp;quot;Race and gender inferred from names using government data.&amp;quot;,
       x=&amp;quot;&amp;quot;,
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;) +
@@ -538,7 +539,7 @@ ggplot(aes(x = subjective_gender)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), fill = &amp;quot;#9124b5&amp;quot;) +
   theme_bw() +
   labs(title=&amp;quot;Gender Diversity Among Tech Journalists on Twitter&amp;quot;,
-       subtitle=&amp;quot;Gender inferred by subjective judgment. N=794.&amp;quot;,
+       subtitle=&amp;quot;Gender inferred by subjective judgment.&amp;quot;,
       x=&amp;quot;&amp;quot;,
        y=&amp;quot;Proportion&amp;quot;,
       caption=&amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;) +
@@ -585,7 +586,7 @@ df %&amp;gt;%
   theme_bw() +
   labs(x=&amp;quot;&amp;quot;, y=&amp;quot;Percent Male&amp;quot;,
        title=&amp;quot;Gender Diversity Across 13 Major Tech-Journalism Outlets&amp;quot;,
-       subtitle = &amp;quot;Gender inferred by subjective judgment. N=794.&amp;quot;,
+       subtitle = &amp;quot;Gender inferred by subjective judgment.&amp;quot;,
        caption= &amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-07-28-tech-journalism_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -643,7 +644,7 @@ df2$race&amp;lt;-recode(df2$race, asian = &amp;quot;Asian&amp;quot;,
                         hispanic = &amp;quot;Hispanic&amp;quot;)
 
 # Export
-# write.csv(df2, &amp;quot;/Users/justin/Dropbox/Public/tech-journalists-from-lists-df.csv&amp;quot;)
+# write.csv(df2, &amp;quot;tech-journalists-from-lists-df.csv&amp;quot;)
 
 # Total percentages from lists
 totals.from.lists&amp;lt;-df2 %&amp;gt;%
@@ -697,7 +698,7 @@ ggplot(aes(x = race)) +
 &lt;/div&gt;
 &lt;div id=&#34;acknowledgements&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Acknowledgements&lt;/h1&gt;
-&lt;p&gt;I collaborated with &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; &lt;span class=&#34;citation&#34;&gt;[@OoTheNigerian]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34; class=&#34;uri&#34;&gt;https://twitter.com/OoTheNigerian&lt;/a&gt;) on this analysis. This project won the $1000 Bitcoin prize that &lt;span class=&#34;citation&#34;&gt;[@balajis]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/balajis&#34; class=&#34;uri&#34;&gt;https://twitter.com/balajis&lt;/a&gt;) had put up on Twitter for building on Oo’s work.&lt;/p&gt;
+&lt;p&gt;I collaborated with &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; (&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;@OoTheNigerian&lt;/a&gt;) on this analysis. This project won the $1000 Bitcoin prize that &lt;a href=&#34;https://twitter.com/balajis&#34;&gt;@balajis&lt;/a&gt; had put up on Twitter for building on Oo’s work.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
