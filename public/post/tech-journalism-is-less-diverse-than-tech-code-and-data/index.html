@@ -134,7 +134,7 @@ Here is the final dataset with the estimated race and gender of 982 tech journal
   
   <meta property="article:published_time" content="2020-07-28T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2020-07-30T15:21:35-06:00">
+  <meta property="article:modified_time" content="2020-07-30T16:44:29-06:00">
   
 
   
@@ -425,7 +425,7 @@ Here is the final dataset with the estimated race and gender of 982 tech journal
 
 
 <meta content="2020-07-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2020-07-30 15:21:35 -0600 MDT" itemprop="dateModified">
+<meta content="2020-07-30 16:44:29 -0600 MDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -934,10 +934,11 @@ gender.graph.df %&gt;%
   ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
   geom_point(size=4) +
   coord_flip() +
-  theme_bw(base_size = 16) +
   labs(x=&quot;&quot;, y=&quot;Percent Male&quot;,
-       title=&quot;Tech Journalism and Tech Companies Are Similar on Gender&quot;) +
-       #subtitle = &quot;Percent male, tech journalists vs. tech companies&quot;) +
+       title=&quot;Tech Journalism and Tech Companies Are Similar on Gender&quot;,
+       subtitle = &quot;Gender inferred by subjective judgment.&quot;,
+       caption= &quot;By Justin Murphy (jmrphy.net, @jmrphy).&quot;) +
+       theme_bw() +
        theme(legend.position=&quot;bottom&quot;) +
        theme(legend.title=element_blank()) +
   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100))) +

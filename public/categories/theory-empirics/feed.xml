@@ -416,10 +416,11 @@ gender.graph.df %&amp;gt;%
   ggplot(aes(x=fct_reorder(outlet, Percent), y=Percent, colour=Type)) +
   geom_point(size=4) +
   coord_flip() +
-  theme_bw(base_size = 16) +
   labs(x=&amp;quot;&amp;quot;, y=&amp;quot;Percent Male&amp;quot;,
-       title=&amp;quot;Tech Journalism and Tech Companies Are Similar on Gender&amp;quot;) +
-       #subtitle = &amp;quot;Percent male, tech journalists vs. tech companies&amp;quot;) +
+       title=&amp;quot;Tech Journalism and Tech Companies Are Similar on Gender&amp;quot;,
+       subtitle = &amp;quot;Gender inferred by subjective judgment.&amp;quot;,
+       caption= &amp;quot;By Justin Murphy (jmrphy.net, @jmrphy).&amp;quot;) +
+       theme_bw() +
        theme(legend.position=&amp;quot;bottom&amp;quot;) +
        theme(legend.title=element_blank()) +
   scale_y_continuous(breaks = seq(0, 100, by = 10), limits=(c(0,100))) +
