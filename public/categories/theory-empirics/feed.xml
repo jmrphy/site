@@ -32,7 +32,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;background-and-overview-of-the-methodology&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Background and overview of the methodology&lt;/h2&gt;
-&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://twitter.com/OoTheNigerian&#34;&gt;OoTheNigerian&lt;/a&gt; focused on the diversity of attendees at tech-journalism conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
+&lt;p&gt;The initial dataset gathered by &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; &lt;span class=&#34;citation&#34;&gt;[@OoTheNigerian]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34; class=&#34;uri&#34;&gt;https://twitter.com/OoTheNigerian&lt;/a&gt;) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.&lt;/p&gt;
 &lt;p&gt;Here we pursue a different approach, using multiple methods to check the robustness of our results. Thanks to OoTheNigerian for his help.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;two-different-sampling-methods&#34; class=&#34;section level2&#34;&gt;
@@ -696,6 +696,10 @@ ggplot(aes(x = race)) +
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;The roughly similar distributions across two different sampling methods and two different measurement methods suggest the the results here are likely an accurate portrait of tech-journalism Twitter generally.&lt;/p&gt;
 &lt;p&gt;If you spot any errors, &lt;a href=&#34;https://theotherlifenow.com/contact/&#34;&gt;please contact me.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;acknowledgements&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Acknowledgements&lt;/h1&gt;
+&lt;p&gt;I collaborated with &lt;a href=&#34;https://oonwoye.com/subscribe&#34;&gt;Oo Nwoye&lt;/a&gt; &lt;span class=&#34;citation&#34;&gt;[@OoTheNigerian]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/OoTheNigerian&#34; class=&#34;uri&#34;&gt;https://twitter.com/OoTheNigerian&lt;/a&gt;) on this analysis. This project won the $1000 Bitcoin prize that &lt;span class=&#34;citation&#34;&gt;[@balajis]&lt;/span&gt;(&lt;a href=&#34;https://twitter.com/balajis&#34; class=&#34;uri&#34;&gt;https://twitter.com/balajis&lt;/a&gt;) had put up on Twitter for building on Oo’s work.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

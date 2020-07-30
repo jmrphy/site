@@ -37,7 +37,7 @@ As of 2020, the percentage of White employees at Facebook is [63.2%.](https://di
 
 ## Background and overview of the methodology
 
-The initial dataset gathered by [OoTheNigerian](https://twitter.com/OoTheNigerian) focused on the diversity of attendees at tech-journalism conferences, but this approach has two major limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many tech-journalism conferences, so this approach will likely leave us with an unnecessarily small sample.
+The initial dataset gathered by [Oo Nwoye](https://oonwoye.com/subscribe) [@OoTheNigerian](https://twitter.com/OoTheNigerian) focused on the diversity of editorial staff and attendees at tech-journalism conferences, but his approach had two limitations. First, conferences are subject to a variety of selection biases, which might not have anything to do with tech-journalism culture per se. Second, there are only so many people on editorial staff or in the tech-journalism conference circuit, so this approach will likely leave us with an unnecessarily small sample.
 
 Here we pursue a different approach, using multiple methods to check the robustness of our results. Thanks to OoTheNigerian for his help.
 
@@ -815,3 +815,7 @@ ggplot(aes(x = race)) +
 The roughly similar distributions across two different sampling methods and two different measurement methods suggest the the results here are likely an accurate portrait of tech-journalism Twitter generally.
 
 If you spot any errors, [please contact me.](https://theotherlifenow.com/contact/)
+
+# Acknowledgements
+
+I collaborated with [Oo Nwoye](https://oonwoye.com/subscribe) [@OoTheNigerian](https://twitter.com/OoTheNigerian) on this analysis. This project won the $1000 Bitcoin prize that [@balajis](https://twitter.com/balajis) had put up on Twitter for building on Oo’s work.
