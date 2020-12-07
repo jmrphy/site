@@ -36,7 +36,7 @@ eps<-read.csv("~/Dropbox/assistant/clients/jmrphy/data/podcast-analytics/Other-L
 
 ```
 
-If you're interested in learning R, you should take [my free email course on Data Blogging with R.](https://jmrphy.net/project/data-blogging/)
+If you're interested in learning R, you should take [my free email course on Data Blogging with R.](https://otherlife.co/data)
 
 This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.
 
