@@ -436,13 +436,13 @@
   </div>
   
   <div>
-    <h2><a href="/post/how-to-analyze-podcast-metrics/">How to Analyze Podcast Metrics</a></h2>
+    <h2><a href="/post/how-to-analyze-podcast-metrics/">Analyze Podcast Metrics in R</a></h2>
     <div class="article-style">
       
-      This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.
+      If you’re interested in learning R, you should take my free email course on Data Blogging with R.
+This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.
 Let’s start with the time-series. First, load the required libraries and read the .csv file into R.
-require(tidyverse) require(prophet) require(knitr) require(lubridate) df &lt;- read.csv(&quot;Other-Life-Pod-Analytics-Time-Series.csv&quot;) Basic time-series visualization Let’s visualize daily downloads over time, with a simple time-series plot.
-df$Date&lt;-as.Date(df$metric) # Convert the day column to Date format df$Listens&lt;-df$requests # Rename requests to Listens, to look better on the graph # Reduce the dataset to Date and Listens only # Remove the current day if it&#39;s early in the morning df &lt;- df %&gt;% select(Date, Listens) %&gt;% head(-1) # df %&gt;% ggplot() + geom_point(aes(x = Date, y = Listens), color=&quot;#1F6989&quot;) + theme_minimal() + labs(title = &quot;The Other Life Podcast at 100 Episodes&quot;, subtitle = &quot;Daily Listens&quot;)  Forecast future growth using Facebook’s Prophet algorithm df$ds&lt;-df$Date # Prophet algorithm requires date variable to be &#39;ds&#39; df$y&lt;-df$Listens # Prophet algorithm requires variable of interest to be &#39;y&#39; m &lt;- prophet(df, changepoint.
+require(tidyverse) require(prophet) require(knitr) require(lubridate) df &lt;- read.
       
     </div>
   </div>

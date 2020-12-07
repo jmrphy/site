@@ -37,7 +37,7 @@
     </item>
     
     <item>
-      <title>How to Analyze Podcast Metrics</title>
+      <title>Analyze Podcast Metrics in R</title>
       <link>/post/how-to-analyze-podcast-metrics/</link>
       <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -45,6 +45,7 @@
       <description>
 
 
+&lt;p&gt;If you’re interested in learning R, you should take &lt;a href=&#34;https://jmrphy.net/project/data-blogging/&#34;&gt;my free email course on Data Blogging with R.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.&lt;/p&gt;
 &lt;p&gt;Let’s start with the time-series. First, load the required libraries and read the .csv file into R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(tidyverse)
