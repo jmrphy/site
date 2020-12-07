@@ -1,0 +1,148 @@
+---
+title: How to Analyze Podcast Metrics
+author: 'Justin Murphy'
+date: '2020-12-06'
+slug: how-to-analyze-podcast-metrics
+categories:
+  - resources
+tags:
+  - media
+  - time series
+  - R
+  - visualization
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-12-06T16:46:31-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.</p>
+<p>Let’s start with the time-series. First, load the required libraries and read the .csv file into R.</p>
+<pre class="r"><code>require(tidyverse)
+require(prophet)
+require(knitr)
+require(lubridate)
+
+df &lt;- read.csv(&quot;Other-Life-Pod-Analytics-Time-Series.csv&quot;)</code></pre>
+<div id="basic-time-series-visualization" class="section level2">
+<h2>Basic time-series visualization</h2>
+<p>Let’s visualize daily downloads over time, with a simple time-series plot.</p>
+<pre class="r"><code>df$Date&lt;-as.Date(df$metric) # Convert the day column to Date format
+df$Listens&lt;-df$requests # Rename requests to Listens, to look better on the graph
+
+# Reduce the dataset to Date and Listens only
+# Remove the current day if it&#39;s early in the morning
+df &lt;- df %&gt;%
+  select(Date, Listens) %&gt;%
+  head(-1)
+
+# 
+df %&gt;%
+  ggplot() +
+  geom_point(aes(x = Date,
+                 y = Listens),
+             color=&quot;#1F6989&quot;) +
+  theme_minimal() +
+  labs(title = &quot;The Other Life Podcast at 100 Episodes&quot;,
+       subtitle = &quot;Daily Listens&quot;)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/line-graph-1.png" width="672" /></p>
+</div>
+<div id="forecast-future-growth-using-facebooks-prophet-algorithm" class="section level1">
+<h1>Forecast future growth using Facebook’s Prophet algorithm</h1>
+<pre class="r"><code>df$ds&lt;-df$Date # Prophet algorithm requires date variable to be &#39;ds&#39;
+df$y&lt;-df$Listens # Prophet algorithm requires variable of interest to be &#39;y&#39;
+
+m &lt;- prophet(df,
+             changepoint.prior.scale=.01) # looks more plausible</code></pre>
+<pre><code>## Disabling daily seasonality. Run prophet with daily.seasonality=TRUE to override this.</code></pre>
+<pre class="r"><code>future &lt;- make_future_dataframe(m,
+                                freq=&quot;day&quot;,
+                                periods = 1095) # Project 3 years out
+
+forecast &lt;- predict(m, future)
+
+# tail(forecast[c(&#39;ds&#39;, &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39;)])
+
+plot(m, forecast)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/forecasting-1.png" width="672" /></p>
+</div>
+<div id="evaluating-episodes" class="section level1">
+<h1>Evaluating episodes</h1>
+<p>Now let’s import the other spreadsheet you can get from Libsyn. This one contains episode information.</p>
+<pre class="r"><code>eps&lt;-read.csv(&quot;Other-Life-Pod-Analytics-at-100-Eps.csv&quot;)</code></pre>
+<pre class="r"><code>eps$Released&lt;-mdy(eps$Released)
+eps$Listens&lt;-eps$All.Time
+
+eps$Title&lt;-substr(eps$Title, start=1, stop=50)
+
+eps %&gt;%
+  select(Title, Released, Listens) %&gt;%
+  filter(Listens&gt;2200) %&gt;%
+  mutate(Title = fct_reorder(Title, Listens)) %&gt;%
+  ggplot(aes(x=Title, y=Listens)) +
+  labs(title = &quot;The Other Life Podcast: Progress Report&quot;,
+       subtitle = &quot;Total listens per episode&quot;,
+       x=&quot;&quot;) +
+  geom_point(color=&quot;#1F6989&quot;) +
+  coord_flip() +
+  theme_bw()</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/episode-plot-1.png" width="672" /></p>
+</div>
+<div id="visualize-downloads-per-episode-over-time" class="section level1">
+<h1>Visualize downloads per episode over time</h1>
+<pre class="r"><code># Rearrange weeks into proper order for analysis
+eps &lt;- cbind(week = rownames(eps), eps)
+eps$week &lt;- rev(eps$week)
+
+# Remove recent episodes with unrepresentative download counts
+eps&lt;-tail(eps, -4)
+
+# Convert to numeric
+eps$week&lt;-as.numeric(levels(eps$week))[eps$week]
+
+
+eps %&gt;%
+  ggplot() +
+  geom_point(aes(x = week,
+                 y = Listens),
+             color=&quot;#1F6989&quot;) +
+  theme_bw() +
+  labs(title = &quot;The Other Life Podcast: Progress Report at 100 Episodes&quot;,
+       subtitle = &quot;Total listens per episode, in order of release&quot;,
+       x=&quot;Episode Numbers&quot;,
+       y=&quot;Listens Per Episode&quot;) +
+  theme(axis.text.x = element_text(angle=90, hjust = 1))</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/episode-listens-1.png" width="672" /></p>
+<p>As we saw above, I’m on track to see 1000 listens per day in the next few years, which sounds pretty badass to me personally, but it’s not readily relatable to the standard metrics of ‘listens per episode in the first 90 days.’ To forecast the podcast’s growth in terms that are relatable to industry metrics, let’s assume that I continue to post weekly, and let’s also assume that we can compress my past posting history <em>as if</em> I posted weekly. So if I had always posted weekly, and I continue to post weekly, we can forecast per episode listens weekly. If anything, these assumptions will under-estimate my future growth because podcast stats gain momentum through consistency, so my past numbers are lower than they would be if I had posted all of the episodes weekly. Given that I’m also refining the mission and branding over time, all of the forecasts presented here are likely to be conservative, lower bounds.</p>
+</div>
+<div id="forecasting-downloads-per-episode" class="section level1">
+<h1>Forecasting downloads per episode</h1>
+<pre class="r"><code>eps$week&lt;-as.Date(&#39;2019-01-01&#39;) + weeks(eps$week)
+
+eps$ds&lt;-eps$week
+eps$y&lt;-eps$Listens
+
+m &lt;- prophet(eps, changepoint.prior.scale=.025)
+
+future &lt;- make_future_dataframe(m, freq = &#39;week&#39;, periods = 260)
+# tail(future)
+
+forecast &lt;- predict(m, future)
+# tail(forecast[c(&#39;ds&#39;, &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39;)])
+
+plot(m, forecast) +
+  theme_bw() +
+  labs(title = &quot;The Other Life Podcast: Progress Report at 100 Episodes&quot;,
+       subtitle = &quot;Forecasting per episode listens over the next 5 years&quot;,
+       x=&quot;Episode Numbers&quot;)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/predicting-episode-listens-1.png" width="672" /></p>
+<p>Don’t put too much faith in this final forecast—there are not many data points, the linear fit looks implausible, and it’s bad practice to forecast out so far—but I was just curious to see how long it might take me to crack the global 95th percentile of podcasts (7700 downloads per episode on average). Again, if this forecast is implausible, I think it’s conservatively implausible, so I’d say that in 5 years I’m highly likely to enter the 95th percentile of podcasts.</p>
+</div>

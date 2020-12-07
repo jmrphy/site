@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Justin Murphy">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.
+Let’s start with the time-series. First, load the required libraries and read the .csv file into R.
+require(tidyverse) require(prophet) require(knitr) require(lubridate) df &lt;- read.csv(&quot;Other-Life-Pod-Analytics-Time-Series.csv&quot;) Basic time-series visualization Let’s visualize daily downloads over time, with a simple time-series plot.
+df$Date&lt;-as.Date(df$metric) # Convert the day column to Date format df$Listens&lt;-df$requests # Rename requests to Listens, to look better on the graph # Reduce the dataset to Date and Listens only # Remove the current day if it&#39;s early in the morning df &lt;- df %&gt;% select(Date, Listens) %&gt;% head(-1) # df %&gt;% ggplot() &#43; geom_point(aes(x = Date, y = Listens), color=&quot;#1F6989&quot;) &#43; theme_minimal() &#43; labs(title = &quot;The Other Life Podcast at 100 Episodes&quot;, subtitle = &quot;Daily Listens&quot;)  Forecast future growth using Facebook’s Prophet algorithm df$ds&lt;-df$Date # Prophet algorithm requires date variable to be &#39;ds&#39; df$y&lt;-df$Listens # Prophet algorithm requires variable of interest to be &#39;y&#39; m &lt;- prophet(df, changepoint.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/how-to-analyze-podcast-metrics/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/sunburst.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/sunburst.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.f3c34866a5dd3fc20db500242d15fb47.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-42953742-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/how-to-analyze-podcast-metrics/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@jmrphy">
+  <meta property="twitter:creator" content="@jmrphy">
+  
+  <meta property="og:site_name" content="Justin Murphy">
+  <meta property="og:url" content="/post/how-to-analyze-podcast-metrics/">
+  <meta property="og:title" content="How to Analyze Podcast Metrics | Justin Murphy">
+  <meta property="og:description" content="This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.
+Let’s start with the time-series. First, load the required libraries and read the .csv file into R.
+require(tidyverse) require(prophet) require(knitr) require(lubridate) df &lt;- read.csv(&quot;Other-Life-Pod-Analytics-Time-Series.csv&quot;) Basic time-series visualization Let’s visualize daily downloads over time, with a simple time-series plot.
+df$Date&lt;-as.Date(df$metric) # Convert the day column to Date format df$Listens&lt;-df$requests # Rename requests to Listens, to look better on the graph # Reduce the dataset to Date and Listens only # Remove the current day if it&#39;s early in the morning df &lt;- df %&gt;% select(Date, Listens) %&gt;% head(-1) # df %&gt;% ggplot() &#43; geom_point(aes(x = Date, y = Listens), color=&quot;#1F6989&quot;) &#43; theme_minimal() &#43; labs(title = &quot;The Other Life Podcast at 100 Episodes&quot;, subtitle = &quot;Daily Listens&quot;)  Forecast future growth using Facebook’s Prophet algorithm df$ds&lt;-df$Date # Prophet algorithm requires date variable to be &#39;ds&#39; df$y&lt;-df$Listens # Prophet algorithm requires variable of interest to be &#39;y&#39; m &lt;- prophet(df, changepoint."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-12-06T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2020-12-06T16:46:31-07:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>How to Analyze Podcast Metrics | Justin Murphy</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Justin Murphy</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">How to Analyze Podcast Metrics</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2020-12-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-12-06 16:46:31 -0700 MST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Dec 6, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/how-to-analyze-podcast-metrics/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/resources/">resources</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=How%20to%20Analyze%20Podcast%20Metrics&amp;url=%2fpost%2fhow-to-analyze-podcast-metrics%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fhow-to-analyze-podcast-metrics%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fhow-to-analyze-podcast-metrics%2f&amp;title=How%20to%20Analyze%20Podcast%20Metrics"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fhow-to-analyze-podcast-metrics%2f&amp;title=How%20to%20Analyze%20Podcast%20Metrics"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=How%20to%20Analyze%20Podcast%20Metrics&amp;body=%2fpost%2fhow-to-analyze-podcast-metrics%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>This tutorial is for podcasts hosted on Libsyn. Libsyn gives you two different spreadsheets: One is a time-series of total daily downloads, another is stats for each episode.</p>
+<p>Let’s start with the time-series. First, load the required libraries and read the .csv file into R.</p>
+<pre class="r"><code>require(tidyverse)
+require(prophet)
+require(knitr)
+require(lubridate)
+
+df &lt;- read.csv(&quot;Other-Life-Pod-Analytics-Time-Series.csv&quot;)</code></pre>
+<div id="basic-time-series-visualization" class="section level2">
+<h2>Basic time-series visualization</h2>
+<p>Let’s visualize daily downloads over time, with a simple time-series plot.</p>
+<pre class="r"><code>df$Date&lt;-as.Date(df$metric) # Convert the day column to Date format
+df$Listens&lt;-df$requests # Rename requests to Listens, to look better on the graph
+
+# Reduce the dataset to Date and Listens only
+# Remove the current day if it&#39;s early in the morning
+df &lt;- df %&gt;%
+  select(Date, Listens) %&gt;%
+  head(-1)
+
+# 
+df %&gt;%
+  ggplot() +
+  geom_point(aes(x = Date,
+                 y = Listens),
+             color=&quot;#1F6989&quot;) +
+  theme_minimal() +
+  labs(title = &quot;The Other Life Podcast at 100 Episodes&quot;,
+       subtitle = &quot;Daily Listens&quot;)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/line-graph-1.png" width="672" /></p>
+</div>
+<div id="forecast-future-growth-using-facebooks-prophet-algorithm" class="section level1">
+<h1>Forecast future growth using Facebook’s Prophet algorithm</h1>
+<pre class="r"><code>df$ds&lt;-df$Date # Prophet algorithm requires date variable to be &#39;ds&#39;
+df$y&lt;-df$Listens # Prophet algorithm requires variable of interest to be &#39;y&#39;
+
+m &lt;- prophet(df,
+             changepoint.prior.scale=.01) # looks more plausible</code></pre>
+<pre><code>## Disabling daily seasonality. Run prophet with daily.seasonality=TRUE to override this.</code></pre>
+<pre class="r"><code>future &lt;- make_future_dataframe(m,
+                                freq=&quot;day&quot;,
+                                periods = 1095) # Project 3 years out
+
+forecast &lt;- predict(m, future)
+
+# tail(forecast[c(&#39;ds&#39;, &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39;)])
+
+plot(m, forecast)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/forecasting-1.png" width="672" /></p>
+</div>
+<div id="evaluating-episodes" class="section level1">
+<h1>Evaluating episodes</h1>
+<p>Now let’s import the other spreadsheet you can get from Libsyn. This one contains episode information.</p>
+<pre class="r"><code>eps&lt;-read.csv(&quot;Other-Life-Pod-Analytics-at-100-Eps.csv&quot;)</code></pre>
+<pre class="r"><code>eps$Released&lt;-mdy(eps$Released)
+eps$Listens&lt;-eps$All.Time
+
+eps$Title&lt;-substr(eps$Title, start=1, stop=50)
+
+eps %&gt;%
+  select(Title, Released, Listens) %&gt;%
+  filter(Listens&gt;2200) %&gt;%
+  mutate(Title = fct_reorder(Title, Listens)) %&gt;%
+  ggplot(aes(x=Title, y=Listens)) +
+  labs(title = &quot;The Other Life Podcast: Progress Report&quot;,
+       subtitle = &quot;Total listens per episode&quot;,
+       x=&quot;&quot;) +
+  geom_point(color=&quot;#1F6989&quot;) +
+  coord_flip() +
+  theme_bw()</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/episode-plot-1.png" width="672" /></p>
+</div>
+<div id="visualize-downloads-per-episode-over-time" class="section level1">
+<h1>Visualize downloads per episode over time</h1>
+<pre class="r"><code># Rearrange weeks into proper order for analysis
+eps &lt;- cbind(week = rownames(eps), eps)
+eps$week &lt;- rev(eps$week)
+
+# Remove recent episodes with unrepresentative download counts
+eps&lt;-tail(eps, -4)
+
+# Convert to numeric
+eps$week&lt;-as.numeric(levels(eps$week))[eps$week]
+
+
+eps %&gt;%
+  ggplot() +
+  geom_point(aes(x = week,
+                 y = Listens),
+             color=&quot;#1F6989&quot;) +
+  theme_bw() +
+  labs(title = &quot;The Other Life Podcast: Progress Report at 100 Episodes&quot;,
+       subtitle = &quot;Total listens per episode, in order of release&quot;,
+       x=&quot;Episode Numbers&quot;,
+       y=&quot;Listens Per Episode&quot;) +
+  theme(axis.text.x = element_text(angle=90, hjust = 1))</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/episode-listens-1.png" width="672" /></p>
+<p>As we saw above, I’m on track to see 1000 listens per day in the next few years, which sounds pretty badass to me personally, but it’s not readily relatable to the standard metrics of ‘listens per episode in the first 90 days.’ To forecast the podcast’s growth in terms that are relatable to industry metrics, let’s assume that I continue to post weekly, and let’s also assume that we can compress my past posting history <em>as if</em> I posted weekly. So if I had always posted weekly, and I continue to post weekly, we can forecast per episode listens weekly. If anything, these assumptions will under-estimate my future growth because podcast stats gain momentum through consistency, so my past numbers are lower than they would be if I had posted all of the episodes weekly. Given that I’m also refining the mission and branding over time, all of the forecasts presented here are likely to be conservative, lower bounds.</p>
+</div>
+<div id="forecasting-downloads-per-episode" class="section level1">
+<h1>Forecasting downloads per episode</h1>
+<pre class="r"><code>eps$week&lt;-as.Date(&#39;2019-01-01&#39;) + weeks(eps$week)
+
+eps$ds&lt;-eps$week
+eps$y&lt;-eps$Listens
+
+m &lt;- prophet(eps, changepoint.prior.scale=.025)
+
+future &lt;- make_future_dataframe(m, freq = &#39;week&#39;, periods = 260)
+# tail(future)
+
+forecast &lt;- predict(m, future)
+# tail(forecast[c(&#39;ds&#39;, &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39;)])
+
+plot(m, forecast) +
+  theme_bw() +
+  labs(title = &quot;The Other Life Podcast: Progress Report at 100 Episodes&quot;,
+       subtitle = &quot;Forecasting per episode listens over the next 5 years&quot;,
+       x=&quot;Episode Numbers&quot;)</code></pre>
+<p><img src="/post/2020-12-06-how-to-analyze-podcast-metrics_files/figure-html/predicting-episode-listens-1.png" width="672" /></p>
+<p>Don’t put too much faith in this final forecast—there are not many data points, the linear fit looks implausible, and it’s bad practice to forecast out so far—but I was just curious to see how long it might take me to crack the global 95th percentile of podcasts (7700 downloads per episode on average). Again, if this forecast is implausible, I think it’s conservatively implausible, so I’d say that in 5 years I’m highly likely to enter the 95th percentile of podcasts.</p>
+</div>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/media/">media</a>
+  
+  <a class="badge badge-light" href="/tags/time-series/">time series</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/visualization/">visualization</a>
+  
+</div>
+
+
+
+    <br>
+    <div><center>
+    <script async data-uid="fd066e90ea" src="https://jmrphy.ck.page/fd066e90ea/index.js"></script>
+    </center></div>
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/recursive-partitioning-decision-trees-guess-opinions/">Use recursive partitioning and decision trees to guess someone&#39;s political opinions (using R with survey data)</a></li>
+          
+          <li><a href="/publication/bjps/">Does Media Coverage Drive Public Support for UKIP or Does Public Support for UKIP Drive Media Coverage?</a></li>
+          
+          <li><a href="/blog/2018/01/15/moral-foundations-of-social-justice-warriors/">The moral foundations of social justice warriors</a></li>
+          
+          <li><a href="/blog/2012/05/22/generating-summary-statistics-in-r/">Generating summary statistics and box/violin plots in R</a></li>
+          
+          <li><a href="/post/analyze-financial-time-series-without-touching-a-spreadsheet/">Make interactive graphs of financial time-series in five minutes with R (Bitcoin example)</a></li>
+          
+        </ul>
+      </div>
+
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jmrphy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/R.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//jmrphy.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.3394a224b26ce58ff36f44c54743e0ab.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    Justin Murphy &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
